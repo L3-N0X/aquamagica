@@ -1,6 +1,9 @@
 import { type FC } from "react";
 import { HomePage } from "./pages/home.tsx";
 import { AboutPage } from "./pages/about.tsx";
+import { PricesPage } from "./pages/prices.tsx";
+import { ContactPage } from "./pages/contact.tsx";
+import { AttractionsPage } from "./pages/attractions.tsx";
 
 export interface AppRoute {
   path: string;
@@ -8,25 +11,43 @@ export interface AppRoute {
   description: string;
   component: FC;
   showInNavbar?: boolean;
-  category?: "main" | "docs" | "other";
 }
 
 export const routes: AppRoute[] = [
   {
     path: "/",
     title: "Home",
-    description: "Return to the homepage with all the latest updates.",
+    description: "Welcome to AQUAMAGICA",
     component: HomePage,
     showInNavbar: true,
-    category: "main",
+  },
+  {
+    path: "/attractions",
+    title: "Attraktionen",
+    description: "Entdecken Sie alle Rutschen, Becken und Erlebnisse im AQUAMAGICA.",
+    component: AttractionsPage,
+    showInNavbar: true,
+  },
+  {
+    path: "/prices",
+    title: "Preise",
+    description: "Entdecken Sie unsere Preise und Angebote",
+    component: PricesPage,
+    showInNavbar: true,
   },
   {
     path: "/about",
-    title: "About",
-    description: "Learn more about our mission and what we do.",
+    title: "Über uns",
+    description: "Erfahren Sie mehr über AQUAMAGICA",
     component: AboutPage,
     showInNavbar: true,
-    category: "main",
+  },
+  {
+    path: "/contact",
+    title: "Kontakt & Hilfe",
+    description: "Kontaktieren Sie uns für weitere Informationen",
+    component: ContactPage,
+    showInNavbar: false,
   },
 ];
 
@@ -37,8 +58,4 @@ export const getRouteByPath = (path: string): AppRoute | undefined => {
 
 export const getNavbarRoutes = (): AppRoute[] => {
   return routes.filter((route) => route.showInNavbar);
-};
-
-export const getRoutesByCategory = (category: AppRoute["category"]): AppRoute[] => {
-  return routes.filter((route) => route.category === category);
 };
