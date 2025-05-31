@@ -6,7 +6,6 @@ interface SpecialEventCardProps {
   description: string;
   imageUrl: string;
   imageAlt: string;
-  icon: string;
 }
 
 export function SpecialEventCard({
@@ -15,15 +14,11 @@ export function SpecialEventCard({
   description,
   imageUrl,
   imageAlt,
-  icon,
 }: SpecialEventCardProps) {
   return (
-    <Card className="overflow-hidden border-purple-500 bg-purple-50 dark:bg-purple-950/20 border-2">
+    <Card className="overflow-hidden border-purple-500 bg-purple-50 dark:bg-purple-950/20 border-2 pt-0">
       <div className="relative h-48">
         <img src={imageUrl} alt={imageAlt} className="w-full h-full object-cover" />
-        <div className="absolute top-4 left-4">
-          <span className="text-2xl">{icon}</span>
-        </div>
       </div>
 
       <CardHeader>

@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, Users, Sparkles, Ticket, Gift, Crown } from "lucide-react";
+import { Clock, Users, Sparkles, Crown } from "lucide-react";
 
 export function PricesPage() {
   return (
@@ -22,22 +22,6 @@ export function PricesPage() {
         <p className="text-xl text-muted-foreground mb-6">Ihr Ticket ins Vergnügen!</p>
         <div className="text-lg mb-8 max-w-3xl mx-auto">
           Finden Sie den passenden Tarif für Ihren unvergesslichen Tag in der Wasserwelt der Sinne.
-          Wir empfehlen, Tickets online zu buchen, um Wartezeiten zu vermeiden und von unserem
-          <Badge variant="secondary" className="mx-2">
-            10% Online-Rabatt
-          </Badge>
-          zu profitieren!
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-            <Ticket className="mr-2 h-5 w-5" />
-            Online Tickets buchen & Sparen
-          </Button>
-          <Button size="lg" variant="outline">
-            <Gift className="mr-2 h-5 w-5" />
-            Gutschein kaufen
-          </Button>
         </div>
       </div>
 

@@ -14,7 +14,7 @@ export function GastronomyCard({ title, content, image, imageAlt }: GastronomyCa
         <img src={image} alt={imageAlt} className="w-full h-full object-cover" />
       </div>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-2xl font-bold tracking-tight">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>{content}</p>

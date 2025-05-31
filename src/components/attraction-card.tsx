@@ -36,7 +36,7 @@ export function AttractionCard({
   category,
 }: AttractionCardProps) {
   return (
-    <Card className={`overflow-hidden ${categoryColors[category]} border-2`}>
+    <Card className={`overflow-hidden ${categoryColors[category]} border-2 p-0`}>
       <div className="grid md:grid-cols-2 gap-0">
         <div className="relative h-64 md:h-full">
           <img

@@ -16,7 +16,7 @@ export function Layout({ children }: LayoutProps) {
           <ModeToggle />
         </div>
       </header>
-      <main className="flex flex-col items-center justify-start min-h-[calc(100vh-80px)] space-y-8 p-4 md:p-6 lg:p-8">
+      <main className="flex flex-col items-center justify-start min-h-[calc(100vh-80px)] space-y-8 px-4 md:px-6 lg:px-8">
         {children}
       </main>
     </div>

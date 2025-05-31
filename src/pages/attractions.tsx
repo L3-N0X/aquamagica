@@ -1,6 +1,7 @@
 import { AttractionCard } from "@/components/attraction-card";
 import { SpecialEventCard } from "@/components/special-event-card";
 import { Button } from "@/components/ui/button";
+import { Map, Ticket } from "lucide-react";
 import { Link } from "react-router";
 
 export function AttractionsPage() {
@@ -39,7 +40,7 @@ export function AttractionsPage() {
               "Einzigartige Thematisierung",
               "Intensive Sinneseindrücke",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop"
+            imageUrl="/assets/big-halfpipe-slide-green.jpg"
             imageAlt="Spektakuläre Wasserrutsche mit roten Lichteffekten in einem dunklen Tunnel, die das feurige Inferno-Erlebnis der Vulkan-Rutsche darstellt"
             category="action"
           />
@@ -55,7 +56,7 @@ export function AttractionsPage() {
               "Delfingeräusche",
               "Tropischer Sturm-Modus (unregelmäßig)",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
+            imageUrl="/assets/wellenbecken.jpg"
             imageAlt="Großes Wellenbad mit hohen blauen Wellen und vielen Badegästen, die das aufregende Atlantica Wellenbad-Erlebnis genießen"
             category="action"
           />
@@ -81,7 +82,7 @@ export function AttractionsPage() {
               "Sichere, flache Wasserbereiche",
               "Fantasievolle Gestaltung",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&h=600&fit=crop"
+            imageUrl="/assets/kids-area-climbing.jpg"
             imageAlt="Buntes Kinder-Wasserparadies mit einem großen Piratenschiff, Mini-Rutschen und fröhlichen Kindern beim Spielen im flachen Wasser"
             category="family"
           />
@@ -98,7 +99,7 @@ export function AttractionsPage() {
               "Erlebnis für alle Sinne",
               "Für jedes Alter geeignet",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
+            imageUrl="/assets/stroemungsbecken-photo.jpg"
             imageAlt="Entspannender Lazy River mit Menschen auf Schwimmreifen, umgeben von tropischer Vegetation und sanften Lichteffekten"
             category="family"
           />
@@ -127,7 +128,7 @@ export function AttractionsPage() {
               "Einzigartiges arktisches Flair",
               "Überdachter Bereich vorhanden",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+            imageUrl="/assets/outside-swimmer-pool.jpg"
             imageAlt="Mystisches Außenbecken mit eisigen blauen Tönen, Schneeinsel und magischen Polarlichter-Projektionen an der Decke"
             category="relaxation"
           />
@@ -146,7 +147,7 @@ export function AttractionsPage() {
               "Meditationsmusik und ätherische Öle",
               "Zugang zur Sauna-Lounge AufgussBar",
             ]}
-            imageUrl="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=600&fit=crop"
+            imageUrl="/assets/sauna.jpg"
             imageAlt="Luxuriöse Saunawelt mit warmem Holzambiente, dampfenden Saunakabinen und entspannender Atmosphäre der vier Elemente"
             category="relaxation"
           />
@@ -164,18 +165,16 @@ export function AttractionsPage() {
             title="Nachtschwimmen mit Lichtershow"
             schedule="Jeden Freitag von 20:00 – 24:00 Uhr"
             description="Erlebe das Wellenbad Atlantica, die Magische Flussfahrt und ausgewählte Rutschen in einem faszinierenden Lichtermeer aus Unterwasser-Lasern, begleitet von einem Live-DJ."
-            imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
+            imageUrl="/assets/dj-outside-swimming-pool.jpg"
             imageAlt="Spektakuläre nächtliche Lichtershow im Schwimmbad mit bunten Unterwasser-Lasern und DJ-Musik"
-            icon="💡"
           />
 
           <SpecialEventCard
             title="Aqua-Yoga"
             schedule="Jeden Sonntag von 9:30 – 10:15 Uhr"
             description="Starte vitalisierend in den Tag mit sanften Yoga-Übungen im Wasser im Erlebnisbecken. Ein entspannender Start in den Sonntag! (Anmeldung empfohlen, kleine Zusatzgebühr)"
-            imageUrl="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&h=600&fit=crop"
+            imageUrl="/assets/aqua-yoga.jpg"
             imageAlt="Entspannte Aqua-Yoga-Gruppe bei sanften Übungen im warmen Wasser des Erlebnisbeckens am Sonntagmorgen"
-            icon="🧘‍♂️"
           />
         </div>
       </section>
@@ -191,16 +190,18 @@ export function AttractionsPage() {
           AquaMagica!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/prices">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
+            <Link to="/prices">
+              <Ticket className="mr-2" />
               Zu den Preisen & Tickets
-            </Button>
-          </Link>
-          <Link to="/about">
-            <Button size="lg" variant="outline">
-              Lageplan ansehen
-            </Button>
-          </Link>
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link to="/about">
+              <Map className="mr-2" />
+              Anfahrt & Kontakt
+            </Link>
+          </Button>
         </div>
       </section>
     </div>
