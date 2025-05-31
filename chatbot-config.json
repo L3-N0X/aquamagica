@@ -1506,6 +1506,8 @@
         "fußweg",
         "gehzeit",
         "parkplatz",
+        "parkplätze",
+        "parkhaus",
         "stellplatz",
         "garage",
         "parkhaus",
@@ -1539,7 +1541,7 @@
         },
         {
           "interaction_id": "directions_info",
-          "spotting_keywords": ["anfahrt", "adresse", "wo", "finden", "navigation"],
+          "spotting_keywords": ["anfahrt", "adresse", "finden", "navigation"],
           "responses": [
             {
               "response_id": "directions_details",
@@ -1550,7 +1552,16 @@
         },
         {
           "interaction_id": "parking_info",
-          "spotting_keywords": ["parken", "parkplatz", "kostenlos", "auto"],
+          "spotting_keywords": [
+            "parken",
+            "parkplatz",
+            "kostenlos",
+            "auto",
+            "stellplatz",
+            "garage",
+            "parkhaus",
+            "parkplätze"
+          ],
           "responses": [
             {
               "response_id": "parking_details",
@@ -1561,11 +1572,16 @@
         },
         {
           "interaction_id": "contact_how_to_reach",
-          "spotting_keywords": ["wie kann ich sie erreichen", "erreichen", "kontaktieren"],
+          "spotting_keywords": [
+            "wie kann ich sie erreichen",
+            "erreichen",
+            "kontaktieren",
+            "telefonnummer"
+          ],
           "responses": [
             {
               "response_id": "contact_reach_info",
-              "text": "Diese Frage kann ich leider nicht beantworten. Für weitere Informationen rufen Sie uns an: +49 (0)761 / 123456.",
+              "text": "Sie erreichen uns am besten telefonisch unter +49 (0)761 / 123456 oder per E-Mail an info@aquamatica.de. Unser Service-Team ist von Mo-Fr 09:00-17:00 Uhr für Sie da. Bei Fragen zu Ihrem Besuch helfe ich Ihnen auch gerne direkt weiter!",
               "context_group_id": "contact_reach_group"
             }
           ]
@@ -1576,7 +1592,7 @@
           "responses": [
             {
               "response_id": "address_details",
-              "text": "Diese Information finde ich nicht. Bei konkreten Fragen hilft Ihnen unser Service-Team gerne: +49 (0)761 / 123456.",
+              "text": "AquaMagica befindet sich in der Bäderstraße 12, 79100 Freiburg im Breisgau. 🏊‍♂️ Einfach mit dem Auto oder den öffentlichen Verkehrsmitteln zu erreichen. Wir freuen uns auf Ihren Besuch!",
               "context_group_id": "address_info_group"
             }
           ]
@@ -1822,7 +1838,7 @@
           "responses": [
             {
               "response_id": "beer_fun_answer",
-              "text": "Ha! 🍺 Bier gibt es bei uns nicht - dafür aber erfrischende Smoothies in der AufgussBar und leckere alkoholfreie Cocktails im AquaBistro! Nach dem Planschen schmeckt ein kühler Drink mindestens genauso gut.",
+              "text": "Ha! 🍺 Bier gibt es bei uns natürlich auch! Zudem gibt es eine große Auswahl an Cocktails, Weinen und alkoholfreien Getränken.",
               "context_group_id": "fun_beer_group"
             }
           ]
