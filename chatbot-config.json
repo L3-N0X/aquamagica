@@ -16,7 +16,7 @@
       },
       {
         "id": "greet_4",
-        "text": "Willkommen bei AquaMagica! 🌊 Ich freue mich, Ihnen bei allen Fragen zu unserem Erlebnisbad zu helfen. Was interessiert Sie am meisten?"
+        "text": "Willkommen bei AquaMagica! 🌊 Ich freue mich, Ihnen bei allen Fragen zu unserem Erlebnisbad zu helfen."
       },
       {
         "id": "greet_5",
@@ -71,45 +71,45 @@
       "messages": [
         {
           "id": "fallback_attractions_focus",
-          "text": "Das ist eine interessante Frage! Möchten Sie mehr über unsere spektakuläre Vulkan-Rutsche 'Inferno' erfahren?",
+          "text": "Diese Information finde ich leider nicht in meinen Daten. Ich kann Ihnen aber gerne bei Fragen zu unseren Attraktionen, Preisen, Öffnungszeiten oder der Anfahrt helfen!",
           "type": "general",
-          "context_group_id": "fallback_attractions_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_pricing_focus",
-          "text": "Hmm, das ist etwas knifflig für mich. Interessiert Sie unser günstiger Frühschwimmer-Tarif für nur 10,90€?",
+          "text": "Das kann ich Ihnen leider nicht sagen. Für detaillierte Informationen kontaktieren Sie uns gerne unter +49 (0)761 / 123456 oder stellen Sie mir eine andere Frage zu AquaMagica.",
           "type": "general",
-          "context_group_id": "fallback_pricing_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_gastronomy_focus",
-          "text": "Da bin ich überfragt! Soll ich Ihnen von unserem leckeren AquaBistro mit mediterraner Küche erzählen?",
+          "text": "Diese spezielle Information habe ich nicht parat. Bei allgemeinen Fragen zu AquaMagica helfe ich Ihnen gerne weiter!",
           "type": "general",
-          "context_group_id": "fallback_gastronomy_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_kids_focus",
-          "text": "Diese Frage kann ich leider nicht beantworten. Möchten Sie mehr über unsere Kinderwelt 'Tropica Island' erfahren?",
+          "text": "Diese Frage kann ich leider nicht beantworten. Für weitere Informationen rufen Sie uns an: +49 (0)761 / 123456.",
           "type": "general",
-          "context_group_id": "fallback_kids_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_sauna_focus",
-          "text": "Ups, das weiß ich nicht! Aber ich bin Experte für unsere Saunawelt 'Elemente' - interessiert Sie das?",
+          "text": "Das weiß ich leider nicht. Unser Team am Telefon kann Ihnen bestimmt weiterhelfen: +49 (0)761 / 123456.",
           "type": "general",
-          "context_group_id": "fallback_sauna_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_events_focus",
-          "text": "Da komme ich nicht mit! Soll ich Ihnen von unserem magischen Nachtschwimmen mit Lichtershow erzählen?",
+          "text": "Da komme ich leider nicht weiter. Für spezielle Fragen wenden Sie sich an unser Team unter +49 (0)761 / 123456.",
           "type": "general",
-          "context_group_id": "fallback_events_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_parking_focus",
-          "text": "Das ist knifflig für mich! Möchten Sie mehr über unsere 300 kostenlosen Parkplätze und die Anfahrt erfahren?",
+          "text": "Diese Information finde ich nicht. Bei konkreten Fragen hilft Ihnen unser Service-Team gerne: +49 (0)761 / 123456.",
           "type": "general",
-          "context_group_id": "fallback_parking_group"
+          "context_group_id": "fallback_general_group"
         },
         {
           "id": "fallback_pricing_context",
@@ -137,42 +137,42 @@
         },
         {
           "id": "fallback_escalate_1",
-          "text": "Es tut mir leid, dass ich Ihnen nicht weiterhelfen konnte. Möchten Sie unsere Hotline unter +49 (0)761 / 123456 anrufen oder haben Sie eine andere Frage?",
+          "text": "Es tut mir leid, dass ich Ihnen nicht weiterhelfen konnte. Für weitere Informationen kontaktieren Sie uns unter +49 (0)761 / 123456.",
           "type": "escalation_offer"
         },
         {
           "id": "fallback_escalate_2",
-          "text": "Ich merke, dass ich Ihnen noch nicht richtig helfen konnte. Unser freundliches Team ist telefonisch unter +49 (0)761 / 123456 erreichbar. Gibt es vielleicht etwas anderes, wobei ich Ihnen behilflich sein kann?",
+          "text": "Ich merke, dass ich Ihnen noch nicht richtig helfen konnte. Unser freundliches Team ist telefonisch unter +49 (0)761 / 123456 erreichbar.",
           "type": "escalation_offer"
         },
         {
           "id": "fallback_escalate_3",
-          "text": "Das scheint eine knifflige Frage zu sein! Für eine persönliche Beratung empfehle ich Ihnen unseren telefonischen Service unter +49 (0)761 / 123456. Oder möchten Sie mir eine andere Frage stellen?",
+          "text": "Das scheint eine knifflige Frage zu sein! Für eine persönliche Beratung empfehle ich Ihnen unseren telefonischen Service unter +49 (0)761 / 123456.",
           "type": "escalation_offer"
         },
         {
           "id": "fallback_escalate_4",
-          "text": "Hier komme ich leider an meine Grenzen. Unsere Experten am Telefon unter +49 (0)761 / 123456 können Ihnen bestimmt weiterhelfen. Haben Sie noch andere Fragen zu AquaMagica?",
+          "text": "Hier komme ich leider an meine Grenzen. Unsere Experten am Telefon unter +49 (0)761 / 123456 können Ihnen bestimmt weiterhelfen.",
           "type": "escalation_offer"
         },
         {
           "id": "fallback_escalate_5",
-          "text": "Entschuldigung, dass ich Ihnen noch nicht die richtige Antwort geben konnte. Für detaillierte Informationen kontaktieren Sie uns gerne unter +49 (0)761 / 123456. Kann ich Ihnen mit etwas anderem helfen?",
+          "text": "Entschuldigung, dass ich Ihnen noch nicht die richtige Antwort geben konnte. Für detaillierte Informationen kontaktieren Sie uns gerne unter +49 (0)761 / 123456.",
           "type": "escalation_offer"
         },
         {
           "id": "fallback_redirect_helpful",
-          "text": "Diese Information finde ich leider nicht in meinen Daten. Aber ich kann Ihnen gerne bei Preisen, Attraktionen, Öffnungszeiten oder der Anfahrt helfen! Was interessiert Sie?",
+          "text": "Diese Information finde ich leider nicht in meinen Daten. Ich kann Ihnen gerne bei Preisen, Attraktionen, Öffnungszeiten oder der Anfahrt helfen.",
           "type": "redirect_helpful"
         },
         {
           "id": "fallback_redirect_helpful_2",
-          "text": "Das kann ich Ihnen leider nicht sagen. Dafür weiß ich alles über unsere tollen Familienangebote und die spektakuläre Vulkan-Rutsche! Möchten Sie davon hören?",
+          "text": "Das kann ich Ihnen leider nicht sagen. Dafür weiß ich alles über unsere tollen Familienangebote und die spektakuläre Vulkan-Rutsche.",
           "type": "redirect_helpful"
         },
         {
           "id": "fallback_redirect_helpful_3",
-          "text": "Hier bin ich ratlos! Aber vielleicht interessiert Sie unser günstiger Frühschwimmer-Tarif oder unsere mediterrane Küche im AquaBistro?",
+          "text": "Hier bin ich ratlos! Unser günstiger Frühschwimmer-Tarif oder unsere mediterrane Küche im AquaBistro könnten Sie interessieren.",
           "type": "redirect_helpful"
         }
       ]
@@ -185,7 +185,7 @@
       {
         "command_id": "cmd_help",
         "keywords": ["hilfe", "help", "menu", "was kannst du", "befehle"],
-        "response": "Ich kann Ihnen bei vielen Themen rund um AquaMagica helfen: Preise & Tickets, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und vieles mehr. Was interessiert Sie?"
+        "response": "Ich kann Ihnen bei vielen Themen rund um AquaMagica helfen: Preise & Tickets, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und vieles mehr."
       },
       {
         "command_id": "cmd_contact",
@@ -217,7 +217,30 @@
         "billig",
         "sparen",
         "angebot",
-        "rabatt"
+        "rabatt",
+        "gebühr",
+        "beitrag",
+        "entgelt",
+        "eintrittsgeld",
+        "eintrittspreis",
+        "tageskarte",
+        "jahreskarte",
+        "dauerkarte",
+        "familienkarte",
+        "gruppenkarte",
+        "ermäßigung",
+        "vergünstigung",
+        "sonderpreis",
+        "aktionspreis",
+        "frühbucher",
+        "nachlass",
+        "discount",
+        "preisliste",
+        "tarife",
+        "kostenlos",
+        "gratis",
+        "umsonst",
+        "frei"
       ],
       "entry_interactions": [
         {
@@ -296,6 +319,34 @@
           ]
         },
         {
+          "interaction_id": "pricing_group_discounts",
+          "spotting_keywords": [
+            "gruppentarife",
+            "gruppenrabatt",
+            "gruppe",
+            "ermäßigung",
+            "ermäßigungen"
+          ],
+          "responses": [
+            {
+              "response_id": "group_discount_info",
+              "text": "Diese Frage kann ich leider nicht beantworten. Für weitere Informationen rufen Sie uns an: +49 (0)761 / 123456.",
+              "context_group_id": "group_discount_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "pricing_children_free",
+          "spotting_keywords": ["kinder kostenlos", "kinder gratis", "sind kinder kostenlos"],
+          "responses": [
+            {
+              "response_id": "children_pricing_info",
+              "text": "Gerne informiere ich Sie über unsere Preise! Wir haben verschiedene Tarife: Tageskarten fürs Erlebnisbad, Zeittarife (Abend/Frühschwimmer), Saunazuschlag und Dauerkarten. Besonders empfehle ich unseren Frühschwimmer-Tarif für nur 10,90€ oder unsere tollen Familienangebote! Für welchen Bereich interessieren Sie sich?",
+              "context_group_id": "children_pricing_group"
+            }
+          ]
+        },
+        {
           "interaction_id": "pricing_annual_passes",
           "spotting_keywords": ["dauerkarte", "jahres", "annual", "abo", "jahrespass"],
           "responses": [
@@ -367,7 +418,31 @@
         "entspannung",
         "fun",
         "unterhaltung",
-        "aktivität"
+        "aktivität",
+        "wasserrutsche",
+        "röhrenrutsche",
+        "reifenrutsche",
+        "spielplatz",
+        "kinderbecken",
+        "planschbecken",
+        "schwimmbecken",
+        "whirlpool",
+        "jacuzzi",
+        "sprudelbad",
+        "badelandschaft",
+        "erlebnisbad",
+        "freizeitbad",
+        "thermalbad",
+        "wellness",
+        "vergnügen",
+        "gaudi",
+        "spektakel",
+        "sensation",
+        "thrill",
+        "nervenkitzel",
+        "spannung",
+        "aufregung",
+        "abwechslung"
       ],
       "entry_interactions": [
         {
@@ -377,7 +452,7 @@
           "responses": [
             {
               "response_id": "attractions_overview_1",
-              "text": "AquaMagica bietet spektakuläre Erlebnisse für alle! 🌋 Vulkan-Rutsche 'Inferno' (bis 45 km/h!), 🌊 Wellenbad 'Atlantica' (3m hohe Wellen!), 🏴‍☠️ Kinderwelt 'Tropica Island', 🛟 Magische Flussfahrt, ❄️ Polar-Lagune und 🧖‍♀️ Saunawelt 'Elemente'. Alle Attraktionen sind im Tagesticket inklusive! Was interessiert Sie am meisten?",
+              "text": "AquaMagica bietet spektakuläre Erlebnisse für alle! 🌋 Vulkan-Rutsche 'Inferno' (bis 45 km/h!), 🌊 Wellenbad 'Atlantica' (3m hohe Wellen!), 🏴‍☠️ Kinderwelt 'Tropica Island', 🛟 Magische Flussfahrt, ❄️ Polar-Lagune und 🧖‍♀️ Saunawelt 'Elemente'. Alle Attraktionen sind im Tagesticket inklusive!",
               "context_group_id": "attractions_overview_group",
               "suggested_follow_ups": [
                 "volcano_slide",
@@ -481,7 +556,39 @@
     {
       "topic_id": "opening_hours",
       "name": "Öffnungszeiten",
-      "keywords": ["öffnungszeit", "geöffnet", "öffnen", "schließen", "wann", "zeit", "uhrzeit"],
+      "keywords": [
+        "öffnungszeit",
+        "geöffnet",
+        "öffnen",
+        "schließen",
+        "wann",
+        "zeit",
+        "uhrzeit",
+        "betriebszeit",
+        "geschäftszeit",
+        "arbeitszeit",
+        "besuchszeit",
+        "aufmachen",
+        "zumachen",
+        "auf",
+        "zu",
+        "offen",
+        "geschlossen",
+        "tageszeit",
+        "uhrzeiten",
+        "montag",
+        "dienstag",
+        "mittwoch",
+        "donnerstag",
+        "freitag",
+        "samstag",
+        "sonntag",
+        "wochentag",
+        "wochenende",
+        "feiertag",
+        "ferien",
+        "urlaub"
+      ],
       "entry_interactions": [
         {
           "interaction_id": "general_opening_hours",
@@ -502,373 +609,639 @@
               "response_id": "night_swimming_info",
               "text": "Unser Nachtschwimmen mit Lichtershow! 🌙✨ Jeden Freitag von 20:00-24:00 Uhr verwandelt sich AquaMagica in ein faszinierendes Lichtermeer mit Unterwasser-Lasern und Live-DJ-Musik. Ein magisches Erlebnis!",
               "context_group_id": "night_swimming_group"
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "booking_tickets",
+      "name": "Buchung und Tickets",
+      "keywords": [
+        "buchen",
+        "reservieren",
+        "ticket",
+        "online",
+        "kasse",
+        "gutschein",
+        "gruppe",
+        "buchung",
+        "reservation",
+        "vorbestellen",
+        "bestellen",
+        "kaufen",
+        "erwerben",
+        "beschaffen",
+        "besorgen",
+        "internet",
+        "webseite",
+        "homepage",
+        "website",
+        "onlineshop",
+        "vorverkauf",
+        "ticketschalter",
+        "eingang",
+        "voucher",
+        "geschenkgutschein",
+        "wertgutschein",
+        "gruppenbuchung",
+        "schulklasse",
+        "verein",
+        "betriebsausflug",
+        "firmenfeier",
+        "organisieren",
+        "planen",
+        "anmelden"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "ticket_purchase",
+          "spotting_keywords": [
+            "online buchen",
+            "reservieren",
+            "internet",
+            "website",
+            "tickets kaufen"
+          ],
+          "responses": [
             {
-              "topic_id": "booking_tickets",
-              "name": "Buchung und Tickets",
-              "keywords": [
-                "buchen",
-                "reservieren",
-                "ticket",
-                "online",
-                "kasse",
-                "gutschein",
-                "gruppe"
-              ],
-              "entry_interactions": [
-                {
-                  "interaction_id": "ticket_purchase",
-                  "spotting_keywords": [
-                    "online buchen",
-                    "reservieren",
-                    "internet",
-                    "website",
-                    "tickets kaufen"
-                  ],
-                  "responses": [
-                    {
-                      "response_id": "ticket_purchase_info",
-                      "text": "Tickets erhalten Sie ganz einfach an unserem Eingang! 🎫 Unsere Kasse ist täglich ab 9:00 Uhr geöffnet. So können Sie spontan entscheiden und direkt ins Vergnügen starten. Bei Fragen rufen Sie uns gerne an!",
-                      "context_group_id": "entrance_tickets_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "group_booking",
-                  "spotting_keywords": ["gruppe", "gruppenrabatt", "15 personen", "verein"],
-                  "responses": [
-                    {
-                      "response_id": "group_booking_info",
-                      "text": "Gruppenrabatt für 15+ Personen: 15% auf reguläre Tageskartenpreise! 👥 Perfekt für Vereine, Schulklassen oder große Familienfeiern. Anmeldung erforderlich - rufen Sie uns an: +49 (0)761 / 123456",
-                      "context_group_id": "group_booking_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "gift_vouchers",
-                  "spotting_keywords": ["gutschein", "geschenk", "verschenken", "birthday"],
-                  "responses": [
-                    {
-                      "response_id": "voucher_info",
-                      "text": "Verschenken Sie magische Momente! 🎁 Gutscheine sind an der Kasse erhältlich. Perfekt für Geburtstage, Weihnachten oder als Überraschung. Gutscheine sind 3 Jahre gültig!",
-                      "context_group_id": "voucher_group"
-                    }
-                  ]
-                }
-              ],
-              "contextual_interactions": [
-                {
-                  "interaction_id": "visit_recommendation_followup",
-                  "trigger_if_previous_group_ids_in_history": [
-                    "pricing_overview_group",
-                    "entrance_tickets_group"
-                  ],
-                  "spotting_keywords": [
-                    "empfehlung",
-                    "wann kommen",
-                    "vorher",
-                    "rechtzeitig",
-                    "voll"
-                  ],
-                  "responses": [
-                    {
-                      "response_id": "visit_recommendation",
-                      "text": "Meine Empfehlung: An Wochentagen ist meist weniger los als an Wochenenden! Unsere Kasse öffnet täglich um 9:00 Uhr. In den Ferienzeiten kann es etwas voller werden, aber das gehört zum Spaß dazu! 📅",
-                      "context_group_id": "visit_advice_group"
-                    }
-                  ]
-                }
-              ]
-            },
+              "response_id": "ticket_purchase_info",
+              "text": "Tickets erhalten Sie ganz einfach an unserem Eingang! 🎫 Unsere Kasse ist täglich ab 9:00 Uhr geöffnet. So können Sie spontan entscheiden und direkt ins Vergnügen starten. Bei Fragen rufen Sie uns gerne an!",
+              "context_group_id": "entrance_tickets_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "group_booking",
+          "spotting_keywords": ["gruppe", "gruppenrabatt", "15 personen", "verein"],
+          "responses": [
             {
-              "topic_id": "weather_seasons",
-              "name": "Wetter und Saisonales",
-              "keywords": ["wetter", "regen", "winter", "sommer", "draußen", "außen", "saison"],
-              "entry_interactions": [
-                {
-                  "interaction_id": "weather_independence",
-                  "spotting_keywords": ["wetter", "regen", "schlecht", "draußen"],
-                  "responses": [
-                    {
-                      "response_id": "weather_info",
-                      "text": "Perfekt bei jedem Wetter! 🌦️ AquaMagica hat sowohl Innen- als auch Außenbereiche. Bei Regen genießen Sie alle Attraktionen drinnen. Die Polar-Lagune im Außenbereich ist teilweise überdacht und auch bei schlechtem Wetter erlebbar!",
-                      "context_group_id": "weather_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "seasonal_features",
-                  "spotting_keywords": ["winter", "sommer", "saison", "schneeinsel"],
-                  "responses": [
-                    {
-                      "response_id": "seasonal_info",
-                      "text": "Saisonale Highlights: ❄️ Winter: Schneeinsel in der Polar-Lagune und gemütliche Saunawelt | ☀️ Sommer: Erweiterte Außenbereiche und Picknickzonen. Ganzjährig 25°C warmes Wasser in allen Innenbereichen!",
-                      "context_group_id": "seasonal_group"
-                    }
-                  ]
-                }
-              ]
-            },
+              "response_id": "group_booking_info",
+              "text": "Gruppenrabatt für 15+ Personen: 15% auf reguläre Tageskartenpreise! 👥 Perfekt für Vereine, Schulklassen oder große Familienfeiern. Anmeldung erforderlich - rufen Sie uns an: +49 (0)761 / 123456",
+              "context_group_id": "group_booking_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "gift_vouchers",
+          "spotting_keywords": ["gutschein", "geschenk", "verschenken", "birthday"],
+          "responses": [
             {
-              "topic_id": "safety_rules",
-              "name": "Sicherheit und Regeln",
-              "keywords": [
-                "sicherheit",
-                "regel",
-                "verbot",
-                "erlaubt",
-                "bademeister",
-                "schwimmen können"
-              ],
-              "entry_interactions": [
-                {
-                  "interaction_id": "safety_overview",
-                  "spotting_keywords": ["sicherheit", "regel", "verbot", "erlaubt"],
-                  "responses": [
-                    {
-                      "response_id": "safety_info",
-                      "text": "Ihre Sicherheit steht an erster Stelle! 🛡️ Geschulte Bademeister überwachen alle Bereiche. Wichtigste Regeln: Duschen vor dem Baden, keine Glasgegenstände, Rutschen nur einzeln. Alle Attraktionen haben Alters-/Größenempfehlungen.",
-                      "context_group_id": "safety_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "swimming_ability",
-                  "spotting_keywords": ["schwimmen können", "nichtschwimmer", "tief", "wassertief"],
-                  "responses": [
-                    {
-                      "response_id": "swimming_ability_info",
-                      "text": "Auch Nichtschwimmer sind willkommen! 🏊‍♂️ Viele Bereiche sind flach (Kinderwelt, Teile der Lazy-River). Schwimmer-Bereiche sind klar gekennzeichnet. Bei Unsicherheit helfen unsere Bademeister gerne!",
-                      "context_group_id": "swimming_ability_group"
-                    }
-                  ]
-                }
-              ]
-            },
+              "response_id": "voucher_info",
+              "text": "Verschenken Sie magische Momente! 🎁 Gutscheine sind an der Kasse erhältlich. Perfekt für Geburtstage, Weihnachten oder als Überraschung. Gutscheine sind 3 Jahre gültig!",
+              "context_group_id": "voucher_group"
+            }
+          ]
+        }
+      ],
+      "contextual_interactions": [
+        {
+          "interaction_id": "visit_recommendation_followup",
+          "trigger_if_previous_group_ids_in_history": [
+            "pricing_overview_group",
+            "entrance_tickets_group"
+          ],
+          "spotting_keywords": ["empfehlung", "wann kommen", "vorher", "rechtzeitig", "voll"],
+          "responses": [
             {
-              "topic_id": "special_occasions",
-              "name": "Besondere Anlässe",
-              "keywords": ["geburtstag", "hochzeit", "feier", "event", "privat", "exklusiv"],
-              "entry_interactions": [
-                {
-                  "interaction_id": "birthday_celebration",
-                  "spotting_keywords": ["geburtstag", "birthday", "geburi", "feiern"],
-                  "responses": [
-                    {
-                      "response_id": "birthday_info",
-                      "text": "Geburtstag im AquaMagica! 🎂 Geburtstagskinder bis 13 Jahre haben freien Eintritt am Geburtstag (Ausweis erforderlich). Kombinieren Sie es mit Gruppentarifen für die Gäste und der Piraten-Kantine für das perfekte Fest!",
-                      "context_group_id": "birthday_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "private_events",
-                  "spotting_keywords": ["hochzeit", "feier", "privat", "exklusiv", "mieten"],
-                  "responses": [
-                    {
-                      "response_id": "private_events_info",
-                      "text": "Für private Veranstaltungen kontaktieren Sie uns direkt! 🎉 Wir bieten individuelle Lösungen für besondere Anlässe. Sprechen Sie mit unserem Team: +49 (0)761 / 123456 - wir machen Ihr Event unvergesslich!",
-                      "context_group_id": "private_events_group"
-                    }
-                  ]
-                }
-              ]
-            },
+              "response_id": "visit_recommendation",
+              "text": "Meine Empfehlung: An Wochentagen ist meist weniger los als an Wochenenden! Unsere Kasse öffnet täglich um 9:00 Uhr. In den Ferienzeiten kann es etwas voller werden, aber das gehört zum Spaß dazu! 📅",
+              "context_group_id": "visit_advice_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "ticket_purchase_location",
+          "spotting_keywords": ["wo kaufe ich tickets", "wo tickets kaufen", "tickets wo"],
+          "responses": [
             {
-              "topic_id": "health_wellness",
-              "name": "Gesundheit und Wellness",
-              "keywords": [
-                "gesundheit",
-                "wellness",
-                "entspannung",
-                "therapie",
-                "rehabilitation",
-                "fitness"
-              ],
-              "entry_interactions": [
-                {
-                  "interaction_id": "wellness_benefits",
-                  "spotting_keywords": ["wellness", "entspannung", "gesundheit", "erholung"],
-                  "responses": [
-                    {
-                      "response_id": "wellness_info",
-                      "text": "AquaMagica ist Wellness für Körper und Seele! 💆‍♀️ Warmes Wasser entspannt Muskeln, die Saunawelt entgiftet, Aqua-Yoga stärkt sanft. Die Magische Flussfahrt mit Klangwelten beruhigt den Geist. Perfekte Auszeit vom Stress!",
-                      "context_group_id": "wellness_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "aqua_fitness",
-                  "spotting_keywords": ["fitness", "sport", "training", "aqua fitness"],
-                  "responses": [
-                    {
-                      "response_id": "aqua_fitness_info",
-                      "text": "Aqua-Fitness im AquaMagica! 💪 Neben Aqua-Yoga (sonntags) bietet das Wasser gelenkschonendes Training. Das Wellenbad 'Atlantica' ist perfekt für Konditionstraining. Sprechen Sie uns für weitere Kurse an!",
-                      "context_group_id": "fitness_group"
-                    }
-                  ]
-                }
-              ]
-            },
+              "response_id": "ticket_location_info",
+              "text": "AquaMagica finden Sie in der Bäderstraße 12, 79100 Freiburg im Breisgau. 🚗 A5 Ausfahrt Freiburg-Mitte → B31 → Ausfahrt Bäderstraße | 🚊 Tramlinie 5 bis 'Bäderstraße' (5 Min. Fußweg) | 🚲 Fahrradständer am Eingang",
+              "context_group_id": "ticket_location_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "weather_seasons",
+      "name": "Wetter und Saisonales",
+      "keywords": [
+        "wetter",
+        "regen",
+        "winter",
+        "sommer",
+        "draußen",
+        "außen",
+        "saison",
+        "wetterlage",
+        "witterung",
+        "klima",
+        "niederschlag",
+        "regenwetter",
+        "schlechtwetter",
+        "schönwetter",
+        "sonnenschein",
+        "sonne",
+        "bewölkt",
+        "wolken",
+        "sturm",
+        "wind",
+        "kalt",
+        "warm",
+        "heiß",
+        "kühl",
+        "temperaturen",
+        "frost",
+        "schnee",
+        "hagel",
+        "gewitter",
+        "jahreszeit",
+        "frühling",
+        "herbst",
+        "outdoor",
+        "indoor",
+        "drinnen",
+        "überdacht",
+        "wetterunabhängig",
+        "allwetter"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "weather_independence",
+          "spotting_keywords": ["wetter", "regen", "schlecht", "draußen"],
+          "responses": [
             {
-              "topic_id": "technical_questions",
-              "name": "Technische Fragen",
-              "keywords": ["wasserqualität", "temperatur", "chlor", "sauber", "hygiene", "filter"],
-              "entry_interactions": [
-                {
-                  "interaction_id": "water_quality",
-                  "spotting_keywords": ["wasserqualität", "sauber", "hygiene", "chlor"],
-                  "responses": [
-                    {
-                      "response_id": "water_quality_info",
-                      "text": "Höchste Wasserqualität garantiert! 💧 Modernste Filteranlagen, regionale Wasseraufbereitung und kontinuierliche Überwachung. Alle Werte werden streng nach DIN-Normen kontrolliert. Ihr Wohlbefinden und Ihre Gesundheit stehen im Mittelpunkt!",
-                      "context_group_id": "water_quality_group"
-                    }
-                  ]
-                },
-                {
-                  "interaction_id": "water_temperature",
-                  "spotting_keywords": ["temperatur", "warm", "kalt", "grad"],
-                  "responses": [
-                    {
-                      "response_id": "temperature_info",
-                      "text": "Optimale Wassertemperaturen für jeden Bereich! 🌡️ Innenbereiche konstant 25-28°C, Außenbereiche je nach Saison. Die Polar-Lagune ist bewusst kühler für den Erfrischungs-Kick! Saunen von 45-90°C je nach Element.",
-                      "context_group_id": "temperature_group"
-                    }
-                  ]
-                },
-                {
-                  "topic_id": "cross_topic_smart_responses",
-                  "name": "Intelligente Querverweise",
-                  "keywords": [],
-                  "entry_interactions": [],
-                  "contextual_interactions": [
-                    {
-                      "interaction_id": "price_after_attraction_interest",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "attractions_overview_group",
-                        "volcano_slide_group",
-                        "wave_pool_group",
-                        "kids_area_group"
-                      ],
-                      "spotting_keywords": ["kostet", "preis", "eintritt", "bezahlen"],
-                      "responses": [
-                        {
-                          "response_id": "price_after_attraction",
-                          "text": "Da Sie sich für unsere Attraktionen interessieren: Eine Tageskarte kostet Mo-Fr 19,90€ (Erwachsene), am Wochenende 23,90€. Tickets erhalten Sie an unserem Eingang! Familienkarten und weitere Ermäßigungen verfügbar. Alle Attraktionen inklusive! 🎢",
-                          "context_group_id": "price_after_attraction_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "booking_after_price_interest",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "pricing_overview_group",
-                        "day_tickets_group",
-                        "time_rates_group"
-                      ],
-                      "spotting_keywords": ["buchen", "reservieren", "kaufen", "ticket"],
-                      "responses": [
-                        {
-                          "response_id": "booking_after_price",
-                          "text": "Super, dass Sie sich für unsere Preise interessieren! Tickets gibt es direkt an unserem Eingang - einfach vorbeikommen und loslegen. Auch an Wochenenden sind Sie bei uns herzlich willkommen. Soll ich Ihnen mehr zu unseren Öffnungszeiten erzählen? 🎫",
-                          "context_group_id": "booking_after_price_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "directions_after_interest",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "entrance_tickets_group",
-                        "visit_advice_group"
-                      ],
-                      "spotting_keywords": ["anfahrt", "wo", "finden", "adresse", "navigation"],
-                      "responses": [
-                        {
-                          "response_id": "directions_after_interest",
-                          "text": "Perfekt, dann können Sie direkt zu uns kommen! 🎫 Sie finden uns in der Bäderstraße 12, Freiburg. Mit dem Auto: A5 → B31 → Ausfahrt Bäderstraße. 300 kostenlose Parkplätze! Mit der Tram: Linie 5 bis 'Bäderstraße'. Wir freuen uns auf Sie! 🚗🚊",
-                          "context_group_id": "directions_after_interest_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "opening_hours_planning",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "visit_advice_group",
-                        "entrance_tickets_group"
-                      ],
-                      "spotting_keywords": ["wann", "öffnungszeit", "uhrzeit", "geöffnet"],
-                      "responses": [
-                        {
-                          "response_id": "hours_planning_info",
-                          "text": "Für Ihren geplanten Besuch: Wir haben täglich 09:00-22:00 Uhr geöffnet! 🕘 Tipp: Frühschwimmer-Tarif Mo-Fr 09:00-12:00 für nur 10,90€ oder Abendtarif ab 18:00 Uhr günstiger. Freitags sogar Nachtschwimmen bis 24:00! ✨",
-                          "context_group_id": "hours_planning_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "food_after_long_visit",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "hours_planning_group",
-                        "attractions_overview_group"
-                      ],
-                      "spotting_keywords": ["essen", "hunger", "trinken", "restaurant", "pause"],
-                      "responses": [
-                        {
-                          "response_id": "food_visit_planning",
-                          "text": "Bei einem längeren Besuch werden Sie sicher hungrig! 🍽️ Das AquaBistro bietet mediterrane Küche mit Blick aufs Wellenbad, die Piraten-Kantine ist perfekt für Kinder. Zahlung einfach mit dem digitalen Armband! Eigenes Essen nur im Außen-Picknickbereich erlaubt.",
-                          "context_group_id": "food_planning_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "sauna_upsell_after_attractions",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "attractions_overview_group",
-                        "wellness_group"
-                      ],
-                      "spotting_keywords": ["entspannung", "ruhe", "sauna", "wellness"],
-                      "responses": [
-                        {
-                          "response_id": "sauna_upsell_info",
-                          "text": "Nach den Attraktionen noch entspannen? 🧖‍♀️ Unsere Saunawelt 'Elemente' mit 4 Themensaunen ist perfekt! Nur +8€ zum Erlebnisbad-Ticket, inkl. Bademantel & Saunatuch. Feuer-, Wasser-, Luft- und Erde-Sauna mit Aufgüssen & ätherischen Ölen! 🌿",
-                          "context_group_id": "sauna_upsell_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "family_complete_package",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "kids_area_group",
-                        "family_offers_group"
-                      ],
-                      "spotting_keywords": ["komplett", "alles", "ganz", "tag", "planen"],
-                      "responses": [
-                        {
-                          "response_id": "family_package_info",
-                          "text": "Kompletter Familientag im AquaMagica! 👨‍👩‍👧‍👦 Familienkarte (2 Erw.+2 Ki.) 54,90€ Mo-Fr. Kinder lieben Tropica Island & Magische Flussfahrt, Eltern entspannen im Lazy River. Piraten-Kantine fürs Essen, 300 kostenlose Parkplätze. Perfekter Familienausflug! 🏴‍☠️",
-                          "context_group_id": "family_complete_group"
-                        }
-                      ]
-                    },
-                    {
-                      "interaction_id": "weather_indoor_alternative",
-                      "trigger_if_previous_group_ids_in_history": [
-                        "weather_group",
-                        "seasonal_group"
-                      ],
-                      "spotting_keywords": ["drinnen", "indoor", "überdacht", "regen"],
-                      "responses": [
-                        {
-                          "response_id": "indoor_alternative_info",
-                          "text": "Bei schlechtem Wetter ist AquaMagica perfekt! 🌧️ Alle Hauptattraktionen sind überdacht: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River, komplette Saunawelt. Konstant 25°C warmes Wasser. Regen kann uns nichts anhaben! ☔➡️😊",
-                          "context_group_id": "indoor_weather_group"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "response_id": "weather_info",
+              "text": "Perfekt bei jedem Wetter! 🌦️ AquaMagica hat sowohl Innen- als auch Außenbereiche. Bei Regen genießen Sie alle Attraktionen drinnen. Die Polar-Lagune im Außenbereich ist teilweise überdacht und auch bei schlechtem Wetter erlebbar!",
+              "context_group_id": "weather_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "seasonal_features",
+          "spotting_keywords": ["winter", "sommer", "saison", "schneeinsel"],
+          "responses": [
+            {
+              "response_id": "seasonal_info",
+              "text": "Saisonale Highlights: ❄️ Winter: Schneeinsel in der Polar-Lagune und gemütliche Saunawelt | ☀️ Sommer: Erweiterte Außenbereiche und Picknickzonen. Ganzjährig 25°C warmes Wasser in allen Innenbereichen!",
+              "context_group_id": "seasonal_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "safety_rules",
+      "name": "Sicherheit und Regeln",
+      "keywords": [
+        "sicherheit",
+        "regel",
+        "verbot",
+        "erlaubt",
+        "bademeister",
+        "schwimmen können",
+        "sicher",
+        "schutz",
+        "gefahr",
+        "risiko",
+        "aufsicht",
+        "überwachung",
+        "rettung",
+        "rettungsschwimmer",
+        "lifeguard",
+        "verboten",
+        "nicht erlaubt",
+        "vorschrift",
+        "bestimmung",
+        "ordnung",
+        "hausordnung",
+        "badeordnung",
+        "dürfen",
+        "können",
+        "müssen",
+        "sollen",
+        "nichtschwimmer",
+        "schwimmfähigkeit",
+        "seepferdchen",
+        "schwimmabzeichen",
+        "wassertiefe",
+        "tief",
+        "flach",
+        "kinder",
+        "minderjährige",
+        "aufsichtspflicht",
+        "haftung",
+        "versicherung"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "safety_overview",
+          "spotting_keywords": ["sicherheit", "regel", "verbot", "erlaubt"],
+          "responses": [
+            {
+              "response_id": "safety_info",
+              "text": "Ihre Sicherheit steht an erster Stelle! 🛡️ Geschulte Bademeister überwachen alle Bereiche. Wichtigste Regeln: Duschen vor dem Baden, keine Glasgegenstände, Rutschen nur einzeln. Alle Attraktionen haben Alters-/Größenempfehlungen.",
+              "context_group_id": "safety_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "swimming_ability",
+          "spotting_keywords": ["schwimmen können", "nichtschwimmer", "tief", "wassertief"],
+          "responses": [
+            {
+              "response_id": "swimming_ability_info",
+              "text": "Auch Nichtschwimmer sind willkommen! 🏊‍♂️ Viele Bereiche sind flach (Kinderwelt, Teile der Lazy-River). Schwimmer-Bereiche sind klar gekennzeichnet. Bei Unsicherheit helfen unsere Bademeister gerne!",
+              "context_group_id": "swimming_ability_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "special_occasions",
+      "name": "Besondere Anlässe",
+      "keywords": [
+        "geburtstag",
+        "hochzeit",
+        "feier",
+        "event",
+        "privat",
+        "exklusiv",
+        "birthday",
+        "geburi",
+        "ehrentag",
+        "wiegenfest",
+        "jubiläum",
+        "anniversary",
+        "jahrestag",
+        "celebration",
+        "party",
+        "fest",
+        "festivität",
+        "zeremonie",
+        "ritual",
+        "anlass",
+        "gelegenheit",
+        "besonderheit",
+        "speziell",
+        "individuell",
+        "persönlich",
+        "maßgeschneidert",
+        "auf wunsch",
+        "custom",
+        "taufe",
+        "kommunion",
+        "konfirmation",
+        "firmung",
+        "verlobung",
+        "polterabend",
+        "junggesellenabschied",
+        "bachelorette",
+        "firmenfeier",
+        "betriebsausflug",
+        "teambuilding",
+        "vereinsfeier",
+        "klassentreffen",
+        "schulausflug",
+        "kindergeburtstag",
+        "kinderparty",
+        "familienfeier",
+        "familienfest",
+        "mieten",
+        "buchen",
+        "reservieren",
+        "organisieren",
+        "planen",
+        "arrangement",
+        "paket",
+        "package"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "birthday_celebration",
+          "spotting_keywords": ["geburtstag", "birthday", "geburi", "feiern"],
+          "responses": [
+            {
+              "response_id": "birthday_info",
+              "text": "Geburtstag im AquaMagica! 🎂 Geburtstagskinder bis 13 Jahre haben freien Eintritt am Geburtstag (Ausweis erforderlich). Kombinieren Sie es mit Gruppentarifen für die Gäste und der Piraten-Kantine für das perfekte Fest!",
+              "context_group_id": "birthday_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "private_events",
+          "spotting_keywords": ["hochzeit", "feier", "privat", "exklusiv", "mieten"],
+          "responses": [
+            {
+              "response_id": "private_events_info",
+              "text": "Für private Veranstaltungen kontaktieren Sie uns direkt! 🎉 Wir bieten individuelle Lösungen für besondere Anlässe. Sprechen Sie mit unserem Team: +49 (0)761 / 123456 - wir machen Ihr Event unvergesslich!",
+              "context_group_id": "private_events_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "health_wellness",
+      "name": "Gesundheit und Wellness",
+      "keywords": [
+        "gesundheit",
+        "wellness",
+        "entspannung",
+        "therapie",
+        "rehabilitation",
+        "fitness",
+        "gesund",
+        "wohlbefinden",
+        "erholung",
+        "regeneration",
+        "relaxation",
+        "ruhe",
+        "stress",
+        "stressabbau",
+        "entschleunigung",
+        "auszeit",
+        "pause",
+        "meditation",
+        "achtsamkeit",
+        "mindfulness",
+        "balance",
+        "harmonie",
+        "seele",
+        "geist",
+        "körper",
+        "ganzheitlich",
+        "holistic",
+        "heilung",
+        "genesung",
+        "reha",
+        "physiotherapie",
+        "aquatherapie",
+        "hydrotherapie",
+        "wassertherapie",
+        "sport",
+        "training",
+        "bewegung",
+        "übung",
+        "workout",
+        "kondition",
+        "ausdauer",
+        "kraft",
+        "muskel",
+        "gelenk",
+        "rücken",
+        "wirbelsäule",
+        "schmerz",
+        "verspannung",
+        "mobilität",
+        "flexibilität",
+        "dehnung",
+        "stretching",
+        "aquafitness",
+        "wassergymnastik",
+        "aquajogging"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "wellness_benefits",
+          "spotting_keywords": ["wellness", "entspannung", "gesundheit", "erholung"],
+          "responses": [
+            {
+              "response_id": "wellness_info",
+              "text": "AquaMagica ist Wellness für Körper und Seele! 💆‍♀️ Warmes Wasser entspannt Muskeln, die Saunawelt entgiftet, Aqua-Yoga stärkt sanft. Die Magische Flussfahrt mit Klangwelten beruhigt den Geist. Perfekte Auszeit vom Stress!",
+              "context_group_id": "wellness_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "aqua_fitness",
+          "spotting_keywords": ["fitness", "sport", "training", "aqua fitness"],
+          "responses": [
+            {
+              "response_id": "aqua_fitness_info",
+              "text": "Aqua-Fitness im AquaMagica! 💪 Neben Aqua-Yoga (sonntags) bietet das Wasser gelenkschonendes Training. Das Wellenbad 'Atlantica' ist perfekt für Konditionstraining. Sprechen Sie uns für weitere Kurse an!",
+              "context_group_id": "fitness_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "technical_questions",
+      "name": "Technische Fragen",
+      "keywords": [
+        "wasserqualität",
+        "temperatur",
+        "chlor",
+        "sauber",
+        "hygiene",
+        "filter",
+        "wasser",
+        "qualität",
+        "reinheit",
+        "sauberkeit",
+        "rein",
+        "klar",
+        "trüb",
+        "verschmutzt",
+        "verunreinigt",
+        "bakterien",
+        "keime",
+        "desinfektion",
+        "desinfiziert",
+        "sterilisation",
+        "aufbereitung",
+        "behandlung",
+        "reinigung",
+        "filterung",
+        "filtration",
+        "filteranlage",
+        "filtersystem",
+        "wasseraufbereitung",
+        "wassertechnik",
+        "chemie",
+        "chemikalien",
+        "ph-wert",
+        "alkalität",
+        "wasserwerte",
+        "messung",
+        "kontrolle",
+        "überwachung",
+        "analyse",
+        "prüfung",
+        "test",
+        "norm",
+        "standard",
+        "din",
+        "vorschrift",
+        "grenzwert",
+        "warm",
+        "kalt",
+        "heiß",
+        "kühl",
+        "grad",
+        "celsius",
+        "erwärmt",
+        "beheizt",
+        "heizung",
+        "temperierung",
+        "thermostat",
+        "wärme",
+        "energie",
+        "umwelt",
+        "nachhaltigkeit",
+        "technik",
+        "technisch",
+        "anlage",
+        "system"
+      ],
+      "entry_interactions": [
+        {
+          "interaction_id": "water_quality",
+          "spotting_keywords": ["wasserqualität", "sauber", "hygiene", "chlor"],
+          "responses": [
+            {
+              "response_id": "water_quality_info",
+              "text": "Höchste Wasserqualität garantiert! 💧 Modernste Filteranlagen, regionale Wasseraufbereitung und kontinuierliche Überwachung. Alle Werte werden streng nach DIN-Normen kontrolliert. Ihr Wohlbefinden und Ihre Gesundheit stehen im Mittelpunkt!",
+              "context_group_id": "water_quality_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "water_temperature",
+          "spotting_keywords": ["temperatur", "warm", "kalt", "grad"],
+          "responses": [
+            {
+              "response_id": "temperature_info",
+              "text": "Optimale Wassertemperaturen für jeden Bereich! 🌡️ Innenbereiche konstant 25-28°C, Außenbereiche je nach Saison. Die Polar-Lagune ist bewusst kühler für den Erfrischungs-Kick! Saunen von 45-90°C je nach Element.",
+              "context_group_id": "temperature_group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "cross_topic_smart_responses",
+      "name": "Intelligente Querverweise",
+      "keywords": [],
+      "entry_interactions": [],
+      "contextual_interactions": [
+        {
+          "interaction_id": "price_after_attraction_interest",
+          "trigger_if_previous_group_ids_in_history": [
+            "attractions_overview_group",
+            "volcano_slide_group",
+            "wave_pool_group",
+            "kids_area_group"
+          ],
+          "spotting_keywords": ["kostet", "preis", "eintritt", "bezahlen"],
+          "responses": [
+            {
+              "response_id": "price_after_attraction",
+              "text": "Da Sie sich für unsere Attraktionen interessieren: Eine Tageskarte kostet Mo-Fr 19,90€ (Erwachsene), am Wochenende 23,90€. Tickets erhalten Sie an unserem Eingang! Familienkarten und weitere Ermäßigungen verfügbar. Alle Attraktionen inklusive! 🎢",
+              "context_group_id": "price_after_attraction_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "booking_after_price_interest",
+          "trigger_if_previous_group_ids_in_history": [
+            "pricing_overview_group",
+            "day_tickets_group",
+            "time_rates_group"
+          ],
+          "spotting_keywords": ["buchen", "reservieren", "kaufen", "ticket"],
+          "responses": [
+            {
+              "response_id": "booking_after_price",
+              "text": "Super, dass Sie sich für unsere Preise interessieren! Tickets gibt es direkt an unserem Eingang - einfach vorbeikommen und loslegen. Auch an Wochenenden sind Sie bei uns herzlich willkommen. 🎫",
+              "context_group_id": "booking_after_price_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "directions_after_interest",
+          "trigger_if_previous_group_ids_in_history": [
+            "entrance_tickets_group",
+            "visit_advice_group"
+          ],
+          "spotting_keywords": ["anfahrt", "wo", "finden", "adresse", "navigation"],
+          "responses": [
+            {
+              "response_id": "directions_after_interest",
+              "text": "Perfekt, dann können Sie direkt zu uns kommen! 🎫 Sie finden uns in der Bäderstraße 12, Freiburg. Mit dem Auto: A5 → B31 → Ausfahrt Bäderstraße. 300 kostenlose Parkplätze! Mit der Tram: Linie 5 bis 'Bäderstraße'. Wir freuen uns auf Sie! 🚗🚊",
+              "context_group_id": "directions_after_interest_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "opening_hours_planning",
+          "trigger_if_previous_group_ids_in_history": [
+            "visit_advice_group",
+            "entrance_tickets_group"
+          ],
+          "spotting_keywords": ["wann", "öffnungszeit", "uhrzeit", "geöffnet"],
+          "responses": [
+            {
+              "response_id": "hours_planning_info",
+              "text": "Für Ihren geplanten Besuch: Wir haben täglich 09:00-22:00 Uhr geöffnet! 🕘 Tipp: Frühschwimmer-Tarif Mo-Fr 09:00-12:00 für nur 10,90€ oder Abendtarif ab 18:00 Uhr günstiger. Freitags sogar Nachtschwimmen bis 24:00! ✨",
+              "context_group_id": "hours_planning_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "food_after_long_visit",
+          "trigger_if_previous_group_ids_in_history": [
+            "hours_planning_group",
+            "attractions_overview_group"
+          ],
+          "spotting_keywords": ["essen", "hunger", "trinken", "restaurant", "pause"],
+          "responses": [
+            {
+              "response_id": "food_visit_planning",
+              "text": "Bei einem längeren Besuch werden Sie sicher hungrig! 🍽️ Das AquaBistro bietet mediterrane Küche mit Blick aufs Wellenbad, die Piraten-Kantine ist perfekt für Kinder. Zahlung einfach mit dem digitalen Armband! Eigenes Essen nur im Außen-Picknickbereich erlaubt.",
+              "context_group_id": "food_planning_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "sauna_upsell_after_attractions",
+          "trigger_if_previous_group_ids_in_history": [
+            "attractions_overview_group",
+            "wellness_group"
+          ],
+          "spotting_keywords": ["entspannung", "ruhe", "sauna", "wellness"],
+          "responses": [
+            {
+              "response_id": "sauna_upsell_info",
+              "text": "Nach den Attraktionen noch entspannen? 🧖‍♀️ Unsere Saunawelt 'Elemente' mit 4 Themensaunen ist perfekt! Nur +8€ zum Erlebnisbad-Ticket, inkl. Bademantel & Saunatuch. Feuer-, Wasser-, Luft- und Erde-Sauna mit Aufgüssen & ätherischen Ölen! 🌿",
+              "context_group_id": "sauna_upsell_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "family_complete_package",
+          "trigger_if_previous_group_ids_in_history": ["kids_area_group", "family_offers_group"],
+          "spotting_keywords": ["komplett", "alles", "ganz", "tag", "planen"],
+          "responses": [
+            {
+              "response_id": "family_package_info",
+              "text": "Kompletter Familientag im AquaMagica! 👨‍👩‍👧‍👦 Familienkarte (2 Erw.+2 Ki.) 54,90€ Mo-Fr. Kinder lieben Tropica Island & Magische Flussfahrt, Eltern entspannen im Lazy River. Piraten-Kantine fürs Essen, 300 kostenlose Parkplätze. Perfekter Familienausflug! 🏴‍☠️",
+              "context_group_id": "family_complete_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "weather_indoor_alternative",
+          "trigger_if_previous_group_ids_in_history": ["weather_group", "seasonal_group"],
+          "spotting_keywords": ["drinnen", "indoor", "überdacht", "regen"],
+          "responses": [
+            {
+              "response_id": "indoor_alternative_info",
+              "text": "Bei schlechtem Wetter ist AquaMagica perfekt! 🌧️ Alle Hauptattraktionen sind überdacht: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River, komplette Saunawelt. Konstant 25°C warmes Wasser. Regen kann uns nichts anhaben! ☔➡️😊",
+              "context_group_id": "indoor_weather_group"
             }
           ]
         }
@@ -877,7 +1250,55 @@
     {
       "topic_id": "gastronomy_info",
       "name": "Gastronomie",
-      "keywords": ["essen", "trinken", "restaurant", "bistro", "hunger", "gastronomie", "café"],
+      "keywords": [
+        "essen",
+        "trinken",
+        "restaurant",
+        "bistro",
+        "hunger",
+        "gastronomie",
+        "café",
+        "food",
+        "drink",
+        "speisen",
+        "getränke",
+        "küche",
+        "kochkunst",
+        "kulinarisch",
+        "lecker",
+        "schmecken",
+        "geschmack",
+        "mahlzeit",
+        "mittagessen",
+        "abendessen",
+        "frühstück",
+        "snack",
+        "imbiss",
+        "verpflegung",
+        "catering",
+        "buffet",
+        "à la carte",
+        "speisekarte",
+        "menü",
+        "gericht",
+        "portion",
+        "vegetarisch",
+        "vegan",
+        "bio",
+        "regional",
+        "frisch",
+        "hausgemacht",
+        "selbstgemacht",
+        "zubereitung",
+        "kochen",
+        "durst",
+        "durstig",
+        "hungrig",
+        "satt",
+        "appetit",
+        "genuss",
+        "schlemmen"
+      ],
       "entry_interactions": [
         {
           "interaction_id": "gastronomy_overview",
@@ -885,7 +1306,7 @@
           "responses": [
             {
               "response_id": "gastronomy_overview_info",
-              "text": "Für Ihr leibliches Wohl sorgen drei Gastronomiebereiche: 🍽️ AquaBistro (mediterran & vegan mit Blick aufs Wellenbad), 🏴‍☠️ Piraten-Kantine (für kleine Abenteurer) und 🧖‍♀️ Sauna-Lounge 'AufgussBar' (Smoothies & Tees). Was interessiert Sie?",
+              "text": "Für Ihr leibliches Wohl sorgen drei Gastronomiebereiche: 🍽️ AquaBistro (mediterran & vegan mit Blick aufs Wellenbad), 🏴‍☠️ Piraten-Kantine (für kleine Abenteurer) und 🧖‍♀️ Sauna-Lounge 'AufgussBar' (Smoothies & Tees).",
               "context_group_id": "gastronomy_overview_group"
             }
           ]
@@ -922,6 +1343,17 @@
               "context_group_id": "sauna_lounge_group"
             }
           ]
+        },
+        {
+          "interaction_id": "gastronomy_vegan_options",
+          "spotting_keywords": ["vegan", "vegetarisch", "veganes essen", "pflanzlich"],
+          "responses": [
+            {
+              "response_id": "vegan_food_info",
+              "text": "Ja, unser AquaBistro bietet eine Vielzahl an veganen und vegetarischen Gerichten an, darunter Salate, Suppen, Pasta und Snacks. Wir legen großen Wert auf frische, regionale Zutaten. Unsere Speisekarte ist saisonal und wechselt regelmäßig.",
+              "context_group_id": "vegan_food_group"
+            }
+          ]
         }
       ],
       "contextual_interactions": [
@@ -932,7 +1364,7 @@
           "responses": [
             {
               "response_id": "own_food_policy_info",
-              "text": "Eigene Speisen und Getränke sind im Bade- und Gastronomiebereich nicht gestattet. Es gibt jedoch ausgewiesene Picknickbereiche im Außenbereich (saisonal). Für Babynahrung machen wir selbstverständlich eine Ausnahme! 👶",
+              "text": "Das Mitbringen von eigenen Speisen und Getränken in den Bade- und Gastronomiebereich ist aus hygienischen Gründen nicht gestattet. Es gibt jedoch ausgewiesene Picknickbereiche im Außenbereich (saisonal geöffnet), wo Sie gerne Ihre mitgebrachten Snacks verzehren können. Für Babynahrung machen wir selbstverständlich eine Ausnahme.",
               "context_group_id": "food_policy_group"
             }
           ]
@@ -948,7 +1380,57 @@
         "special",
         "aqua yoga",
         "nachtschwimmen",
-        "lichtershow"
+        "lichtershow",
+        "ereignis",
+        "happening",
+        "programm",
+        "aktivität",
+        "aktion",
+        "besonderheit",
+        "highlight",
+        "attraktion",
+        "show",
+        "vorstellung",
+        "aufführung",
+        "darbietung",
+        "entertainment",
+        "unterhaltung",
+        "yoga",
+        "entspannung",
+        "meditation",
+        "wellness",
+        "fitness",
+        "sport",
+        "kurs",
+        "training",
+        "übung",
+        "nacht",
+        "abend",
+        "spät",
+        "dunkel",
+        "freitag",
+        "wochenende",
+        "licht",
+        "beleuchtung",
+        "illumination",
+        "laser",
+        "effekt",
+        "spektakel",
+        "musik",
+        "dj",
+        "sound",
+        "atmosphäre",
+        "stimmung",
+        "party",
+        "feier",
+        "fest",
+        "sonntag",
+        "morgen",
+        "früh",
+        "wasser",
+        "aqua",
+        "schwimmen",
+        "baden"
       ],
       "entry_interactions": [
         {
@@ -957,7 +1439,7 @@
           "responses": [
             {
               "response_id": "events_overview_info",
-              "text": "Unsere regelmäßigen Events: 🌙 Nachtschwimmen mit Lichtershow (freitags 20:00-24:00) und 🧘‍♂️ Aqua-Yoga (sonntags 9:30-10:15). Beide Events bieten einzigartige Erlebnisse! Was interessiert Sie?",
+              "text": "Unsere regelmäßigen Events: 🌙 Nachtschwimmen mit Lichtershow (freitags 20:00-24:00) und 🧘‍♂️ Aqua-Yoga (sonntags 9:30-10:15). Beide Events bieten einzigartige Erlebnisse!",
               "context_group_id": "events_overview_group"
             }
           ]
@@ -978,7 +1460,71 @@
     {
       "topic_id": "contact_directions",
       "name": "Kontakt und Anfahrt",
-      "keywords": ["adresse", "anfahrt", "auto", "parken", "öffis", "kontakt", "telefon"],
+      "keywords": [
+        "adresse",
+        "anfahrt",
+        "auto",
+        "parken",
+        "öffis",
+        "kontakt",
+        "telefon",
+        "anschrift",
+        "standort",
+        "lage",
+        "position",
+        "ort",
+        "straße",
+        "hausnummer",
+        "postleitzahl",
+        "plz",
+        "stadt",
+        "freiburg",
+        "route",
+        "weg",
+        "fahrtrichtung",
+        "navigation",
+        "navi",
+        "gps",
+        "autobahn",
+        "ausfahrt",
+        "bundesstraße",
+        "verkehr",
+        "stau",
+        "fahrtzeit",
+        "entfernung",
+        "kilometer",
+        "öffentlich",
+        "verkehrsmittel",
+        "bus",
+        "bahn",
+        "tram",
+        "straßenbahn",
+        "haltestelle",
+        "bahnhof",
+        "fahrrad",
+        "zu fuß",
+        "fußweg",
+        "gehzeit",
+        "parkplatz",
+        "stellplatz",
+        "garage",
+        "parkhaus",
+        "gebührenfrei",
+        "kostenlos",
+        "erreichen",
+        "erreichbar",
+        "rufnummer",
+        "handynummer",
+        "hotline",
+        "servicenummer",
+        "email",
+        "mail",
+        "e-mail",
+        "kontaktieren",
+        "melden",
+        "schreiben",
+        "anrufen"
+      ],
       "entry_interactions": [
         {
           "interaction_id": "contact_info",
@@ -1012,6 +1558,28 @@
               "context_group_id": "parking_group"
             }
           ]
+        },
+        {
+          "interaction_id": "contact_how_to_reach",
+          "spotting_keywords": ["wie kann ich sie erreichen", "erreichen", "kontaktieren"],
+          "responses": [
+            {
+              "response_id": "contact_reach_info",
+              "text": "Diese Frage kann ich leider nicht beantworten. Für weitere Informationen rufen Sie uns an: +49 (0)761 / 123456.",
+              "context_group_id": "contact_reach_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "address_info",
+          "spotting_keywords": ["anschrift", "adresse", "wo seid ihr"],
+          "responses": [
+            {
+              "response_id": "address_details",
+              "text": "Diese Information finde ich nicht. Bei konkreten Fragen hilft Ihnen unser Service-Team gerne: +49 (0)761 / 123456.",
+              "context_group_id": "address_info_group"
+            }
+          ]
         }
       ]
     },
@@ -1025,7 +1593,56 @@
         "armband",
         "verleih",
         "wlan",
-        "barrierefrei"
+        "barrierefrei",
+        "ausstattung",
+        "einrichtung",
+        "service",
+        "dienstleistung",
+        "angebot",
+        "facility",
+        "infrastruktur",
+        "bademantel",
+        "handtücher",
+        "leihgebühr",
+        "pfand",
+        "kaution",
+        "mieten",
+        "leihen",
+        "ausleihen",
+        "spind",
+        "locker",
+        "verschließbar",
+        "sicher",
+        "aufbewahrung",
+        "garderobe",
+        "umkleidekabine",
+        "dusche",
+        "duschen",
+        "sanitär",
+        "toilette",
+        "wc",
+        "digital",
+        "elektronisch",
+        "technologie",
+        "bezahlen",
+        "zahlung",
+        "bargeldlos",
+        "kontaktlos",
+        "wifi",
+        "internet",
+        "netzwerk",
+        "zugang",
+        "passwort",
+        "rollstuhl",
+        "behinderung",
+        "handicap",
+        "zugänglich",
+        "rampe",
+        "aufzug",
+        "lift",
+        "behindertengerecht",
+        "inklusiv",
+        "barrierearm"
       ],
       "entry_interactions": [
         {
@@ -1034,7 +1651,7 @@
           "responses": [
             {
               "response_id": "facilities_overview_info",
-              "text": "Unsere Services: 💳 Digitales Armband-System (Schlüssel, Bezahlen, Fotos), 🏊‍♂️ Handtuch-/Bademantel-Verleih, ♿ Barrierefreier Zugang, 📶 Kostenloses WLAN, 🅿️ 300 Parkplätze. Was interessiert Sie?",
+              "text": "Unsere Services: 💳 Digitales Armband-System (Schlüssel, Bezahlen, Fotos), 🏊‍♂️ Handtuch-/Bademantel-Verleih, ♿ Barrierefreier Zugang, 📶 Kostenloses WLAN, 🅿️ 300 Parkplätze.",
               "context_group_id": "facilities_overview_group"
             }
           ]
@@ -1071,6 +1688,32 @@
               "context_group_id": "accessibility_group"
             }
           ]
+        },
+        {
+          "interaction_id": "wifi_info",
+          "spotting_keywords": ["wlan", "wifi", "internet", "w-lan"],
+          "responses": [
+            {
+              "response_id": "wifi_details",
+              "text": "Ja, im gesamten Eingangsbereich und in unseren Gastronomiebereichen steht Ihnen kostenfreies WLAN zur Verfügung.",
+              "context_group_id": "wifi_group"
+            }
+          ]
+        },
+        {
+          "interaction_id": "parking_faq",
+          "spotting_keywords": [
+            "kostenlose parkplätze",
+            "parken kostenlos",
+            "parkplätze kostenlos"
+          ],
+          "responses": [
+            {
+              "response_id": "parking_faq_details",
+              "text": "Ja, direkt am AquaMagica stehen Ihnen über 300 kostenfreie Parkplätze zur Verfügung, darunter auch ausgewiesene Behindertenparkplätze und Familienparkplätze.",
+              "context_group_id": "parking_faq_group"
+            }
+          ]
         }
       ],
       "contextual_interactions": [
@@ -1088,6 +1731,21 @@
               "context_group_id": "lost_wristband_group"
             }
           ]
+        },
+        {
+          "interaction_id": "lost_wristband_faq",
+          "trigger_if_previous_group_ids_in_history": [
+            "wristband_group",
+            "facilities_overview_group"
+          ],
+          "spotting_keywords": ["digitales armband verliere", "armband verloren", "armband weg"],
+          "responses": [
+            {
+              "response_id": "lost_wristband_faq_info",
+              "text": "Bitte melden Sie einen Verlust umgehend unserem Personal an der Kasse oder dem Bademeister. Gegen eine Gebühr von 5,- € erhalten Sie ein Ersatzarmband. Eventuell auf dem Armband gebuchte Leistungen können nach Prüfung übertragen werden.",
+              "context_group_id": "lost_wristband_faq_group"
+            }
+          ]
         }
       ]
     },
@@ -1102,7 +1760,60 @@
         "nackt",
         "lustig",
         "witzig",
-        "spaß"
+        "spaß",
+        "beer",
+        "wein",
+        "schnaps",
+        "cocktail",
+        "drink",
+        "alkoholisch",
+        "betrunken",
+        "party",
+        "feiern",
+        "badeanzug",
+        "bikini",
+        "badehose",
+        "schwimmanzug",
+        "tankini",
+        "badeshorts",
+        "boardshorts",
+        "neoprenanzug",
+        "schwimmbrille",
+        "badekappe",
+        "schwimmflügel",
+        "schwimmhilfe",
+        "ohne kleidung",
+        "textil",
+        "textile",
+        "fkk",
+        "naturismus",
+        "nudismus",
+        "humor",
+        "komisch",
+        "ulkig",
+        "drollig",
+        "amüsant",
+        "humorvoll",
+        "scherz",
+        "joke",
+        "witz",
+        "gag",
+        "funny",
+        "lachen",
+        "schmunzeln",
+        "kichern",
+        "vergnügen",
+        "freude",
+        "gaudi",
+        "jux",
+        "fun",
+        "entertainment",
+        "unterhaltung",
+        "spektakel",
+        "show",
+        "quatsch",
+        "blödsinn",
+        "nonsens"
       ],
       "entry_interactions": [
         {
@@ -1111,7 +1822,7 @@
           "responses": [
             {
               "response_id": "beer_fun_answer",
-              "text": "Ha! 🍺 Bier gibt es bei uns nicht - dafür aber erfrischende Smoothies in der AufgussBar und leckere alkoholfreie Cocktails im AquaBistro! Nach dem Planschen schmeckt ein kühler Drink mindestens genauso gut. Möchten Sie mehr über unsere Gastronomie erfahren?",
+              "text": "Ha! 🍺 Bier gibt es bei uns nicht - dafür aber erfrischende Smoothies in der AufgussBar und leckere alkoholfreie Cocktails im AquaBistro! Nach dem Planschen schmeckt ein kühler Drink mindestens genauso gut.",
               "context_group_id": "fun_beer_group"
             }
           ]
@@ -1141,7 +1852,7 @@
           "responses": [
             {
               "response_id": "changing_rooms_fun_answer",
-              "text": "Aber klar gibt es Umkleiden! 🚿 Moderne, saubere Umkleidekabinen mit Duschen - sogar beheizbar! Plus digitale Schließfächer mit unserem coolen Armband-System. Sie können sich in Ruhe umziehen und dann direkt ins Wasser-Abenteuer starten. Soll ich Ihnen mehr über unsere Ausstattung erzählen?",
+              "text": "Aber klar gibt es Umkleiden! 🚿 Moderne, saubere Umkleidekabinen mit Duschen - sogar beheizbar! Plus digitale Schließfächer mit unserem coolen Armband-System. Sie können sich in Ruhe umziehen und dann direkt ins Wasser-Abenteuer starten.",
               "context_group_id": "fun_changing_rooms_group"
             }
           ]
@@ -1152,7 +1863,7 @@
           "responses": [
             {
               "response_id": "water_depth_answer",
-              "text": "Die Wassertiefen variieren je nach Bereich! 🏊‍♂️ Kinderwelt 0,3-0,8m (perfekt für die Kleinen), Wellenbad 0,8-1,8m, Lazy River 1,2m, Schwimmerbecken bis 2,0m. Überall sind die Tiefen gut markiert - so wissen Sie immer, wo Sie stehen! Möchten Sie mehr über unsere verschiedenen Bereiche erfahren?",
+              "text": "Die Wassertiefen variieren je nach Bereich! 🏊‍♂️ Kinderwelt 0,3-0,8m (perfekt für die Kleinen), Wellenbad 0,8-1,8m, Lazy River 1,2m, Schwimmerbecken bis 2,0m. Überall sind die Tiefen gut markiert - so wissen Sie immer, wo Sie stehen!",
               "context_group_id": "water_depth_group"
             }
           ]
@@ -1163,7 +1874,7 @@
           "responses": [
             {
               "response_id": "pets_answer",
-              "text": "Haustiere sind leider nicht erlaubt! 🐕 Auch wenn Ihr Vierbeiner sicher ein toller Schwimmer wäre - aus hygienischen Gründen müssen sie zu Hause bleiben. Dafür haben wir knuffige Wassertiere-Figuren in der Kinderwelt, die sprechen können! Interessiert Sie unsere Kinderwelt?",
+              "text": "Haustiere sind leider nicht erlaubt! 🐕 Auch wenn Ihr Vierbeiner sicher ein toller Schwimmer wäre - aus hygienischen Gründen müssen sie zu Hause bleiben. Dafür haben wir knuffige Wassertiere-Figuren in der Kinderwelt, die sprechen können!",
               "context_group_id": "pets_group"
             }
           ]
@@ -1174,7 +1885,7 @@
           "responses": [
             {
               "response_id": "photography_answer",
-              "text": "Fotografieren ist in den Umkleiden und Duschen streng verboten! 📵 In den Schwimmbereichen können Sie gerne Fotos machen - am besten mit unserem digitalen Armband-System, das automatisch tolle Erinnerungsfotos erstellt! So haben Sie die Hände frei zum Planschen. Soll ich Ihnen das Armband-System erklären?",
+              "text": "Fotografieren ist in den Umkleiden und Duschen streng verboten! 📵 In den Schwimmbereichen können Sie gerne Fotos machen - am besten mit unserem digitalen Armband-System, das automatisch tolle Erinnerungsfotos erstellt! So haben Sie die Hände frei zum Planschen.",
               "context_group_id": "photography_group"
             }
           ]
@@ -1192,7 +1903,69 @@
         "baden",
         "wellness",
         "erholung",
-        "gesund"
+        "gesund",
+        "bad",
+        "hallenbad",
+        "freibad",
+        "erlebnisbad",
+        "freizeitbad",
+        "thermalbad",
+        "aquapark",
+        "wasserwelt",
+        "schwimmhalle",
+        "badeanlage",
+        "badelandschaft",
+        "swimming",
+        "becken",
+        "bassin",
+        "wasserbecken",
+        "schwimmbecken",
+        "planschbecken",
+        "kinderbecken",
+        "sportbecken",
+        "lehrschwimmbecken",
+        "sprungbecken",
+        "whirlpool",
+        "jacuzzi",
+        "sprudelbad",
+        "nass",
+        "feucht",
+        "aqua",
+        "hydro",
+        "h2o",
+        "chlorwasser",
+        "salzwasser",
+        "süßwasser",
+        "leitungswasser",
+        "trinkwasser",
+        "brustschwimmen",
+        "kraulen",
+        "rückenschwimmen",
+        "delfin",
+        "butterfly",
+        "freistil",
+        "schwimmstil",
+        "schwimmtechnik",
+        "tauchen",
+        "springen",
+        "planschen",
+        "pritscheln",
+        "wassertreten",
+        "aquaplaning",
+        "wassersport",
+        "fit",
+        "gesundheit",
+        "sport",
+        "bewegung",
+        "training",
+        "kondition",
+        "ausdauer",
+        "entspannt",
+        "relaxed",
+        "chill",
+        "gemütlich",
+        "ruhig",
+        "friedlich"
       ],
       "entry_interactions": [
         {
@@ -1201,7 +1974,7 @@
           "responses": [
             {
               "response_id": "pool_size_answer",
-              "text": "AquaMagica erstreckt sich über beeindruckende 25.000 Quadratmeter! 🏊‍♂️ Das entspricht etwa 3,5 Fußballfeldern voller Wasserspaß. Mit 6 verschiedenen Themenbereichen und über 2.000 Quadratmetern Wasserfläche ist für jeden etwas dabei. Möchten Sie mehr über unsere spektakulären Attraktionen erfahren?",
+              "text": "AquaMagica erstreckt sich über beeindruckende 25.000 Quadratmeter! 🏊‍♂️ Das entspricht etwa 3,5 Fußballfeldern voller Wasserspaß. Mit 6 verschiedenen Themenbereichen und über 2.000 Quadratmetern Wasserfläche ist für jeden etwas dabei.",
               "context_group_id": "pool_size_group"
             }
           ]
@@ -1212,7 +1985,7 @@
           "responses": [
             {
               "response_id": "capacity_answer",
-              "text": "Wir achten auf angenehme Besucherzahlen! 👥 Auch bei vollem Haus gibt es durch unsere 6 Bereiche immer ruhige Ecken. Tipp: Wochentags und unser Frühschwimmer-Tarif (Mo-Fr 09:00-12:00) sind besonders entspannt. Außerdem haben wir 300 kostenlose Parkplätze! Interessiert Sie unser günstiger Frühschwimmer-Tarif?",
+              "text": "Wir achten auf angenehme Besucherzahlen! 👥 Auch bei vollem Haus gibt es durch unsere 6 Bereiche immer ruhige Ecken. Tipp: Wochentags und unser Frühschwimmer-Tarif (Mo-Fr 09:00-12:00) sind besonders entspannt. Außerdem haben wir 300 kostenlose Parkplätze!",
               "context_group_id": "capacity_group"
             }
           ]
@@ -1223,7 +1996,7 @@
           "responses": [
             {
               "response_id": "cleanliness_answer",
-              "text": "Sauberkeit ist bei uns oberste Priorität! ✨ Modernste Filteranlagen, kontinuierliche Wasserüberwachung nach DIN-Normen und regelmäßige Reinigung aller Bereiche. Unser Team sorgt rund um die Uhr für perfekte Hygiene. Sie können sich voll auf den Wasserspaß konzentrieren! Möchten Sie mehr über unsere Wasserqualität erfahren?",
+              "text": "Sauberkeit ist bei uns oberste Priorität! ✨ Modernste Filteranlagen, kontinuierliche Wasserüberwachung nach DIN-Normen und regelmäßige Reinigung aller Bereiche. Unser Team sorgt rund um die Uhr für perfekte Hygiene. Sie können sich voll auf den Wasserspaß konzentrieren!",
               "context_group_id": "cleanliness_group"
             }
           ]
@@ -1240,7 +2013,7 @@
           "responses": [
             {
               "response_id": "staff_answer",
-              "text": "Unser 85-köpfiges Team sorgt für Ihre Sicherheit und Ihr Wohlbefinden! 🛡️ Geschulte Bademeister überwachen alle Bereiche, freundliches Service-Personal hilft gerne weiter. Bei Fragen oder Problemen sind wir sofort da. Sicherheit wird bei uns GROSS geschrieben! Soll ich Ihnen mehr über unsere Sicherheitsstandards erzählen?",
+              "text": "Unser 85-köpfiges Team sorgt für Ihre Sicherheit und Ihr Wohlbefinden! 🛡️ Geschulte Bademeister überwachen alle Bereiche, freundliches Service-Personal hilft gerne weiter. Bei Fragen oder Problemen sind wir sofort da. Sicherheit wird bei uns GROSS geschrieben!",
               "context_group_id": "staff_group"
             }
           ]
@@ -1251,7 +2024,7 @@
           "responses": [
             {
               "response_id": "first_visit_answer",
-              "text": "Ihr erster Besuch bei AquaMagica wird unvergesslich! 🌟 Mein Tipp: Starten Sie mit der Vulkan-Rutsche für den Adrenalinkick, entspannen Sie dann im Lazy River und genießen Sie unser Wellenbad. Für Familien ist die Kinderwelt Tropica Island ein Muss! Möchten Sie mehr über unsere Familienangebote oder günstigen Zeittarife erfahren?",
+              "text": "Ihr erster Besuch bei AquaMagica wird unvergesslich! 🌟 Mein Tipp: Starten Sie mit der Vulkan-Rutsche für den Adrenalinkick, entspannen Sie dann im Lazy River und genießen Sie unser Wellenbad. Für Familien ist die Kinderwelt Tropica Island ein Muss!",
               "context_group_id": "first_visit_group"
             }
           ]
@@ -1262,7 +2035,7 @@
           "responses": [
             {
               "response_id": "what_to_bring_answer",
-              "text": "Einfach Badesachen und gute Laune mitbringen! 🏊‍♂️ Handtücher können Sie bei uns leihen (4€), ebenso Bademäntel (7€). Unser digitales Armband-System ersetzt Geldbörse und Schlüssel. Shampoo und Duschgel gibt es in den Duschen. So können Sie ganz entspannt anreisen! Interessiert Sie unser praktisches Armband-System?",
+              "text": "Einfach Badesachen und gute Laune mitbringen! 🏊‍♂️ Handtücher können Sie bei uns leihen (4€), ebenso Bademäntel (7€). Unser digitales Armband-System ersetzt Geldbörse und Schlüssel. Shampoo und Duschgel gibt es in den Duschen. So können Sie ganz entspannt anreisen!",
               "context_group_id": "what_to_bring_group"
             }
           ]
@@ -1279,7 +2052,83 @@
         "nachhaltig",
         "umwelt",
         "mitarbeiter",
-        "philosophie"
+        "philosophie",
+        "about",
+        "info",
+        "information",
+        "firma",
+        "betrieb",
+        "company",
+        "corporation",
+        "business",
+        "inhaber",
+        "eigentümer",
+        "besitzer",
+        "geschäftsführung",
+        "management",
+        "leitung",
+        "chef",
+        "boss",
+        "entstehung",
+        "gründung",
+        "eröffnung",
+        "opening",
+        "start",
+        "beginn",
+        "anfang",
+        "entwicklung",
+        "werdegang",
+        "vergangenheit",
+        "zukunft",
+        "vision",
+        "mission",
+        "werte",
+        "prinzipien",
+        "leitbild",
+        "konzept",
+        "idee",
+        "sustainability",
+        "sustainable",
+        "öko",
+        "eco",
+        "green",
+        "grün",
+        "bio",
+        "umweltfreundlich",
+        "umweltschonend",
+        "klimaneutral",
+        "co2-neutral",
+        "klimaschutz",
+        "energieeffizient",
+        "energiesparend",
+        "erneuerbar",
+        "regenerativ",
+        "solar",
+        "solarenergie",
+        "photovoltaik",
+        "sonnenstrom",
+        "ökostrom",
+        "wärmerückgewinnung",
+        "recycling",
+        "wiederverwertung",
+        "ressourcen",
+        "sparen",
+        "effizienz",
+        "natur",
+        "naturschutz",
+        "umweltschutz",
+        "personal",
+        "team",
+        "belegschaft",
+        "staff",
+        "crew",
+        "angestellte",
+        "beschäftigte",
+        "arbeitsplätze",
+        "jobs",
+        "karriere",
+        "arbeiten",
+        "job"
       ],
       "entry_interactions": [
         {
@@ -1301,235 +2150,6 @@
               "response_id": "sustainability_details",
               "text": "Nachhaltigkeit ist uns wichtig! 🌱 AquaMagica wird CO₂-neutral betrieben durch Solarstrom von unseren Dächern, effiziente Wärmerückgewinnungssysteme und regionales Wasseraufbereitungskonzept. Verantwortung für die Umwelt! ♻️",
               "context_group_id": "sustainability_group"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "topic_id": "positive_responses",
-      "name": "Positive Antworten auf Vorschläge",
-      "keywords": ["ja", "yes", "gerne", "okay", "ok", "klar", "natürlich", "sicher", "genau"],
-      "entry_interactions": [],
-      "contextual_interactions": [
-        {
-          "interaction_id": "yes_to_attractions_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_attractions_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "attractions_after_yes",
-              "text": "Perfekt! 🌋 Die Vulkan-Rutsche 'Inferno' ist unser Highlight! Deutschlands einzige 4-fach-Tunnelrutsche mit spektakulären Lichteffekten und simulierten Hitzeimpulsen. Rausche mit bis zu 45 km/h durch vier verschlungene Röhren - purer Nervenkitzel! Wir haben auch ein gigantisches Wellenbad und viele weitere Attraktionen. Was interessiert Sie am meisten?",
-              "context_group_id": "volcano_slide_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_pricing_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_pricing_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_after_yes",
-              "text": "Gerne! 💰 Unser Frühschwimmer-Tarif Mo-Fr 09:00-12:00 Uhr kostet nur 10,90€ (3 Stunden) - ein echtes Schnäppchen! Reguläre Tageskarten: Erwachsene Mo-Fr 19,90€, Wochenende 23,90€. Familienkarte (2 Erw.+2 Ki.) Mo-Fr 54,90€. Alle Attraktionen inklusive! Welche Preise interessieren Sie konkret?",
-              "context_group_id": "time_rates_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_gastronomy_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_gastronomy_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "gastronomy_after_yes",
-              "text": "Das AquaBistro ist toll! 🍽️ Mediterrane und vegane Küche mit direktem Blick aufs Wellenbad 'Atlantica'. Unsere Spezialität: Die erfrischende Wassermelonen-Basilikum-Bowl! Für Kinder gibt es die Piraten-Kantine mit Mini-Burgern und Goldmünzen-Keksen. Bezahlung ganz einfach mit dem digitalen Armband!",
-              "context_group_id": "aquabistro_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_sauna_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_sauna_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "sauna_after_yes",
-              "text": "Die Saunawelt 'Elemente' ist fantastisch! 🧖‍♀️ 4 Themensaunen: Feuer-, Wasser-, Luft- und Erde-Sauna mit speziellen Aufgüssen und ätherischen Ölen. Nur +8€ zum Erlebnisbad-Ticket, Bademantel & Saunatuch inklusive! Perfekt nach dem Wasserspaß zum Entspannen. Möchten Sie mehr über die einzelnen Saunen erfahren?",
-              "context_group_id": "sauna_pricing_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_events_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_events_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "events_after_yes",
-              "text": "Unser Nachtschwimmen ist magisch! ✨ Jeden Freitag 20:00-24:00 Uhr verwandelt sich AquaMagica in ein faszinierendes Lichtermeer mit Unterwasser-Lasern und Live-DJ-Musik. Das ganze Bad wird illuminiert! Außerdem haben wir Aqua-Yoga jeden Sonntag 9:30-10:15 Uhr. Welches Event interessiert Sie?",
-              "context_group_id": "night_swimming_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_kinderwelt_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_kids_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "kinderwelt_after_yes",
-              "text": "Die Kinderwelt 'Tropica Island' ist ein Paradies! 🏴‍☠️ Großes Piratenschiff zum Klettern, Mini-Rutschen, interaktive Wasserspiele und sprechende Tierfiguren. Sichere, flache Wasserbereiche (0,3-0,8m) perfekt für alle Altersgruppen. Kleinkinder unter 4 Jahren haben sogar freien Eintritt! Ihre Kinder werden begeistert sein!",
-              "context_group_id": "kids_area_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_parking_suggestion",
-          "trigger_if_previous_group_ids_in_history": ["fallback_parking_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "parking_after_yes",
-              "text": "Super! 🚗 Wir haben über 300 kostenlose Parkplätze direkt am AquaMagica - auch Behinderten- und Familienparkplätze! E-Ladestationen für Elektroautos sind auch da. Anfahrt: A5 → B31 → Ausfahrt Bäderstraße. Mit der Tram: Linie 5 bis 'Bäderstraße' (5 Min. Fußweg). Adresse: Bäderstraße 12, Freiburg. Einfach zu finden!",
-              "context_group_id": "parking_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_gastronomie_from_beer",
-          "trigger_if_previous_group_ids_in_history": ["fun_beer_group"],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau"
-          ],
-          "responses": [
-            {
-              "response_id": "gastronomie_after_beer_yes",
-              "text": "Perfekt! 🍽️ Unsere Gastronomie bietet drei tolle Bereiche: Das AquaBistro mit mediterraner & veganer Küche (direkt am Wellenbad!), die Piraten-Kantine für Kinder mit Mini-Burgern und die Sauna-Lounge 'AufgussBar' mit gesunden Smoothies und Tees. Alle Bereiche akzeptieren unser digitales Armband-System! Was interessiert Sie am meisten?",
-              "context_group_id": "gastronomy_overview_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "yes_to_general_follow_up",
-          "trigger_if_previous_group_ids_in_history": [
-            "gastronomy_overview_group",
-            "aquabistro_group",
-            "pirates_canteen_group",
-            "volcano_slide_group",
-            "wave_pool_group",
-            "kids_area_group",
-            "lazy_river_group",
-            "polar_lagoon_group",
-            "opening_hours_group",
-            "night_swimming_group",
-            "contact_info_group",
-            "directions_group",
-            "parking_group",
-            "pricing_overview_group",
-            "day_tickets_group",
-            "time_rates_group",
-            "sauna_pricing_group"
-          ],
-          "spotting_keywords": [
-            "ja",
-            "yes",
-            "gerne",
-            "okay",
-            "ok",
-            "klar",
-            "natürlich",
-            "sicher",
-            "genau",
-            "mehr",
-            "details",
-            "erzähl",
-            "erfahren",
-            "wissen"
-          ],
-          "responses": [
-            {
-              "response_id": "more_info_general",
-              "text": "Gerne erzähle ich Ihnen mehr! Was genau interessiert Sie am meisten? Ich kann Ihnen bei Preisen, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie, Events oder anderen Fragen zu AquaMagica helfen. Einfach fragen! 😊",
-              "context_group_id": "general_help_group"
             }
           ]
         }

@@ -71,7 +71,7 @@ export function AboutPage() {
       <section className="space-y-8">
         <h2 className="text-3xl font-bold text-center">Unsere Philosophie</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="h-full">
+          <Card className="h-full py-4">
             <CardHeader>
               <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
                 <span className="text-2xl">🌊</span>
@@ -87,7 +87,7 @@ export function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="h-full">
+          <Card className="h-full py-4">
             <CardHeader>
               <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
                 <span className="text-2xl">🌱</span>
@@ -103,7 +103,7 @@ export function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="h-full">
+          <Card className="h-full py-4">
             <CardHeader>
               <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-4">
                 <span className="text-2xl">👨‍👩‍👧‍👦</span>
@@ -118,7 +118,7 @@ export function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="h-full">
+          <Card className="h-full py-4">
             <CardHeader>
               <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900 flex items-center justify-center mb-4">
                 <span className="text-2xl">🚀</span>
@@ -139,7 +139,7 @@ export function AboutPage() {
       {/* Sustainability Details */}
       <section className="space-y-6">
         <h2 className="text-3xl font-bold text-center">CO₂-neutral betrieben</h2>
-        <Card>
+        <Card className="max-w-4xl mx-auto py-4">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <span className="text-2xl">♻️</span>
@@ -238,7 +238,7 @@ export function AboutPage() {
             alt="Besucher genießen magische Momente im AquaMagica Wassererlebnispark"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-white text-xl font-semibold">
               Ihre magische Auszeit wartet auf Sie!

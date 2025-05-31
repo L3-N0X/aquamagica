@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HighlightCard } from "@/components/highlight-card";
 import { EventCard } from "@/components/event-card";
 import { GastronomyCard } from "@/components/gastronomy-card";
-import { GalleryVertical, Ticket } from "lucide-react";
+import { GalleryVertical, Map, Ticket } from "lucide-react";
 
 export function HomePage() {
   return (
@@ -178,13 +178,21 @@ export function HomePage() {
           <h2 className="text-3xl font-bold mb-4">
             Bereit für ein unvergessliches Wassererlebnis?
           </h2>
-          <p className="text-lg mb-6">Buche jetzt deine Tickets online und spare Zeit und Geld!</p>
+          <p className="text-lg mb-6">
+            Schaue dir unsere Ticketpreise an und plane deinen Besuch im AquaMagica!
+          </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Button size="lg" asChild>
-              <Link to="/prices">Tickets buchen</Link>
+              <Link to="/prices">
+                <Ticket className="mr-2" />
+                Ticket-Preise
+              </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Kontakt & Anfahrt</Link>
+              <Link to="/contact">
+                <Map className="mr-2" />
+                Kontakt & Anfahrt
+              </Link>
             </Button>
           </div>
         </div>

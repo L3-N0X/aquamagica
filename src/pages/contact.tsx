@@ -56,12 +56,11 @@ export function ContactPage() {
             </AccordionItem>
 
             <AccordionItem value="item-3">
-              <AccordionTrigger>Muss ich Tickets vorab online reservieren?</AccordionTrigger>
+              <AccordionTrigger>Gibt es veganes Essen im AquaBistro?</AccordionTrigger>
               <AccordionContent>
-                Eine Online-Reservierung wird dringend empfohlen, besonders an Wochenenden,
-                Feiertagen und in den Ferienzeiten, um Wartezeiten zu vermeiden und sich den
-                Eintritt zu sichern. Zudem profitieren Sie von einem Online-Rabatt von 10% auf
-                Tageskarten.
+                Ja, unser AquaBistro bietet eine Vielzahl an veganen und vegetarischen Gerichten an,
+                darunter Salate, Suppen, Pasta und Snacks. Wir legen großen Wert auf frische,
+                regionale Zutaten. Unsere Speisekarte ist saisonal und wechselt regelmäßig.
               </AccordionContent>
             </AccordionItem>
 
