@@ -4,7 +4,7 @@ import type {
   ChatHistoryItem,
   InteractionResponse,
   Topic,
-} from "@/types/chat";
+} from "../types/chat";
 import { configManager } from "./config-manager";
 import type { DetectedKeyword } from "./keyword-detector";
 

@@ -1,4 +1,4 @@
-import type { ChatBotConfig, Topic } from "@/types/chat";
+import type { ChatBotConfig, Topic } from "../types/chat";
 
 /**
  * Represents a detected keyword with its context and confidence

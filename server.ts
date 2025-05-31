@@ -1,7 +1,7 @@
 import { serve, file } from "bun";
 import { join } from "path";
-import { chatApiService } from "./src/services/chat-api-service";
-import type { ChatApiRequest } from "./src/types/chat";
+import { chatApiService } from "./services/chat-api-service";
+import type { ChatApiRequest } from "./types/chat";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 const port = process.env.PORT || 3000;

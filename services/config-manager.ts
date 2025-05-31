@@ -4,8 +4,8 @@ import type {
   EntryInteraction,
   ContextualInteraction,
   InteractionResponse,
-} from "@/types/chat";
-import { loadChatBotConfig, getTopicById, getAllKeywords } from "@/utils/config-loader";
+} from "../types/chat";
+import { loadChatBotConfig, getTopicById, getAllKeywords } from "../utils/config-loader";
 import { KeywordDetector } from "./keyword-detector";
 
 /**

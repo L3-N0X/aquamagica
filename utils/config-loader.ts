@@ -1,5 +1,5 @@
 import { join } from "path";
-import type { ChatBotConfig } from "@/types/chat";
+import type { ChatBotConfig } from "../types/chat";
 
 /**
  * Load the chatbot configuration from chatbot-config.json

@@ -1,15 +1,41 @@
+# Node modules are handled separately
 node_modules
-Dockerfile*
-docker-compose*
-.dockerignore
+
+# Development files
 .git
 .gitignore
-README.md
-LICENSE
+*.md
+.env*
 .vscode
-Makefile
-helm-charts
-.env
-.editorconfig
 .idea
-coverage*
+
+# Build artifacts that will be generated
+dist
+
+# Development scripts
+run-prod.bat
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# IDE files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Test files
+*.test.*
+*.spec.*
+__tests__
+coverage
+
+# Documentation
+docs
+*.md
+!README.md
