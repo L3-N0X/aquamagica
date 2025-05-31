@@ -10,7 +10,7 @@ export function AttractionsPage() {
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-          AquaMagica Attraktionen
+          <span className="text-primary font-logo">AQUAMAGICA </span> Attraktionen
         </h1>
         <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
           Tauche ein in eine Welt voller Abenteuer und Entspannung! Im AquaMagica erwartet dich eine
@@ -22,7 +22,6 @@ export function AttractionsPage() {
       {/* Action & Thrill Section */}
       <section className="mb-16">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-3xl">🔥</span>
           <h2 className="text-3xl font-bold text-foreground">
             Für Action-Liebhaber & Nervenkitzel-Suchende
           </h2>
@@ -66,7 +65,6 @@ export function AttractionsPage() {
       {/* Family & Kids Section */}
       <section className="mb-16">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-3xl">👨‍👩‍👧‍👦</span>
           <h2 className="text-3xl font-bold text-foreground">Für Familien & Kleine Entdecker</h2>
         </div>
         <div className="space-y-8">
@@ -109,7 +107,6 @@ export function AttractionsPage() {
       {/* Relaxation Section */}
       <section className="mb-16">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-3xl">❄️</span>
           <h2 className="text-3xl font-bold text-foreground">
             Für Erholungssuchende & Einzigartige Momente
           </h2>
@@ -157,7 +154,6 @@ export function AttractionsPage() {
       {/* Special Events Section */}
       <section className="mb-16">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-3xl">✨</span>
           <h2 className="text-3xl font-bold text-foreground">Specials & Regelmäßige Events</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8">

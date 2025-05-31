@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Sparkle } from "lucide-react";
 
 interface AttractionCardProps {
   title: string;
@@ -83,7 +84,7 @@ export function AttractionCard({
               <ul className="space-y-1">
                 {specialFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="text-primary mt-1">✨</span>
+                    <Sparkle className="size-3.5 mt-1" />
                     <span>{feature}</span>
                   </li>
                 ))}

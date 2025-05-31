@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ChatProvider } from "@/contexts/chat-context";
 
 interface RootProvidersProps {
   children: React.ReactNode;
@@ -8,8 +9,10 @@ interface RootProvidersProps {
 export function RootProviders({ children }: RootProvidersProps) {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Toaster />
-      {children}
+      <ChatProvider>
+        <Toaster />
+        {children}
+      </ChatProvider>
     </ThemeProvider>
   );
 }

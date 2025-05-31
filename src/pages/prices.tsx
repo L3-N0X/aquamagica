@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -27,15 +26,23 @@ export function PricesPage() {
 
       <Tabs defaultValue="day-tickets" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="day-tickets">Tageskarten</TabsTrigger>
-          <TabsTrigger value="time-tickets">Zeittarife</TabsTrigger>
-          <TabsTrigger value="sauna">Sauna</TabsTrigger>
-          <TabsTrigger value="season-passes">Dauerkarten</TabsTrigger>
+          <TabsTrigger className="" value="day-tickets">
+            Tageskarten
+          </TabsTrigger>
+          <TabsTrigger className="" value="time-tickets">
+            Zeittarife
+          </TabsTrigger>
+          <TabsTrigger className="" value="sauna">
+            Sauna
+          </TabsTrigger>
+          <TabsTrigger className="" value="season-passes">
+            Dauerkarten
+          </TabsTrigger>
         </TabsList>
 
         {/* Day Tickets */}
         <TabsContent value="day-tickets" className="space-y-6">
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="h-6 w-6 text-muted-foreground" />
@@ -115,7 +122,7 @@ export function PricesPage() {
         {/* Time-based Tickets */}
         <TabsContent value="time-tickets" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
+            <Card className="py-4">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Clock className="h-6 w-6 text-muted-foreground" />
@@ -137,7 +144,7 @@ export function PricesPage() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="py-4">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Sparkles className="h-6 w-6 text-muted-foreground" />
@@ -160,7 +167,7 @@ export function PricesPage() {
 
         {/* Sauna */}
         <TabsContent value="sauna" className="space-y-6">
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">🧖‍♀️ Saunawelt „Elemente"</CardTitle>
               <CardDescription>
@@ -228,7 +235,7 @@ export function PricesPage() {
 
         {/* Season Passes */}
         <TabsContent value="season-passes" className="space-y-6">
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Crown className="h-6 w-6 text-muted-foreground" />
@@ -283,7 +290,7 @@ export function PricesPage() {
         <h2 className="text-3xl font-bold text-center mb-8">Weitere Angebote</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-2 border-muted">
+          <Card className="border-2 border-muted py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="h-6 w-6" />
@@ -301,7 +308,7 @@ export function PricesPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 border-muted">
+          <Card className="border-2 border-muted py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">🎂 Geburtstagskinder</CardTitle>
             </CardHeader>

@@ -7,27 +7,27 @@ import { GalleryVertical, Ticket } from "lucide-react";
 
 export function HomePage() {
   return (
-    <>
+    <div className="w-full space-y-8">
       {/* Hero Section */}
       <section className="mb-16">
-        <div className="relative h-[80vh] min-h-[700px] w-screen -ml-[50vw] left-1/2 mb-8 overflow-hidden">
+        <div className="relative h-[40vh] min-h-[200px] md:h-[80vh] md:min-h-[700px] w-full mb-8 overflow-hidden">
           <img
             src="/assets/tropical-islanderlebnisbad-big.jpg"
             alt="Ein beeindruckendes Bild des AquaMagica Erlebnisbads mit verschiedenen Wasserbereichen und Attraktionen"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20">
             <div className="absolute inset-0 flex items-center justify-center p-8 md:p-16">
               <div className="text-center max-w-7xl mx-auto">
-                <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight">
                   Willkommen im
                   <br />
-                  <span className="text-primary font-logo text-7xl md:text-9xl drop-shadow-2xl">
+                  <span className="text-primary font-logo text-5xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-9xl drop-shadow-2xl">
                     {" "}
                     AQUAMAGICA
                   </span>
                 </h1>
-                <p className="text-white text-2xl md:text-3xl max-w-4xl font-light tracking-wide drop-shadow-lg">
+                <p className="text-white text-xl md:text-3xl max-w-4xl font-light tracking-wide drop-shadow-lg">
                   Die spektakuläre Wasserwelt der Sinne
                 </p>
               </div>
@@ -41,7 +41,7 @@ export function HomePage() {
             unvergesslichen Abenteuer verschmelzen!
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-4 mb-8 justify-center">
             <Button size="lg" asChild>
               <Link to="/prices">
                 <Ticket className="mr-2" />
@@ -62,7 +62,7 @@ export function HomePage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">Unsere spektakulären Highlights</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
           <HighlightCard
             title="Magische Flussfahrt"
             description="Ein sanftes Abenteuer für die ganze Familie"
@@ -120,10 +120,10 @@ export function HomePage() {
       </section>
 
       {/* Specials & Events Section */}
-      <section className="mb-16 p-8 rounded-lg">
+      <section className="mb-16 rounded-lg">
         <h2 className="text-3xl font-bold mb-8 text-center">Specials & Events</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
           <EventCard
             title="Nachtschwimmen mit Lichtershow"
             description="Jeden Freitag von 20:00 – 24:00 Uhr"
@@ -148,7 +148,7 @@ export function HomePage() {
           Gastronomie – Für jeden Geschmack das Richtige
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
           <GastronomyCard
             title="AquaBistro"
             content='Genieße mediterrane und vegane Köstlichkeiten mit direktem Blick auf das Wellenbad "Atlantica". Unsere Spezialität: Die erfrischende Wassermelonen-Basilikum-Bowl.'
@@ -173,7 +173,7 @@ export function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="text-center mb-16">
+      <section className="text-center mb-16 px-4">
         <div className="max-w-3xl mx-auto bg-primary/10 p-8 rounded-lg">
           <h2 className="text-3xl font-bold mb-4">
             Bereit für ein unvergessliches Wassererlebnis?
@@ -189,6 +189,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

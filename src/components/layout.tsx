@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { ModeToggle } from "@/components/mode-toggle";
 import { MobileNav } from "@/components/mobile-nav";
+import { HelpChatOverlay } from "@/components/help-chat-overlay";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,9 +17,10 @@ export function Layout({ children }: LayoutProps) {
           <ModeToggle />
         </div>
       </header>
-      <main className="flex flex-col items-center justify-start min-h-[calc(100vh-80px)] space-y-8 px-4 md:px-6 lg:px-8">
+      <main className="flex flex-col items-center justify-start min-h-[calc(100vh-80px)]">
         {children}
       </main>
+      <HelpChatOverlay />
     </div>
   );
 }

@@ -47,7 +47,7 @@ export const routes: AppRoute[] = [
     title: "Kontakt & Hilfe",
     description: "Kontaktieren Sie uns für weitere Informationen",
     component: ContactPage,
-    showInNavbar: false,
+    showInNavbar: true,
   },
 ];
 
