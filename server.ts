@@ -1,5 +1,7 @@
 import { serve, file } from "bun";
 import { join } from "path";
+import { chatApiService } from "./src/services/chat-api-service";
+import type { ChatApiRequest } from "./src/types/chat";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 const port = process.env.PORT || 3000;
@@ -60,11 +62,45 @@ const server = serve({
           }
           break;
 
+        case "/api/chat":
+          if (method === "POST") {
+            try {
+              const body = (await req.json()) as ChatApiRequest;
+
+              // Convert timestamp strings to Date objects for chat history
+              const processedBody: ChatApiRequest = {
+                ...body,
+                chatHistory: body.chatHistory.map((item) => ({
+                  ...item,
+                  timestamp: new Date(item.timestamp),
+                })),
+              };
+
+              const result = await chatApiService.processMessage(processedBody);
+              response = Response.json(result);
+            } catch (error) {
+              console.error("Chat API error:", error);
+              response = Response.json(
+                {
+                  success: false,
+                  error: {
+                    code: "INVALID_REQUEST",
+                    message: "Invalid request body or format",
+                  },
+                },
+                { status: 400 }
+              );
+            }
+          } else {
+            response = new Response("Method not allowed", { status: 405 });
+          }
+          break;
+
         default:
           response = Response.json(
             {
               error: "API endpoint not found",
-              available_endpoints: ["/api/health", "/api/version"],
+              available_endpoints: ["/api/health", "/api/version", "/api/chat"],
             },
             { status: 404 }
           );
@@ -135,6 +171,7 @@ console.log(`🔧 Environment: ${isDevelopment ? "development" : "production"}`)
 console.log(`🔗 API endpoints:`);
 console.log(`   - GET /api/health`);
 console.log(`   - GET /api/version`);
+console.log(`   - POST /api/chat`);
 
 if (isDevelopment) {
   console.log(`📝 Note: Frontend is served by Vite dev server on http://localhost:5173`);
