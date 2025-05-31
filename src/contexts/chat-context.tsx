@@ -1,8 +1,45 @@
-import React, { createContext, useContext, useReducer, useCallback } from "react";
+import React, { createContext, useContext, useReducer, useCallback, useEffect } from "react";
 import type { ChatState, ChatContextType, ChatMessage } from "@/types/chat";
 import { getBotResponse, WELCOME_MESSAGE } from "@/services/chat-service";
 
-const initialState: ChatState = {
+const CHAT_STORAGE_KEY = "aquamagica-chat-state";
+
+const isLocalStorageAvailable = (): boolean => {
+  try {
+    return typeof window !== "undefined" && window.localStorage !== undefined;
+  } catch {
+    return false;
+  }
+};
+
+const getInitialState = (): ChatState => {
+  if (!isLocalStorageAvailable()) {
+    return getDefaultState();
+  }
+
+  try {
+    const savedState = localStorage.getItem(CHAT_STORAGE_KEY);
+    if (savedState) {
+      const parsed = JSON.parse(savedState);
+      // Convert timestamp strings back to Date objects
+      const messagesWithDates = parsed.messages.map((msg: ChatMessage & { timestamp: string }) => ({
+        ...msg,
+        timestamp: new Date(msg.timestamp),
+      }));
+      return {
+        ...parsed,
+        messages: messagesWithDates,
+        isTyping: false, // Always reset typing state on page load
+      };
+    }
+  } catch (error) {
+    console.warn("Failed to load chat state from localStorage:", error);
+  }
+
+  return getDefaultState();
+};
+
+const getDefaultState = (): ChatState => ({
   messages: [
     {
       id: "1",
@@ -14,7 +51,28 @@ const initialState: ChatState = {
   isOpen: false,
   isTyping: false,
   unreadCount: 0,
+});
+
+const saveStateToStorage = (state: ChatState): void => {
+  if (!isLocalStorageAvailable()) return;
+
+  try {
+    // Create a serializable version of the state (convert Date objects to strings)
+    const serializableState = {
+      ...state,
+      messages: state.messages.map((msg) => ({
+        ...msg,
+        timestamp: msg.timestamp.toISOString(),
+      })),
+      isTyping: false, // Don't persist typing state
+    };
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(serializableState));
+  } catch (error) {
+    console.warn("Failed to save chat state to localStorage:", error);
+  }
 };
+
+const initialState: ChatState = getInitialState();
 
 type ChatAction =
   | { type: "TOGGLE_CHAT" }
@@ -86,6 +144,11 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(chatReducer, initialState);
 
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    saveStateToStorage(state);
+  }, [state]);
+
   const toggleChat = useCallback(() => {
     dispatch({ type: "TOGGLE_CHAT" });
   }, []);
@@ -141,6 +204,14 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
 
   const clearMessages = useCallback(() => {
     dispatch({ type: "CLEAR_MESSAGES" });
+    // Also clear from localStorage
+    if (isLocalStorageAvailable()) {
+      try {
+        localStorage.removeItem(CHAT_STORAGE_KEY);
+      } catch (error) {
+        console.warn("Failed to clear chat state from localStorage:", error);
+      }
+    }
   }, []);
 
   const markAsRead = useCallback(() => {

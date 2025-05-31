@@ -114,7 +114,7 @@ export function ContactPage() {
         <h2 className="text-3xl font-bold mb-6">So erreichen Sie uns</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Card className="flex flex-col h-full">
+          <Card className="flex flex-col h-full py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-primary" />
@@ -134,7 +134,7 @@ export function ContactPage() {
             </CardContent>
           </Card>
 
-          <Card className="flex flex-col h-full">
+          <Card className="flex flex-col h-full py-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-primary" />
@@ -142,7 +142,7 @@ export function ContactPage() {
               </CardTitle>
               <CardDescription>Besuchen Sie uns</CardDescription>
             </CardHeader>
-            <CardContent className="flex-1">
+            <CardContent className="flex-1 pt-2">
               <address className="not-italic mb-4">
                 <p className="font-semibold">AquaMagica – Die Wasserwelt der Sinne</p>
                 <p>Bäderstraße 12</p>
@@ -166,7 +166,7 @@ export function ContactPage() {
         <Tabs defaultValue="car" className="">
           <TabsList className="mb-4">
             <TabsTrigger value="car" className="flex items-center">
-              <Car className="mr-2 h-4 w-4" /> Mit dem Auto
+              <Car className="mr-2 h-4 w-4" /> Auto
             </TabsTrigger>
             <TabsTrigger value="public" className="flex items-center">
               <Bus className="mr-2 h-4 w-4" /> ÖPNV

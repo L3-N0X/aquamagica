@@ -128,4 +128,36 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  * {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-muted-foreground) var(--color-muted);
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--color-muted);
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-muted-foreground);
+    border-radius: 10px;
+    border: 2px solid var(--color-muted);
+  }
+  /* Dark mode */
+  .dark * {
+    scrollbar-color: var(--color-muted-foreground) var(--color-muted);
+  }
+  .dark *::-webkit-scrollbar-track {
+    background: var(--color-muted);
+  }
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: var(--color-muted-foreground);
+    border: 2px solid var(--color-muted);
+  }
+}
+
+@layer components {
 }

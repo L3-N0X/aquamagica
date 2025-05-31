@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HelpCircle } from "lucide-react";
@@ -10,7 +9,7 @@ interface ChatButtonProps {
 
 export function ChatButton({ onClick, unreadCount = 0 }: ChatButtonProps) {
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
       <Button
         onClick={onClick}
         size="lg"

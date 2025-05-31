@@ -22,6 +22,12 @@ export function ChatInput({
     if (message.trim() && !disabled) {
       onSendMessage(message.trim());
       setMessage("");
+      // Refocus the input after sending the message
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      }, 0);
     }
   };
 
@@ -38,6 +44,13 @@ export function ChatInput({
       inputRef.current.focus();
     }
   }, []);
+
+  // Refocus input when it becomes enabled again (after typing stops)
+  useEffect(() => {
+    if (!disabled && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [disabled]);
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 p-4 border-t border-border">

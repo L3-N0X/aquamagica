@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { UserMessage } from "./user-message";
 import { BotMessage } from "./bot-message";
 import { TypingIndicator } from "./typing-indicator";
 import type { ChatMessage } from "@/types/chat";
+import { Bot } from "lucide-react";
 
 interface ChatMessagesProps {
   messages: ChatMessage[];
@@ -33,8 +34,8 @@ export function ChatMessages({ messages, isTyping }: ChatMessagesProps) {
   }
 
   return (
-    <ScrollArea className="flex-1 px-4 py-2">
-      <div className="space-y-1">
+    <div className="flex-1 overflow-y-auto py-4 px-3 scrollbar-thin scrollbar-thumb-border/50">
+      <div className="space-y-3">
         {messages.map((message) => {
           if (message.type === "user") {
             return <UserMessage key={message.id} message={message} />;
@@ -45,16 +46,20 @@ export function ChatMessages({ messages, isTyping }: ChatMessagesProps) {
         })}
 
         {isTyping && (
-          <div className="flex justify-start gap-2 mb-4">
-            <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
-              <span className="text-xs font-medium text-secondary-foreground">Bot</span>
+          <div className="flex justify-start gap-3 items-start">
+            <Avatar className="w-8 h-8 flex-shrink-0">
+              <AvatarFallback className="bg-accent text-accent-foreground">
+                <Bot className="w-4 h-4" />
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex items-center">
+              <TypingIndicator />
             </div>
-            <TypingIndicator />
           </div>
         )}
 
         <div ref={messagesEndRef} />
       </div>
-    </ScrollArea>
+    </div>
   );
 }

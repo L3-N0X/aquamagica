@@ -1,5 +1,3 @@
-import React from "react";
-
 export function TypingIndicator() {
   return (
     <div className="flex items-center space-x-1 p-3 bg-muted rounded-lg max-w-[60px]">
