@@ -973,7 +973,7 @@
         },
         {
           "interaction_id": "directions_info",
-          "spotting_keywords": ["anfahrt", "adresse", "wo", "finden", "navigation"],
+          "spotting_keywords": ["anfahrt", "adresse", "finden", "navigation"],
           "responses": [
             {
               "response_id": "directions_details",
@@ -984,7 +984,16 @@
         },
         {
           "interaction_id": "parking_info",
-          "spotting_keywords": ["parken", "parkplatz", "kostenlos", "auto"],
+          "spotting_keywords": [
+            "parken",
+            "parkplatz",
+            "kostenlos",
+            "auto",
+            "stellplatz",
+            "garage",
+            "parkhaus",
+            "parkplätze"
+          ],
           "responses": [
             {
               "response_id": "parking_details",
@@ -1120,7 +1129,7 @@
           "responses": [
             {
               "response_id": "beer_fun_answer",
-              "text": "Ha! 🍺 Bier gibt es bei uns nicht - dafür aber erfrischende Smoothies in der AufgussBar und leckere alkoholfreie Cocktails im AquaBistro! Nach dem Planschen schmeckt ein kühler Drink mindestens genauso gut.",
+              "text": "Ha! 🍺 Bier gibt es bei uns natürlich auch! Zudem gibt es eine große Auswahl an Cocktails, Weinen und alkoholfreien Getränken.",
               "context_group_id": "fun_beer_group"
             }
           ]
