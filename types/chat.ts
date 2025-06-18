@@ -39,3 +39,30 @@ export interface ChatApiResponse {
     details?: Record<string, unknown>;
   };
 }
+
+// Add new types for chatbot configuration and flows
+export interface BotConfig {
+  version: string;
+  defaultResponses: Record<string, string[]>;
+  simpleKeywords: Record<string, string | string[]>;
+  flows: Record<string, FlowDefinition>;
+}
+
+export interface FlowDefinition {
+  startKeywords: string[];
+  name: string;
+  states: Record<string, FlowStateConfig>;
+}
+
+export interface FlowStateConfig {
+  message: string;
+  expectedKeywords?: Record<string, string>;
+  fallback?: string;
+  isEnd?: boolean;
+}
+
+export interface FlowState {
+  flowId: string;
+  currentState: string;
+  startedAt: Date;
+}

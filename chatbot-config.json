@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "defaultResponses": {
+    "greeting": [
+      "Hallo! Wie kann ich dir bei AquaMagica helfen?",
+      "Hi! Schön, dass du da bist. Was möchtest du wissen?",
+      "Willkommen bei AquaMagica! Wie kann ich dir behilflich sein?",
+      "Hey! Lass mich dir bei deinen Fragen helfen."
+    ],
+    "unknown": [
+      "Entschuldigung, das habe ich nicht verstanden. Kannst du deine Frage anders formulieren?",
+      "Das verstehe ich leider nicht. Könntest du es nochmal versuchen?",
+      "Hmm, da bin ich überfragt. Kannst du mir das anders erklären?",
+      "Tut mir leid, damit kann ich dir nicht helfen. Probier es anders."
+    ],
+    "flowInterrupted": [
+      "Du befindest dich gerade in einem Gespräch. Beende dieses zuerst oder sage 'abbrechen'.",
+      "Wir sind noch mitten in einem Gespräch. Sag 'abbrechen' um neu zu starten.",
+      "Lass uns erst unser aktuelles Thema beenden. Sage 'abbrechen' zum Stoppen."
+    ],
+    "flowCancelled": [
+      "Gespräch beendet. Wie kann ich dir sonst helfen?",
+      "Ok, Gespräch abgebrochen. Was möchtest du sonst wissen?",
+      "Kein Problem! Womit kann ich dir stattdessen helfen?",
+      "Alles klar. Was gibt es denn sonst für Fragen?"
+    ]
+  },
+  "simpleKeywords": {
+    "hallo": ["greeting"],
+    "hi": ["greeting"],
+    "hilfe": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten und Einrichtungen helfen.",
+    "öffnungszeiten": "Wir haben täglich von 9:00 bis 22:00 Uhr geöffnet.",
+    "adresse": "AquaMagica, Musterstraße 123, 12345 Musterstadt",
+    "telefon": "Telefon: +49 123 456789",
+    "abbrechen": "flow_cancel",
+    "stopp": "flow_cancel",
+    "ende": "flow_cancel"
+  },
+  "flows": {
+    "empfehlen": {
+      "startKeywords": ["empfehlen", "empfehlung", "attraktion", "aktivität"],
+      "name": "Attraktions-Empfehlung",
+      "states": {
+        "start": {
+          "message": "Gerne helfe ich dir bei der Auswahl! Magst du eher ruhige oder aufregende Attraktionen?",
+          "expectedKeywords": {
+            "ruhig": "calm_activities",
+            "aufregend": "exciting_activities",
+            "entspannung": "calm_activities",
+            "entspannen": "calm_activities",
+            "action": "exciting_activities",
+            "abenteuer": "exciting_activities"
+          },
+          "fallback": "Bitte antworte mit 'ruhig' oder 'aufregend'."
+        },
+        "calm_activities": {
+          "message": "Perfekt! Bevorzugst du Wasser oder trockene Entspannung?",
+          "expectedKeywords": {
+            "wasser": "calm_water",
+            "trocken": "calm_dry",
+            "pool": "calm_water",
+            "schwimmen": "calm_water",
+            "sauna": "calm_dry",
+            "wellness": "calm_dry"
+          },
+          "fallback": "Bitte wähle 'Wasser' oder 'trocken'."
+        },
+        "exciting_activities": {
+          "message": "Super! Magst du hohe Rutschen oder lieber Wasserspiele?",
+          "expectedKeywords": {
+            "rutschen": "slides",
+            "wasserspiele": "water_games",
+            "hoch": "slides",
+            "rutsche": "slides",
+            "spiele": "water_games",
+            "kinder": "water_games"
+          },
+          "fallback": "Bitte wähle 'Rutschen' oder 'Wasserspiele'."
+        },
+        "calm_water": {
+          "message": "Ich empfehle dir das Strömungsbecken oder das warme Außenbecken. Beide sind perfekt zum Entspannen! 🏊‍♀️",
+          "isEnd": true
+        },
+        "calm_dry": {
+          "message": "Die Sauna-Lounge oder unser Aqua-Yoga sind ideal für dich! 🧘‍♀️",
+          "isEnd": true
+        },
+        "slides": {
+          "message": "Die große Halfpipe-Rutsche und die Krokodilrutsche werden dir gefallen! 🛝",
+          "isEnd": true
+        },
+        "water_games": {
+          "message": "Der Kinderbereich mit Kletterturm und Wasserfällen ist perfekt für Wasserspiele! 🌊",
+          "isEnd": true
+        }
+      }
+    },
+    "preise": {
+      "startKeywords": ["preis", "kosten", "tarif", "eintritt", "ticket"],
+      "name": "Preis-Information",
+      "states": {
+        "start": {
+          "message": "Für welche Preise interessierst du dich? Wochenende, Frühschwimmer oder reguläre Preise?",
+          "expectedKeywords": {
+            "wochenende": "weekend_prices",
+            "frühschwimmer": "early_prices",
+            "früh": "early_prices",
+            "morgen": "early_prices",
+            "regulär": "regular_prices",
+            "normal": "regular_prices",
+            "woche": "regular_prices"
+          },
+          "fallback": "Bitte wähle 'Wochenende', 'Frühschwimmer' oder 'regulär'."
+        },
+        "weekend_prices": {
+          "message": "🎫 **Wochenend-Tarife:**\n• Erwachsene: 16€\n• Kinder (4-14): 12€\n• Familienkarte: 45€\n\nGültig Sa-So und Feiertage.",
+          "isEnd": true
+        },
+        "early_prices": {
+          "message": "🌅 **Frühschwimmer-Tarife (6:00-9:00):**\n• Erwachsene: 8€\n• Kinder: 5€\n\nPerfekt für den ruhigen Start in den Tag!",
+          "isEnd": true
+        },
+        "regular_prices": {
+          "message": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 12€\n• Kinder (4-14): 8€\n• Familienkarte: 35€\n\nBeste Preise unter der Woche!",
+          "isEnd": true
+        }
+      }
+    }
+  }
+}
