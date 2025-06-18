@@ -1,4 +1,5 @@
 import { Phone, MapPin, Car, Bus, Bike } from "lucide-react";
+import { Link } from "react-router";
 import {
   Accordion,
   AccordionContent,
@@ -244,6 +245,17 @@ export function ContactPage() {
             <a href="tel:+4976123456">
               <Phone className="mr-2 h-4 w-4" /> +49 (0)761 / 123456
             </a>
+          </Button>
+        </div>
+      </section>
+
+      {/* Legal Information */}
+      <section className="text-center mb-16">
+        <Separator className="mb-6" />
+        <div className="text-sm text-muted-foreground">
+          <p className="mb-2">Rechtliche Informationen und weitere Details finden Sie in unserem</p>
+          <Button variant="link" asChild className="text-sm">
+            <Link to="/impressum">Impressum & rechtliche Hinweise</Link>
           </Button>
         </div>
       </section>

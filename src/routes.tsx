@@ -4,6 +4,7 @@ import { AboutPage } from "./pages/about.tsx";
 import { PricesPage } from "./pages/prices.tsx";
 import { ContactPage } from "./pages/contact.tsx";
 import { AttractionsPage } from "./pages/attractions.tsx";
+import { ImpressumPage } from "./pages/impressum.tsx";
 
 export interface AppRoute {
   path: string;
@@ -48,6 +49,13 @@ export const routes: AppRoute[] = [
     description: "Kontaktieren Sie uns für weitere Informationen",
     component: ContactPage,
     showInNavbar: true,
+  },
+  {
+    path: "/impressum",
+    title: "Impressum",
+    description: "Impressum und rechtliche Informationen",
+    component: ImpressumPage,
+    showInNavbar: false,
   },
 ];
 
