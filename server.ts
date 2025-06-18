@@ -66,17 +66,7 @@ const server = serve({
           if (method === "POST") {
             try {
               const body = (await req.json()) as ChatApiRequest;
-
-              // Convert timestamp strings to Date objects for chat history
-              const processedBody: ChatApiRequest = {
-                ...body,
-                chatHistory: body.chatHistory.map((item) => ({
-                  ...item,
-                  timestamp: new Date(item.timestamp),
-                })),
-              };
-
-              const result = await chatApiService.processMessage(processedBody);
+              const result = await chatApiService.processMessage(body.message, body.chatHistory);
               response = Response.json(result);
             } catch (error) {
               console.error("Chat API error:", error);
