@@ -198,6 +198,58 @@
     {
       "keywords": ["sicherheit", "bademeister", "aufsicht"],
       "response": "🏊‍♂️ **Sicherheit** steht bei uns an erster Stelle! Unsere erfahrenen Bademeister sorgen für deine Sicherheit und stehen bei Fragen zur Verfügung."
+    },
+    {
+      "keywords": ["größe", "fläche", "25000", "quadratmeter", "anlage"],
+      "response": "🏢 **AquaMagica Fakten:** Unsere moderne Wasserwelt erstreckt sich über beeindruckende **25.000 m²** im Innen- und Außenbereich - seit der Eröffnung 2019 ein Highlight am Tor zum Schwarzwald!"
+    },
+    {
+      "keywords": ["eröffnung", "2019", "geschichte", "entstehung"],
+      "response": "🎉 **Geschichte:** AquaMagica öffnete seine Pforten im Jahr **2019** mit der Vision, ein einzigartiges Wassererlebnis zu schaffen, das Besucher aller Generationen verzaubert!"
+    },
+    {
+      "keywords": ["elektroauto", "e-ladestationen", "laden", "elektro"],
+      "response": "⚡ **E-Mobilität:** Wir haben **E-Ladestationen** für Elektroautos direkt bei unseren kostenlosen Parkplätzen! Umweltfreundlich zu uns fahren und entspannt aufladen."
+    },
+    {
+      "keywords": ["behindertenparkplatz", "familienparkplatz", "behindertengerecht"],
+      "response": "🅿️ **Spezielle Parkplätze:** Wir haben ausgewiesene **Behindertenparkplätze** und **Familienparkplätze** direkt am Eingang für mehr Komfort!"
+    },
+    {
+      "keywords": ["umkleide", "dusche", "wc", "behindertengerecht"],
+      "response": "♿ **Barrierefreie Ausstattung:** Spezielle **barrierefreie Umkleiden, Duschen und WCs** stehen zur Verfügung. Unser Personal hilft gerne bei Fragen zur Zugänglichkeit!"
+    },
+    {
+      "keywords": ["partner", "kooperation", "schwarzwald tourismus"],
+      "response": "🤝 **Unsere Partner:** Wir arbeiten stolz mit **Schwarzwald Tourismus GmbH**, **GreenEnergy Solar Deutschland** und **Erlebnisland Baden** zusammen - für Qualität und regionale Verbundenheit!"
+    },
+    {
+      "keywords": ["feuer sauna", "finnische sauna", "90 grad"],
+      "response": "🔥 **Feuer-Sauna:** Klassische **finnische Sauna mit 90°C** für intensive Entschlackung und das authentische Saunaerlebnis mit natürlichen Aufgüssen!"
+    },
+    {
+      "keywords": ["wasser sauna", "dampfbad", "45 grad"],
+      "response": "💧 **Wasser-Sauna:** Wohltuendes **Dampfbad mit 45°C** und hoher Luftfeuchtigkeit - perfekt für Haut und Atemwege, besonders schonend!"
+    },
+    {
+      "keywords": ["luft sauna", "bio sauna", "60 grad", "farblicht"],
+      "response": "🌈 **Luft-Sauna:** Sanfte **Bio-Sauna mit 60°C** und heilsamer **Farblichttherapie** für Kreislauf und Entspannung - ideal für Sauna-Einsteiger!"
+    },
+    {
+      "keywords": ["erde sauna", "80 grad", "außenbereich", "rustikale"],
+      "response": "🌍 **Erde-Sauna:** Ursprüngliches Saunaerlebnis im **Außenbereich mit 80°C** und authentischen Erdaromen - rustikale Atmosphäre unter freiem Himmel!"
+    },
+    {
+      "keywords": ["wärmerückgewinnung", "wasseraufbereitung", "regional"],
+      "response": "🔄 **Nachhaltige Technik:** Wir nutzen effiziente **Wärmerückgewinnungssysteme** und ein **regionales Wasseraufbereitungskonzept**, das Ressourcen schont und die Umwelt schützt!"
+    },
+    {
+      "keywords": ["picknickbereich", "außenbereich", "saisonal"],
+      "response": "🧺 **Picknickbereiche:** Im **Außenbereich** gibt es ausgewiesene **Picknickbereiche** (saisonal geöffnet), wo eigene Snacks erlaubt sind. Für Babynahrung machen wir immer eine Ausnahme!"
+    },
+    {
+      "keywords": ["babynahrung", "baby", "kleinkind"],
+      "response": "👶 **Babynahrung:** Selbstverständlich ist das **Mitbringen von Babynahrung** überall erlaubt! Wir denken an die Bedürfnisse unserer kleinsten Gäste."
     }
   ],
   "flows": {
