@@ -31,10 +31,7 @@
     "hilfe": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten und Einrichtungen helfen.",
     "öffnungszeiten": "Wir haben täglich von 9:00 bis 22:00 Uhr geöffnet.",
     "adresse": "AquaMagica, Musterstraße 123, 12345 Musterstadt",
-    "telefon": "Telefon: +49 123 456789",
-    "abbrechen": "flow_cancel",
-    "stopp": "flow_cancel",
-    "ende": "flow_cancel"
+    "telefon": "Telefon: +49 123 456789"
   },
   "flows": {
     "empfehlen": {

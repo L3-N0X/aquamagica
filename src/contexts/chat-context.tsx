@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useReducer, useCallback, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 import type { ChatMessage, ChatState, ChatHistoryItem } from "@/types/chat";
 import { chatApiClient } from "@/services/chat-api-client";
 
@@ -13,6 +20,7 @@ interface ChatContextType {
 type ChatAction =
   | { type: "TOGGLE_CHAT" }
   | { type: "ADD_MESSAGE"; payload: ChatMessage }
+  | { type: "ADD_BOT_MESSAGE"; payload: { message: ChatMessage; shouldIncrementUnread: boolean } }
   | { type: "SET_TYPING"; payload: boolean }
   | { type: "MARK_AS_READ" }
   | { type: "CLEAR_MESSAGES" }
@@ -38,6 +46,16 @@ function chatReducer(state: ChatState, action: ChatAction): ChatState {
       return {
         ...state,
         messages: [...state.messages, action.payload],
+      };
+
+    case "ADD_BOT_MESSAGE":
+      return {
+        ...state,
+        messages: [...state.messages, action.payload.message],
+        isTyping: false,
+        unreadCount: action.payload.shouldIncrementUnread
+          ? state.unreadCount + 1
+          : state.unreadCount,
       };
 
     case "SET_TYPING":
@@ -74,6 +92,13 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(chatReducer, initialState);
+  const welcomeMessageAddedRef = useRef(false);
+  const stateRef = useRef(state);
+
+  // Keep state ref updated
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   // Convert chat messages to history format for backend
   const formatChatHistory = useCallback((messages: ChatMessage[]): ChatHistoryItem[] => {
@@ -103,13 +128,14 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       dispatch({ type: "SET_TYPING", payload: true });
 
       try {
+        // Get current messages for chat history
+        const currentMessages = stateRef.current.messages;
+
         // Prepare chat history for backend (including the new user message)
-        const chatHistory = formatChatHistory([...state.messages, userMessage]);
+        const chatHistory = formatChatHistory([...currentMessages, userMessage]);
 
         // Send to backend
         const response = await chatApiClient.sendMessage(message.trim(), chatHistory);
-
-        dispatch({ type: "SET_TYPING", payload: false });
 
         if (response.success && response.response) {
           // Add bot response
@@ -123,19 +149,25 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           // Add delay if specified
           if (response.response.delay && response.response.delay > 0) {
             setTimeout(() => {
-              dispatch({ type: "ADD_MESSAGE", payload: botMessage });
-              if (!state.isOpen) {
-                dispatch({ type: "INCREMENT_UNREAD" });
-              }
+              dispatch({
+                type: "ADD_BOT_MESSAGE",
+                payload: {
+                  message: botMessage,
+                  shouldIncrementUnread: !stateRef.current.isOpen,
+                },
+              });
             }, response.response.delay);
           } else {
-            dispatch({ type: "ADD_MESSAGE", payload: botMessage });
-            if (!state.isOpen) {
-              dispatch({ type: "INCREMENT_UNREAD" });
-            }
+            dispatch({
+              type: "ADD_BOT_MESSAGE",
+              payload: {
+                message: botMessage,
+                shouldIncrementUnread: !stateRef.current.isOpen,
+              },
+            });
           }
         } else {
-          // Handle error
+          // Handle error - stop typing and add error message
           const errorMessage: ChatMessage = {
             id: crypto.randomUUID(),
             content:
@@ -144,13 +176,15 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
             timestamp: new Date(),
           };
 
-          dispatch({ type: "ADD_MESSAGE", payload: errorMessage });
-          if (!state.isOpen) {
-            dispatch({ type: "INCREMENT_UNREAD" });
-          }
+          dispatch({
+            type: "ADD_BOT_MESSAGE",
+            payload: {
+              message: errorMessage,
+              shouldIncrementUnread: !stateRef.current.isOpen,
+            },
+          });
         }
       } catch (error) {
-        dispatch({ type: "SET_TYPING", payload: false });
         console.error("Failed to send message:", error);
 
         const errorMessage: ChatMessage = {
@@ -161,13 +195,16 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           timestamp: new Date(),
         };
 
-        dispatch({ type: "ADD_MESSAGE", payload: errorMessage });
-        if (!state.isOpen) {
-          dispatch({ type: "INCREMENT_UNREAD" });
-        }
+        dispatch({
+          type: "ADD_BOT_MESSAGE",
+          payload: {
+            message: errorMessage,
+            shouldIncrementUnread: !stateRef.current.isOpen,
+          },
+        });
       }
     },
-    [state.messages, state.isOpen, formatChatHistory]
+    [formatChatHistory]
   );
 
   const toggleChat = useCallback(() => {
@@ -191,7 +228,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
 
   // Add welcome message on first load
   useEffect(() => {
-    if (state.messages.length === 0) {
+    if (state.messages.length === 0 && !welcomeMessageAddedRef.current) {
+      welcomeMessageAddedRef.current = true;
       const welcomeMessage: ChatMessage = {
         id: crypto.randomUUID(),
         content:

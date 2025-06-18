@@ -42,24 +42,23 @@ class WordSpottingBot {
 
       const userMessage = message.trim().toLowerCase();
 
-      // 1. Check for flow cancellation
-      if (this.isFlowCancellation(userMessage)) {
-        return this.handleFlowCancellation();
-      }
-
-      // 2. Check for active flow
+      // 1. Check for active flow first
       const currentFlow = this.extractCurrentFlow(chatHistory);
       if (currentFlow) {
+        // Check for flow cancellation only when we're actually in a flow
+        if (this.isFlowCancellation(userMessage)) {
+          return this.handleFlowCancellation();
+        }
         return await this.continueFlow(currentFlow, userMessage);
       }
 
-      // 3. Check for new flow triggers
+      // 2. Check for new flow triggers
       const newFlowId = this.detectNewFlow(userMessage);
       if (newFlowId) {
         return this.startFlow(newFlowId);
       }
 
-      // 4. Handle simple keywords
+      // 3. Handle simple keywords
       return this.handleSimpleKeywords(userMessage);
     } catch (error) {
       console.error("Error processing message:", error);
