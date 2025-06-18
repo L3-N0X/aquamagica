@@ -115,8 +115,60 @@
       "response": "♿ **Barrierefreiheit:** Gesamte Anlage rollstuhlgeeignet mit barrierefreien Umkleiden, Duschen und WCs. Spezielle Tarife für Menschen mit Behinderung."
     },
     {
+      "keywords": ["bier", "wein", "cocktails", "spaßgetränke", "alkohol", "getränke", "bar"],
+      "response": "🍺 Natürlich gibt es das bei uns! Bei unserer **AufgussBar** in der Saunawelt gibt es erfrischende Getränke und im **AquaBistro** findest du mediterrane Köstlichkeiten mit Blick aufs Wellenbad!"
+    },
+    {
+      "keywords": ["essen", "hunger", "snacks", "mittagessen"],
+      "response": "🍽️ Lecker! Wir haben das **AquaBistro** (mediterrane & vegane Küche), die **Piraten-Kantine** für Kinder und die **Sauna-Lounge AufgussBar** mit gesunden Smoothies und Snacks."
+    },
+    {
+      "keywords": ["mitbringen", "eigenes essen", "picknick"],
+      "response": "🥪 Eigene Speisen sind nur in den ausgewiesenen Picknickbereichen im Außenbereich erlaubt. Für Babynahrung machen wir natürlich eine Ausnahme!"
+    },
+    {
+      "keywords": ["geburtstag", "geburtstagskind", "party"],
+      "response": "🎂 **Geburtstagskinder** (bis 13 Jahre) haben am Tag ihres Geburtstags freien Eintritt ins Erlebnisbad! Einfach Ausweis mitbringen."
+    },
+    {
+      "keywords": ["gutschein", "geschenk", "verschenken"],
+      "response": "🎁 **Gutscheine** für magische Momente sind an unserer Kasse erhältlich - das perfekte Geschenk für Wasserratten!"
+    },
+    {
+      "keywords": ["gruppe", "gruppentarif", "rabatt"],
+      "response": "👥 **Gruppentarife:** Ab 15 Personen gibt es 15% Rabatt auf die regulären Tagespreise! Anmeldung erforderlich."
+    },
+    {
+      "keywords": ["dauerkarte", "jahreskarte", "jahresabo"],
+      "response": "💳 **Dauerkarten** (12 Monate gültig): Einzelkarte Erwachsene 299€, mit Sauna 399€. Familienkarte (2 Erw. + bis zu 3 Ki.) 649€, mit Sauna 849€."
+    },
+    {
+      "keywords": ["roboter", "frosti", "eisbär"],
+      "response": "🐻‍❄️ Unser knuffiger **Eisbären-Roboter 'Frosti'** in der Polar-Lagune bewegt sich und brummt! Ein echtes Highlight für Groß und Klein!"
+    },
+    {
+      "keywords": ["nachhaltigkeit", "umwelt", "grün", "solar"],
+      "response": "🌱 **Nachhaltigkeit** ist uns wichtig! AquaMagica wird CO₂-neutral betrieben durch Solarstrom, Wärmerückgewinnung und regionale Wasseraufbereitung."
+    },
+    {
+      "keywords": ["team", "mitarbeiter", "jobs", "arbeiten"],
+      "response": "👨‍💼 Unser **Team** besteht aus 85 engagierten Mitarbeiterinnen und Mitarbeitern - von Bademeistern bis zum Technikteam, alle sorgen für deine Sicherheit und unvergessliche Momente!"
+    },
+    {
+      "keywords": ["schwarzwald", "freiburg", "region", "umgebung"],
+      "response": "🌲 AquaMagica liegt malerisch am **Tor zum Schwarzwald** in Freiburg im Breisgau - perfekt gelegen für einen Ausflug in die wunderschöne Region!"
+    },
+    {
+      "keywords": ["foto", "fotografieren", "bilder", "erinnerung"],
+      "response": "📸 Mit unserem **digitalen Armband** kannst du deine schönsten Fotomomente bei uns speichern! Das Armband dient auch als Schlüssel und Zahlungsmittel."
+    },
+    {
+      "keywords": ["temperatur", "wassertemperatur", "warm", "kalt"],
+      "response": "🌡️ Unsere **Wasserbereiche** haben angenehme Temperaturen: Die Polar-Lagune ist erfrischend kühl, während unsere anderen Becken wohlig warm sind!"
+    },
+    {
       "keywords": ["frühschwimmer", "früh", "frühschwimmen", "morgentarif"],
-      "response": "🌅 **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!"
+      "response": " **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!"
     },
     {
       "keywords": ["wochenende", "wochenendtarif", "samstag", "sonntag", "feiertag"],
@@ -142,9 +194,162 @@
     {
       "keywords": ["aufregend", "action", "abenteuer", "adrenalin"],
       "response": "🚀 Für Adrenalin-Junkies haben wir:\n• **Vulkan-Rutsche 'Inferno'** (bis 45 km/h!)\n• **Wellenbad 'Atlantica'** (3m hohe Wellen)\n• **Kinderwelt 'Tropica Island'** (Piratenschiff & Wasserspiele)"
+    },
+    {
+      "keywords": ["sicherheit", "bademeister", "aufsicht"],
+      "response": "🏊‍♂️ **Sicherheit** steht bei uns an erster Stelle! Unsere erfahrenen Bademeister sorgen für deine Sicherheit und stehen bei Fragen zur Verfügung."
     }
   ],
   "flows": {
+    "anfahrt": {
+      "startKeywords": [
+        "wie komme ich zu euch",
+        "wegbeschreibung",
+        "anreise",
+        "anfahrt detailliert",
+        "route"
+      ],
+      "name": "Anfahrt & Wegbeschreibung",
+      "states": {
+        "start": {
+          "message": "Gerne helfe ich dir bei der Anfahrt! Wie möchtest du zu uns kommen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["auto", "pkw", "fahren", "parken"],
+              "nextState": "by_car"
+            },
+            {
+              "keywords": ["öpnv", "öffentlich", "tram", "bus", "bahn"],
+              "nextState": "by_public_transport"
+            },
+            {
+              "keywords": ["fahrrad", "rad", "bike"],
+              "nextState": "by_bike"
+            }
+          ],
+          "fallback": "Bitte wähle 'Auto', 'öffentlich' oder 'Fahrrad'."
+        },
+        "by_car": {
+          "message": "🚗 **Anfahrt mit dem Auto:**\n• A5 Ausfahrt Freiburg-Mitte nehmen\n• Dann B31 Richtung Freiburg-Zentrum\n• Ausfahrt Bäderstraße\n\n🅿️ **Parkplätze:** Über 300 **kostenlose** Parkplätze direkt am AquaMagica, inklusive Behinderten- und Familienparkplätze. Es gibt auch E-Ladestationen für Elektroautos!",
+          "isEnd": true
+        },
+        "by_public_transport": {
+          "message": "🚋 **Anfahrt mit öffentlichen Verkehrsmitteln:**\n• **Tramlinie 5** bis Haltestelle 'Bäderstraße'\n• Von dort ca. **5 Minuten Fußweg** zum AquaMagica\n\nDie Tram fährt regelmäßig und bringt dich bequem direkt vor unsere Haustür!",
+          "isEnd": true
+        },
+        "by_bike": {
+          "message": "🚴‍♀️ **Anfahrt mit dem Fahrrad:**\nFahrradständer sind direkt am Eingang vorhanden. Freiburg ist sehr fahrradfreundlich - du findest gut ausgebaute Radwege bis zu uns!",
+          "isEnd": true
+        }
+      }
+    },
+    "ueberblick": {
+      "startKeywords": [
+        "überblick",
+        "übersicht",
+        "was gibt es",
+        "was habt ihr",
+        "informationen",
+        "alles zeigen"
+      ],
+      "name": "AquaMagica Überblick",
+      "states": {
+        "start": {
+          "message": "Perfekt! Ich führe dich gerne durch unser AquaMagica! Was interessiert dich am meisten? Die Rutschen, Attraktionen oder Preise? Oder möchtest du mehr über Gastronomie und Sonstiges erfahren?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "rutschen", "becken", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten", "tarife", "tickets"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen", "restaurants", "bars"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "infos", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Wähle: 'Attraktionen', 'Preise', 'Gastronomie' oder 'Praktisches'."
+        },
+        "attractions_overview": {
+          "message": "🌊 **Unsere Highlights:**\n• **Vulkan-Rutsche 'Inferno'** (bis 45 km/h!)\n• **Wellenbad 'Atlantica'** (3m hohe Wellen)\n• **Kinderwelt 'Tropica Island'** (Piratenschiff)\n• **Magische Flussfahrt** (300m Lazy-River)\n• **Polar-Lagune** (mit Roboter-Eisbär 'Frosti')\n• **Saunawelt 'Elemente'** (4 Themen-Saunen)\n\nWas möchtest du als nächstes erfahren?",
+          "expectedKeywords": [
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Preisen', 'Gastronomie' oder 'Praktisches'."
+        },
+        "prices_overview": {
+          "message": "💰 **Preise im Überblick:**\n• **Mo-Fr:** Erwachsene 19,90€, Kinder 12,90€\n• **Wochenende:** Erwachsene 23,90€, Kinder 15,90€\n• **Frühschwimmer (Mo-Fr 9-12h):** 10,90€\n• **Sauna-Zuschlag:** +8€\n• **Dauerkarten:** Ab 299€\n\nWas interessiert dich noch?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Attraktionen', 'Gastronomie' oder 'Praktisches'."
+        },
+        "gastronomy_overview": {
+          "message": "🍽️ **Gastronomie bei uns:**\n• **AquaBistro:** Mediterrane & vegane Küche (Blick aufs Wellenbad)\n• **Piraten-Kantine:** Speziell für Kinder (Mini-Burger, Slush)\n• **Sauna-Lounge 'AufgussBar':** Smoothies & gesunde Snacks\n\nSpezialität: Wassermelonen-Basilikum-Bowl!\n\nWorüber möchtest du noch mehr wissen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Attraktionen', 'Preisen' oder 'Praktisches'."
+        },
+        "practical_overview": {
+          "message": "🏊‍♀️ **Praktische Infos:**\n• **Öffnungszeiten:** Täglich 9-22 Uhr (Sauna 10-22 Uhr)\n• **Parkplätze:** 300+ kostenlose Plätze\n• **WLAN:** Kostenlos in Eingangs- & Gastrobereichen\n• **Verleih:** Handtücher (4€) & Bademäntel (7€)\n• **Barrierefrei:** Komplette Anlage rollstuhlgeeignet\n• **Digitales Armband:** Schlüssel, Bezahlung & Fotospeicher\n\nHast du noch andere Fragen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            }
+          ],
+          "fallback": "Du kannst noch nach 'Attraktionen', 'Preisen' oder 'Gastronomie' fragen, oder einfach eine neue Frage stellen!"
+        }
+      }
+    },
     "empfehlen": {
       "startKeywords": ["empfehlen", "empfehlung", "attraktion", "aktivität"],
       "name": "Attraktions-Empfehlung",
