@@ -62,11 +62,16 @@ export function ChatInput({
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
         disabled={disabled}
-        className="flex-1 h-10"
+        className="flex-1 h-14 text-lg lg:text-lg"
         maxLength={500}
       />
-      <Button type="submit" size="lg" disabled={disabled || !message.trim()} className="px-3">
-        <Send className="w-4 h-4" />
+      <Button
+        type="submit"
+        size="lg"
+        disabled={disabled || !message.trim()}
+        className="px-3 h-14 w-14"
+      >
+        <Send className="size-8" />
         <span className="sr-only">Nachricht senden</span>
       </Button>
     </form>

@@ -85,14 +85,24 @@ export class ChatApiService {
       const pageTopics = configManager.getPageContextTopics(request.currentPage);
 
       console.log(`📋 Recent context groups:`, Array.from(recentContextGroups.keys()));
+      console.log(`📋 Context group details:`, Array.from(recentContextGroups.entries()));
       console.log(`📄 Page context topics:`, pageTopics);
+      console.log(
+        `📚 Chat history context groups:`,
+        request.chatHistory.map((h) => ({
+          type: h.type,
+          contextGroupId: h.contextGroupId,
+          content: h.content.substring(0, 50) + "...",
+        }))
+      );
 
       // Step 4: Try Contextual Interactions (high priority)
       const contextualResponse = this.tryContextualInteractions(
         request.message,
         detectedKeywords,
         recentContextGroups,
-        pageTopics
+        pageTopics,
+        request.chatHistory
       );
 
       if (contextualResponse) {
@@ -159,8 +169,13 @@ export class ChatApiService {
    * Detect keywords in the message using our advanced keyword detector
    */
   private detectKeywords(message: string): DetectedKeyword[] {
-    const keywordDetector = configManager.getKeywordDetector();
-    return keywordDetector.detectKeywords(message);
+    try {
+      const keywordDetector = configManager.getKeywordDetector();
+      return keywordDetector.detectKeywords(message);
+    } catch (error) {
+      console.error("❌ Error detecting keywords:", error);
+      return []; // Return empty array on error
+    }
   }
 
   /**
@@ -196,7 +211,8 @@ export class ChatApiService {
     message: string,
     detectedKeywords: DetectedKeyword[],
     recentContextGroups: Map<string, number>,
-    pageTopics: string[]
+    pageTopics: string[],
+    chatHistory: ChatHistoryItem[]
   ): {
     content: string;
     interactionId: string;
@@ -216,9 +232,18 @@ export class ChatApiService {
 
       for (const interaction of topic.contextual_interactions) {
         // Check if any recent context group matches the trigger
-        const hasContextTrigger = interaction.trigger_if_previous_group_ids_in_history.some(
-          (groupId) => recentContextGroups.has(groupId)
+        const hasContextTrigger =
+          interaction.trigger_if_previous_group_ids_in_history?.some((groupId) =>
+            recentContextGroups.has(groupId)
+          ) ?? false;
+
+        console.log(`🔍 Checking contextual interaction: ${interaction.interaction_id}`);
+        console.log(
+          `🎯 Required context groups: ${
+            interaction.trigger_if_previous_group_ids_in_history?.join(", ") || "none"
+          }`
         );
+        console.log(`✅ Has context trigger: ${hasContextTrigger}`);
 
         if (hasContextTrigger) {
           // Check if current message matches spotting keywords
@@ -227,17 +252,29 @@ export class ChatApiService {
             interaction.spotting_keywords
           );
 
-          if (hasKeywordMatch) {
-            const response = this.selectResponse(interaction.responses, message);
-            const processedContent = this.replacePlaceholders(response.text, topic);
+          console.log(`🔑 Spotting keywords: ${interaction.spotting_keywords.join(", ")}`);
+          console.log(`✅ Keyword match: ${hasKeywordMatch}`);
 
-            return {
-              content: processedContent,
-              interactionId: interaction.interaction_id,
-              responseId: response.response_id,
-              contextGroupId: response.context_group_id,
-              suggestedFollowUps: response.suggested_follow_ups,
-            };
+          if (hasKeywordMatch) {
+            try {
+              const response = this.selectResponse(interaction.responses, message, chatHistory);
+              const processedContent = this.replacePlaceholders(response.text, topic);
+
+              return {
+                content: processedContent,
+                interactionId: interaction.interaction_id,
+                responseId: response.response_id,
+                contextGroupId: response.context_group_id,
+                suggestedFollowUps: response.suggested_follow_ups,
+              };
+            } catch (error) {
+              console.error(
+                `❌ Error processing contextual interaction ${interaction.interaction_id}:`,
+                error
+              );
+              // Continue to next interaction instead of failing completely
+              continue;
+            }
           }
         }
       }
@@ -350,9 +387,21 @@ export class ChatApiService {
   /**
    * Select the most appropriate response from an interaction's responses
    */
-  private selectResponse(responses: InteractionResponse[], message: string): InteractionResponse {
+  private selectResponse(
+    responses: InteractionResponse[],
+    message: string,
+    chatHistory?: ChatHistoryItem[]
+  ): InteractionResponse {
     if (responses.length === 1) {
       return responses[0];
+    }
+
+    // Special handling for attraction recommendation flow
+    if (responses[0].response_id.includes("attraction_recommendation_") && chatHistory) {
+      const selectedResponse = this.selectAttractionRecommendation(responses, chatHistory);
+      if (selectedResponse) {
+        return selectedResponse;
+      }
     }
 
     // Try to find a response with specific applies_to_keywords
@@ -373,6 +422,168 @@ export class ChatApiService {
     this.responseUsage.set(responseId, usageCount + 1);
 
     return responses[selectedIndex];
+  }
+
+  /**
+   * Select the most appropriate attraction recommendation based on chat history
+   */
+  private selectAttractionRecommendation(
+    responses: InteractionResponse[],
+    chatHistory: ChatHistoryItem[]
+  ): InteractionResponse | null {
+    try {
+      // Extract criteria from chat history
+      const criteria = this.extractAttractionCriteria(chatHistory);
+
+      console.log("🎯 Extracted attraction criteria:", criteria);
+
+      // Find the best matching response
+      for (const response of responses) {
+        if (
+          response.applies_to_keywords &&
+          this.criteriaMatchesKeywords(criteria, response.applies_to_keywords)
+        ) {
+          console.log(`✅ Selected specific recommendation: ${response.response_id}`);
+          return response;
+        }
+      }
+
+      // Fallback to first response if no specific match
+      console.log("⚠️ No specific criteria match found, using first response");
+      return responses[0];
+    } catch (error) {
+      console.error("❌ Error in selectAttractionRecommendation:", error);
+      // Safe fallback
+      return responses[0];
+    }
+  }
+
+  /**
+   * Extract attraction criteria from chat history
+   */
+  private extractAttractionCriteria(chatHistory: ChatHistoryItem[]): string[] {
+    const criteria: string[] = [];
+
+    try {
+      // Look through recent chat history for attraction flow context groups and user responses
+      for (let i = chatHistory.length - 1; i >= 0 && i >= chatHistory.length - 10; i--) {
+        const item = chatHistory[i];
+
+        if (item.type === "user" && item.content) {
+          const message = item.content.toLowerCase().trim();
+
+          // Check for activity type
+          if (
+            message.includes("entspannung") ||
+            message.includes("entspannend") ||
+            message.includes("relax")
+          ) {
+            criteria.push("entspannung");
+          }
+          if (
+            message.includes("action") ||
+            message.includes("abenteuer") ||
+            message.includes("aufregend")
+          ) {
+            criteria.push("action");
+          }
+
+          // Check for intensity
+          if (message.includes("sehr ruhig") || message.includes("ruhig")) {
+            criteria.push("ruhig");
+          }
+          if (message.includes("gemäßigt") || message.includes("entspannt")) {
+            criteria.push("gemäßigt");
+          }
+          if (message.includes("aufregend")) {
+            criteria.push("aufregend");
+          }
+          if (
+            message.includes("extrem") ||
+            message.includes("nervenkitzel") ||
+            message.includes("adrenali")
+          ) {
+            criteria.push("extrem");
+          }
+
+          // Check for group type
+          if (message.includes("allein") || message.includes("solo")) {
+            criteria.push("allein");
+          }
+          if (
+            message.includes("familie") ||
+            message.includes("family") ||
+            message.includes("partner")
+          ) {
+            criteria.push("familie");
+          }
+          if (
+            message.includes("gruppe") ||
+            message.includes("freunde") ||
+            message.includes("clique")
+          ) {
+            criteria.push("gruppe");
+          }
+
+          // Check for time preference
+          if (message.includes("schnell") || message.includes("kurz")) {
+            criteria.push("schnell");
+          }
+          if (
+            message.includes("ausgiebig") ||
+            message.includes("länger") ||
+            message.includes("lang")
+          ) {
+            criteria.push("ausgiebig");
+          }
+          if (message.includes("flexibel") || message.includes("egal")) {
+            criteria.push("flexibel");
+          }
+        }
+      }
+
+      console.log("🔍 Extracted criteria from chat history:", criteria);
+      return [...new Set(criteria)]; // Remove duplicates
+    } catch (error) {
+      console.error("❌ Error extracting attraction criteria:", error);
+      return [];
+    }
+  }
+
+  /**
+   * Check if extracted criteria match the response keywords
+   */
+  private criteriaMatchesKeywords(criteria: string[], keywords: string[]): boolean {
+    try {
+      if (!criteria || criteria.length === 0) {
+        console.log("⚠️ No criteria extracted, using fallback matching");
+        return false;
+      }
+
+      if (!keywords || keywords.length === 0) {
+        console.log("⚠️ No keywords to match against");
+        return true; // If no specific keywords required, match anything
+      }
+
+      const normalizedCriteria = criteria.map((c) => c.toLowerCase());
+      const normalizedKeywords = keywords.map((k) => k.toLowerCase());
+
+      console.log(
+        "🔍 Matching criteria:",
+        normalizedCriteria,
+        "against keywords:",
+        normalizedKeywords
+      );
+
+      // A response matches if all its required keywords are present in the criteria
+      const matches = normalizedKeywords.every((keyword) => normalizedCriteria.includes(keyword));
+
+      console.log("✅ Criteria match result:", matches);
+      return matches;
+    } catch (error) {
+      console.error("❌ Error in criteriaMatchesKeywords:", error);
+      return false;
+    }
   }
 
   /**

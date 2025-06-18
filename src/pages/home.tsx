@@ -136,7 +136,7 @@ export function HomePage() {
             title="Aqua-Yoga"
             description="Sonntags von 9:30 – 10:15 Uhr"
             content="Starte entspannt in den Sonntag! Wir bieten Aqua-Yoga-Kurse im Erlebnisbecken an. (Anmeldung empfohlen, kleine Zusatzgebühr)"
-            image="/assets/nichtschwimmer-bereich-im-hallenbad-des-aquaplex.jpg"
+            image="/assets/aqua-yoga.jpg"
             imageAlt="Aqua-Yoga im Erlebnisbecken"
           />
         </div>

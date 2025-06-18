@@ -237,11 +237,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           type: msg.type === "system" ? "bot" : msg.type,
           content: msg.content,
           timestamp: msg.timestamp,
-          // Add additional context if available (could be enhanced later)
-          ...(msg.type === "bot" && {
-            interactionId: `interaction_${msg.id}`,
-            contextGroupId: `context_${msg.id}`,
-          }),
+          // Preserve actual context from API responses for conversation flows
+          ...(msg.type === "bot" &&
+            msg.interactionId && {
+              interactionId: msg.interactionId,
+              responseId: msg.responseId,
+              contextGroupId: msg.contextGroupId,
+            }),
         }));
 
         // Add the current user message to history
@@ -273,6 +275,10 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
             content: apiResponse.data.content,
             type: "bot",
             timestamp: new Date(),
+            // Preserve contextual metadata for conversation flows
+            interactionId: apiResponse.data.interactionId,
+            responseId: apiResponse.data.responseId,
+            contextGroupId: apiResponse.data.contextGroupId,
           };
           dispatch({ type: "ADD_MESSAGE", payload: botMessage });
 

@@ -34,8 +34,44 @@
       "max_fallback_repetitions_before_escalation": 2,
       "messages": [
         {
-          "id": "fallback_general",
+          "id": "fallback_general_1",
           "text": "Diese Information finde ich leider nicht in meinen Daten. Ich kann Ihnen aber gerne bei Fragen zu unseren Attraktionen, Preisen, Öffnungszeiten oder der Anfahrt helfen!",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_2",
+          "text": "Das kann ich Ihnen leider nicht beantworten. Aber ich helfe gerne bei Fragen rund um AquaMagica - von Wasserspaß bis Wellnesswelt! 🌊",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_3",
+          "text": "Hmm, dazu habe ich keine passenden Informationen. Fragen Sie mich gerne nach unseren tollen Attraktionen, aktuellen Preisen oder praktischen Tipps! 💡",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_4",
+          "text": "Entschuldigung, aber diese Frage kann ich nicht beantworten. Ich kenne mich dafür umso besser mit unserem Erlebnisbad aus - probieren Sie es mal! 🏊‍♂️",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_5",
+          "text": "Da bin ich überfragt! Aber wenn es um AquaMagica geht - Vulkan-Rutsche, Wellenbad oder Preise - dann bin ich Ihr Experte! 🎢",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_6",
+          "text": "Das weiß ich leider nicht. Stellen Sie mir doch eine Frage zu unserem Wassererlebnis - da kenne ich mich bestens aus! ✨",
+          "type": "general",
+          "context_group_id": "fallback_general_group"
+        },
+        {
+          "id": "fallback_general_7",
+          "text": "Dazu kann ich Ihnen nichts sagen. Aber falls Sie Lust auf Wasserspaß haben - fragen Sie mich nach unseren Attraktionen! 🌊💫",
           "type": "general",
           "context_group_id": "fallback_general_group"
         },
@@ -46,8 +82,18 @@
           "relevant_topic_id_hint": ["pricing_info"]
         },
         {
-          "id": "fallback_escalate",
+          "id": "fallback_escalate_1",
           "text": "Es tut mir leid, dass ich Ihnen nicht weiterhelfen konnte. Für weitere Informationen kontaktieren Sie uns unter +49 (0)761 / 123456.",
+          "type": "escalation_offer"
+        },
+        {
+          "id": "fallback_escalate_2",
+          "text": "Leider kann ich Ihnen dabei nicht helfen. Unser freundliches Team erreichen Sie telefonisch unter +49 (0)761 / 123456 - die haben bestimmt eine Antwort für Sie! 📞",
+          "type": "escalation_offer"
+        },
+        {
+          "id": "fallback_escalate_3",
+          "text": "Hier stoße ich an meine Grenzen. Kontaktieren Sie doch direkt unser AquaMagica-Team unter +49 (0)761 / 123456 oder info@aquamagica.de! 😊",
           "type": "escalation_offer"
         }
       ]
@@ -93,6 +139,7 @@
           "interaction_id": "pricing_general_query",
           "spotting_keywords": [
             "preis",
+            "preise",
             "kosten",
             "tarif",
             "wieviel",
@@ -102,13 +149,45 @@
             "teuer",
             "günstig"
           ],
-          "requires_clarification_if_too_general": true,
+          "requires_clarification_if_too_general": false,
           "responses": [
             {
               "response_id": "price_overview_1",
-              "text": "Gerne informiere ich Sie über unsere Preise! Wir haben verschiedene Tarife: Tageskarten fürs Erlebnisbad, Zeittarife (Abend/Frühschwimmer), Saunazuschlag und Dauerkarten. Besonders empfehle ich unseren Frühschwimmer-Tarif für nur 10,90€ oder unsere tollen Familienangebote! Für welchen Bereich interessieren Sie sich?",
+              "text": "Gerne helfe ich Ihnen bei den Preisen! 💰 Was möchten Sie wissen?\n\n🎯 Optionen:\n• 'Preise anzeigen' - Aktuelle Preisübersicht\n• 'Preis berechnen' - Ihren persönlichen Preis ermitteln\n• 'Ermäßigungen' - Rabatte und Vergünstigungen\n• 'Zeittarife' - Frühschwimmer & Abendtarife\n\n💡 Tipp: Mit dem Preisrechner kann ich Ihren exakten Eintrittspreis berechnen!\n\nWas kann ich für Sie tun?",
               "context_group_id": "pricing_overview_group",
-              "suggested_follow_ups": ["pricing_day_tickets", "pricing_time_rates", "pricing_sauna"]
+              "suggested_follow_ups": [
+                "pricing_day_tickets",
+                "pricing_time_rates",
+                "pricing_sauna",
+                "pricing_calculator_flow"
+              ]
+            }
+          ]
+        },
+        {
+          "interaction_id": "pricing_show_prices",
+          "spotting_keywords": [
+            "preise anzeigen",
+            "preise zeigen",
+            "aktuelle preise",
+            "preisübersicht",
+            "übersicht preise",
+            "alle preise",
+            "preisliste",
+            "tarife anzeigen",
+            "kosten anzeigen"
+          ],
+          "requires_clarification_if_too_general": false,
+          "responses": [
+            {
+              "response_id": "prices_display_complete",
+              "text": "📋 Unsere aktuellen Preise im Überblick:\n\n🎫 **Tageskarten Erlebnisbad:**\n• Erwachsene: Mo-Fr 19,90€ | Sa-So 23,90€\n• Kinder (4-13J): Mo-Fr 12,90€ | Sa-So 15,90€\n• Familie (2 Erw.+2 Ki.): Mo-Fr 54,90€ | Sa-So 64,90€\n• Senioren 65+: Mo-Fr 16,90€ | Sa-So 19,90€\n• Studenten: Mo-Fr 16,90€ | Sa-So 19,90€\n• Kleinkinder unter 4J: **KOSTENLOS** 🎉\n\n⏰ **Zeittarife:**\n• Frühschwimmer Mo-Fr (09:00-12:00): 10,90€\n• Abendtarif täglich (ab 18:00): Erw. 12,90€ | Ki. 8,90€\n\n🧖‍♀️ **Sauna-Zuschlag:** +8,00€ pro Person\n\n💡 Tipp: Mit dem Preisrechner kann ich Ihren exakten Preis berechnen!",
+              "context_group_id": "pricing_display_group",
+              "suggested_follow_ups": [
+                "pricing_calculator_flow",
+                "pricing_time_rates",
+                "pricing_sauna"
+              ]
             }
           ]
         },
@@ -165,18 +244,40 @@
           ]
         },
         {
+          "interaction_id": "pricing_discounts",
+          "spotting_keywords": [
+            "ermäßigung",
+            "ermäßigungen",
+            "rabatt",
+            "vergünstigung",
+            "vergünstigungen",
+            "günstiger",
+            "reduziert",
+            "discount"
+          ],
+          "requires_clarification_if_too_general": false,
+          "responses": [
+            {
+              "response_id": "discounts_overview",
+              "text": "💰 Unsere Ermäßigungen und Rabatte:\n\n👴👵 **Senioren ab 65 Jahren:**\n• Mo-Fr: 16,90€ (statt 19,90€)\n• Sa-So: 19,90€ (statt 23,90€)\n\n🎓 **Studenten (mit Ausweis):**\n• Mo-Fr: 16,90€ (statt 19,90€) \n• Sa-So: 19,90€ (statt 23,90€)\n\n♿ **Menschen mit Behinderung (ab GdB 50):**\n• Mo-Fr: 14,90€ | Sa-So: 17,90€\n• Begleitpersonen mit Merkzeichen B: **KOSTENLOS**\n\n👥 **Gruppentarife (ab 15 Personen):**\n• 15% Rabatt auf reguläre Preise\n• Anmeldung erforderlich: +49 (0)761 / 123456\n\n🎂 **Geburtstagskinder bis 13 Jahre:**\n• **KOSTENLOSER** Eintritt am Geburtstag!\n\n💡 Weitere Sparmöglichkeiten: Frühschwimmer- & Abendtarife!",
+              "context_group_id": "discounts_overview_group",
+              "suggested_follow_ups": ["pricing_time_rates", "pricing_calculator_flow"]
+            }
+          ]
+        },
+        {
           "interaction_id": "pricing_group_discounts",
           "spotting_keywords": [
             "gruppentarife",
             "gruppenrabatt",
             "gruppe",
-            "ermäßigung",
-            "ermäßigungen"
+            "15 personen",
+            "gruppenermäßigung"
           ],
           "responses": [
             {
               "response_id": "group_discount_info",
-              "text": "Diese Frage kann ich leider nicht beantworten. Für weitere Informationen rufen Sie uns an: +49 (0)761 / 123456.",
+              "text": "👥 Gruppentarife ab 15 Personen!\n\n💰 **15% Rabatt** auf alle regulären Tageskartenpreise\n\n📞 **Anmeldung erforderlich:**\n+49 (0)761 / 123456 (Mo-Fr 09:00-17:00 Uhr)\n\n💡 **Beispiel-Ersparnis:**\n15 Personen Wochentag: 298,50€ → 253,73€\n**Sie sparen: 44,77€!**\n\n🎉 Perfekt für Vereine, Schulklassen, Betriebsausflüge oder große Familienfeiern!",
               "context_group_id": "group_discount_group"
             }
           ]
@@ -195,10 +296,143 @@
       ],
       "contextual_interactions": [
         {
+          "interaction_id": "pricing_overview_to_calculator",
+          "trigger_if_previous_group_ids_in_history": ["pricing_overview_group"],
+          "spotting_keywords": [
+            "preis berechnen",
+            "preisrechner",
+            "berechnen",
+            "persönlichen preis",
+            "mein preis",
+            "für uns",
+            "was kostet für",
+            "rechner"
+          ],
+          "responses": [
+            {
+              "response_id": "pricing_calculator_redirect",
+              "text": "💰 Perfekt! Gerne berechne ich Ihren persönlichen Eintrittspreis!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
+              "context_group_id": "pricing_flow_start_group",
+              "suggested_follow_ups": ["wochentag", "wochenende"]
+            }
+          ]
+        },
+        {
+          "interaction_id": "pricing_display_to_calculator",
+          "trigger_if_previous_group_ids_in_history": ["pricing_display_group"],
+          "spotting_keywords": [
+            "preis berechnen",
+            "preisrechner",
+            "berechnen",
+            "persönlichen preis",
+            "mein preis",
+            "für uns",
+            "was kostet für",
+            "rechner",
+            "exakten preis"
+          ],
+          "responses": [
+            {
+              "response_id": "pricing_calculator_from_display",
+              "text": "💰 Perfekt! Da Sie die Preise gesehen haben - lassen Sie uns Ihren exakten Preis berechnen!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
+              "context_group_id": "pricing_flow_start_group",
+              "suggested_follow_ups": ["wochentag", "wochenende"]
+            }
+          ]
+        },
+        {
+          "interaction_id": "pricing_discounts_to_calculator",
+          "trigger_if_previous_group_ids_in_history": ["discounts_overview_group"],
+          "spotting_keywords": [
+            "preis berechnen",
+            "preisrechner",
+            "berechnen",
+            "persönlichen preis",
+            "mein preis",
+            "für uns",
+            "was kostet für",
+            "rechner"
+          ],
+          "responses": [
+            {
+              "response_id": "pricing_calculator_from_discounts",
+              "text": "💰 Sehr gut! Mit den Ermäßigungen können Sie richtig sparen. Lassen Sie uns Ihren persönlichen Preis berechnen!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
+              "context_group_id": "pricing_flow_start_group",
+              "suggested_follow_ups": ["wochentag", "wochenende"]
+            }
+          ]
+        },
+        {
+          "interaction_id": "pricing_day_and_type_response",
+          "trigger_if_previous_group_ids_in_history": ["pricing_overview_group"],
+          "spotting_keywords": [
+            "wochentag",
+            "wochenende",
+            "montag",
+            "dienstag",
+            "mittwoch",
+            "donnerstag",
+            "freitag",
+            "samstag",
+            "sonntag",
+            "mo-fr",
+            "sa-so",
+            "tageskarten",
+            "familientickets",
+            "zeittarife",
+            "frühschwimmer",
+            "abendtarif",
+            "sauna"
+          ],
+          "responses": [
+            {
+              "response_id": "pricing_weekday_day_tickets",
+              "text": "Perfekt! Für Wochentage (Mo-Fr) haben wir diese Preise:\n\n🎫 Tageskarten Erlebnisbad:\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€ \n• Familie (2 Erw.+2 Ki.): 54,90€\n• Senioren 65+: 16,90€\n• Studenten: 16,90€\n• Kleinkinder unter 4J: KOSTENLOS 🎉\n\n✨ Alle Attraktionen inklusive: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River!\n\n💡 Spar-Tipp: Frühschwimmer-Tarif (09:00-12:00): nur 10,90€!",
+              "applies_to_keywords": [
+                "wochentag",
+                "tageskarten",
+                "mo-fr",
+                "montag",
+                "dienstag",
+                "mittwoch",
+                "donnerstag",
+                "freitag"
+              ],
+              "context_group_id": "pricing_detailed_weekday_group"
+            },
+            {
+              "response_id": "pricing_weekend_day_tickets",
+              "text": "Perfekt! Für Wochenenden (Sa-So) haben wir diese Preise:\n\n🎫 Tageskarten Erlebnisbad:\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw.+2 Ki.): 64,90€\n• Senioren 65+: 19,90€\n• Studenten: 19,90€\n• Kleinkinder unter 4J: KOSTENLOS 🎉\n\n✨ Alle Attraktionen inklusive: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River!\n\n💡 Spar-Tipp: Abendtarif ab 18:00 Uhr günstiger!",
+              "applies_to_keywords": ["wochenende", "tageskarten", "sa-so", "samstag", "sonntag"],
+              "context_group_id": "pricing_detailed_weekend_group"
+            },
+            {
+              "response_id": "pricing_time_tariffs_info",
+              "text": "Unsere Zeittarife - perfekt zum Sparen! ⏰\n\n🌅 Frühschwimmer-Tarif (Mo-Fr 09:00-12:00):\n• Nur 10,90€ für 3 Stunden Wasserspaß!\n• Alle Attraktionen nutzbar\n\n🌙 Abendtarif (täglich ab 18:00):\n• Erwachsene: 12,90€\n• Kinder: 8,90€\n• Bis zur Schließung um 22:00 Uhr\n\n💰 So sparen Sie bis zu 11€ pro Person!",
+              "applies_to_keywords": ["zeittarife", "frühschwimmer", "abendtarif"],
+              "context_group_id": "pricing_time_tariffs_group"
+            },
+            {
+              "response_id": "pricing_family_focus",
+              "text": "Familienpreise bei AquaMagica! 👨‍👩‍👧‍👦\n\nWochentags (Mo-Fr):\n• Familienkarte (2 Erw.+2 Ki.): 54,90€\n• Zusätzliches Kind: +12,90€\n\nWochenende (Sa-So):\n• Familienkarte (2 Erw.+2 Ki.): 64,90€  \n• Zusätzliches Kind: +15,90€\n\n🎂 Geburtstags-Special: Kinder bis 13J haben am Geburtstag freien Eintritt!\n\n👶 Kleinkinder unter 4 Jahren sind immer kostenlos!",
+              "applies_to_keywords": ["familientickets", "familie"],
+              "context_group_id": "pricing_family_focus_group"
+            },
+            {
+              "response_id": "pricing_sauna_addition",
+              "text": "Saunawelt 'Elemente' - Entspannung pur! 🧖‍♀️\n\nSauna-Zuschlag zum Erlebnisbad:\n• +8,00€ pro Person\n• Inklusive: Bademantel & Saunatuch\n\nReine Sauna-Tageskarte:\n• 24,90€ (ohne Erlebnisbad)\n\n🌿 4 Themensaunen: Feuer, Wasser, Luft und Erde\n♨️ Aufgüsse mit ätherischen Ölen\n\n💡 Tipp: Perfekt nach dem Wasserspaß zum Entspannen!",
+              "applies_to_keywords": ["sauna", "saunawelt"],
+              "context_group_id": "pricing_sauna_focus_group"
+            }
+          ]
+        },
+        {
           "interaction_id": "pricing_entrance_tickets_followup",
           "trigger_if_previous_group_ids_in_history": [
             "pricing_overview_group",
-            "day_tickets_group"
+            "day_tickets_group",
+            "pricing_detailed_weekday_group",
+            "pricing_detailed_weekend_group"
           ],
           "spotting_keywords": [
             "online",
@@ -207,12 +441,14 @@
             "discount",
             "günstiger",
             "tickets",
-            "kaufen"
+            "kaufen",
+            "wo kaufen",
+            "reservieren"
           ],
           "responses": [
             {
               "response_id": "entrance_tickets_details",
-              "text": "Alle Tickets erhalten Sie direkt an unserem Eingang! So vermeiden Sie lange Anfahrtswege für den Ticketkauf und können spontan entscheiden. Unsere Kasse ist täglich ab 9:00 Uhr geöffnet.",
+              "text": "🎫 Tickets kaufen: Alle Tickets erhalten Sie direkt an unserem Eingang! So vermeiden Sie lange Anfahrtswege für den Ticketkauf und können spontan entscheiden. Unsere Kasse ist täglich ab 9:00 Uhr geöffnet.\n\n📍 Adresse: Bäderstraße 12, 79100 Freiburg\n🅿️ 300 kostenlose Parkplätze direkt vor Ort!",
               "context_group_id": "entrance_tickets_group"
             }
           ]
@@ -1327,7 +1563,7 @@
           "responses": [
             {
               "response_id": "attraction_flow_start",
-              "text": "🎯 Perfekt! Ich helfe Ihnen gerne bei der Auswahl der idealen Attraktion! Mögen Sie eher entspannende Aktivitäten oder actionreiche Abenteuer? 🌊⚡\n\nAntworten Sie mit:\n• 'entspannung' für ruhige Erlebnisse\n• 'action' für aufregende Aktivitäten",
+              "text": "🎯 Perfekt! Ich helfe Ihnen gerne bei der Auswahl der idealen Attraktion! Mögen Sie eher entspannende Aktivitäten oder actionreiche Abenteuer? 🌊⚡Antworten Sie mit: 'Entspannung' für ruhige Erlebnisse 'Action' für aufregende Aktivitäten",
               "context_group_id": "attraction_flow_start_group",
               "suggested_follow_ups": ["entspannung", "action"]
             }
@@ -1342,7 +1578,7 @@
           "responses": [
             {
               "response_id": "attraction_intensity_relaxation",
-              "text": "🧘‍♀️ Entspannung ist eine ausgezeichnete Wahl! Wie entspannend soll es sein?\n\n• 'sehr ruhig' - für pure Entspannung\n• 'gemäßigt' - für sanfte Aktivität mit Entspannung\n\nWas gefällt Ihnen besser?",
+              "text": "🧘‍♀️ Entspannung ist eine ausgezeichnete Wahl! Wie entspannend soll es sein? 'sehr ruhig' - für pure Entspannung 'gemäßigt' - für sanfte Aktivität mit EntspannungWas gefällt Ihnen besser?",
               "context_group_id": "attraction_flow_step1_relaxation_group"
             }
           ]
@@ -1354,7 +1590,7 @@
           "responses": [
             {
               "response_id": "attraction_intensity_action",
-              "text": "🚀 Action - das ist großartig! Wie viel Nervenkitzel darf es sein?\n\n• 'aufregend' - für spannende Erlebnisse\n• 'extrem' - für maximalen Adrenalinstoß\n\nWas ist Ihr Level?",
+              "text": "🚀 Action - das ist großartig! Wie viel Nervenkitzel darf es sein? 'aufregend' - für spannende Erlebnisse 'extrem' - für maximalen AdrenalinstoßWas ist Ihr Level?",
               "context_group_id": "attraction_flow_step1_action_group"
             }
           ]
@@ -1365,9 +1601,16 @@
           "spotting_keywords": ["sehr ruhig", "ruhig", "gemäßigt", "entspannt"],
           "responses": [
             {
-              "response_id": "attraction_group_type_from_relaxation",
-              "text": "👥 Verstehe! Sind Sie heute allein unterwegs oder in Begleitung?\n\n• 'allein' - für eine persönliche Auszeit\n• 'familie' - mit Partner/Familie\n• 'gruppe' - mit Freunden\n\nWer ist heute dabei?",
-              "context_group_id": "attraction_flow_step2_relaxation_group"
+              "response_id": "attraction_group_type_from_relaxation_quiet",
+              "text": "👥 Verstehe! Sind Sie heute allein unterwegs oder in Begleitung? 'allein' - für eine persönliche Auszeit 'familie' - mit Partner/Familie 'gruppe' - mit FreundenWer ist heute dabei?",
+              "applies_to_keywords": ["sehr ruhig", "ruhig"],
+              "context_group_id": "attraction_flow_step2_relaxation_quiet_group"
+            },
+            {
+              "response_id": "attraction_group_type_from_relaxation_moderate",
+              "text": "👥 Verstehe! Sind Sie heute allein unterwegs oder in Begleitung? 'allein' - für eine persönliche Auszeit 'familie' - mit Partner/Familie 'gruppe' - mit FreundenWer ist heute dabei?",
+              "applies_to_keywords": ["gemäßigt", "entspannt"],
+              "context_group_id": "attraction_flow_step2_relaxation_moderate_group"
             }
           ]
         },
@@ -1377,23 +1620,32 @@
           "spotting_keywords": ["aufregend", "extrem", "nervenkitzel", "adrenali"],
           "responses": [
             {
-              "response_id": "attraction_group_type_from_action",
-              "text": "💪 Ausgezeichnet! Sind Sie allein oder mit anderen unterwegs?\n\n• 'allein' - für das persönliche Abenteuer\n• 'familie' - mit Familie/Partner\n• 'gruppe' - mit der Clique\n\nWer ist heute dabei?",
-              "context_group_id": "attraction_flow_step2_action_group"
+              "response_id": "attraction_group_type_from_action_exciting",
+              "text": "💪 Ausgezeichnet! Sind Sie allein oder mit anderen unterwegs? 'allein' - für das persönliche Abenteuer 'familie' - mit Familie/Partner 'gruppe' - mit der CliqueWer ist heute dabei?",
+              "applies_to_keywords": ["aufregend"],
+              "context_group_id": "attraction_flow_step2_action_exciting_group"
+            },
+            {
+              "response_id": "attraction_group_type_from_action_extreme",
+              "text": "💪 Ausgezeichnet! Sind Sie allein oder mit anderen unterwegs? 'allein' - für das persönliche Abenteuer 'familie' - mit Familie/Partner 'gruppe' - mit der CliqueWer ist heute dabei?",
+              "applies_to_keywords": ["extrem", "nervenkitzel", "adrenali"],
+              "context_group_id": "attraction_flow_step2_action_extreme_group"
             }
           ]
         },
         {
           "interaction_id": "attraction_flow_step4",
           "trigger_if_previous_group_ids_in_history": [
-            "attraction_flow_step2_relaxation_group",
-            "attraction_flow_step2_action_group"
+            "attraction_flow_step2_relaxation_quiet_group",
+            "attraction_flow_step2_relaxation_moderate_group",
+            "attraction_flow_step2_action_exciting_group",
+            "attraction_flow_step2_action_extreme_group"
           ],
           "spotting_keywords": ["allein", "familie", "gruppe", "freunde", "partner"],
           "responses": [
             {
               "response_id": "attraction_time_preference",
-              "text": "⏰ Fast geschafft! Eine letzte Frage: Haben Sie zeitliche Präferenzen?\n\n• 'schnell' - für kurze, intensive Erlebnisse\n• 'ausgiebig' - für längere Aktivitäten\n• 'flexibel' - Zeit spielt keine Rolle\n\nWie sieht es mit der Zeit aus?",
+              "text": "⏰ Fast geschafft! Eine letzte Frage: Haben Sie zeitliche Präferenzen? 'schnell' - für kurze, intensive Erlebnisse 'ausgiebig' - für längere Aktivitäten 'flexibel' - Zeit spielt keine RolleWie sieht es mit der Zeit aus?",
               "context_group_id": "attraction_flow_step3_group"
             }
           ]
@@ -1404,8 +1656,51 @@
           "spotting_keywords": ["schnell", "ausgiebig", "flexibel", "egal", "keine präferenz"],
           "responses": [
             {
-              "response_id": "attraction_recommendation_result",
-              "text": "🎯 **Meine Empfehlung basierend auf Ihren Wünschen:**\n\n✨ **Für Entspannung:** Magische Flussfahrt - 300m pure Entspannung mit Lichteffekten\n⚡ **Für Action:** Vulkan-Rutsche 'Inferno' - bis zu 45 km/h Geschwindigkeit\n👨‍👩‍👧‍👦 **Für Familien:** Tropica Island & Wellenbad - Spaß für alle Altersgruppen\n👥 **Für Gruppen:** Wellenbad + Vulkan-Rutsche - verschiedene Intensitäten\n\n🎢 Alle Attraktionen sind im Tagesticket inklusive! Möchten Sie mehr Details zu einer bestimmten Attraktion?",
+              "response_id": "attraction_recommendation_relaxation_quiet_family_extended",
+              "text": "🎯 Perfekte Empfehlung für entspannte Familienzeit: Die Magische Flussfahrt kombiniert mit Tropica Island! 🛟🏴‍☠️✨ Warum ideal für Sie: Magische Flussfahrt: 300m pure Entspannung mit beruhigenden Lichteffekten Tropica Island: Sichere Wasserspiele für die Kinder Beliebig lange genießbar - perfekt für ausgiebige Familienzeit Ruhige Atmosphäre für echte Erholung🌊 Eine entspannte Kombination, die Eltern und Kinder gleichermaßen begeistert! Möchten Sie mehr Details zu diesen Attraktionen?",
+              "applies_to_keywords": ["entspannung", "ruhig", "familie", "ausgiebig"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_relaxation_quiet_alone_flexible",
+              "text": "🎯 Perfekte Empfehlung für Ihre persönliche Auszeit: Die Magische Flussfahrt! 🛟✨ Warum ideal für Sie: 300m pure Entspannung mit faszinierenden Lichteffekten Beruhigende Klangwelten aus verschiedenen Kontinenten Perfekt für eine persönliche Auszeit vom Stress Flexibel in der Dauer - so lange Sie möchten🌊 Lassen Sie sich treiben und genießen Sie die Ruhe! Ein Erlebnis für alle Sinne.",
+              "applies_to_keywords": ["entspannung", "ruhig", "allein", "flexibel"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_action_extreme_group_quick",
+              "text": "🎯 Perfekte Empfehlung für Action-Gruppe: Die Vulkan-Rutsche 'Inferno'! 🌋⚡🚀 Warum ideal für Sie: Deutschlands einzige 4-fach-Tunnelrutsche Bis zu 45 km/h - maximaler Adrenalinstoß Perfekt für Mutproben in der Gruppe Schnelles, intensives Erlebnis💪 Wer traut sich als erstes? Unvergessliche Gruppenerlebnisse garantiert!",
+              "applies_to_keywords": ["action", "extrem", "gruppe", "schnell"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_action_exciting_family_extended",
+              "text": "🎯 Perfekte Empfehlung für actionreiche Familienzeit: Das Wellenbad 'Atlantica' kombiniert mit Tropica Island! 🌊🏴‍☠️⚡ Warum ideal für Sie: Wellenbad: Bis zu 3m hohe Wellen für spannende Action Tropica Island: Sicher für Kinder, aufregend für alle Stundenlanger Familienspaß mit verschiedenen Intensitäten Aufregende Erlebnisse für jedes Familienmitglied🎢 Die perfekte Mischung aus Spannung und Sicherheit für die ganze Familie!",
+              "applies_to_keywords": ["action", "aufregend", "familie", "ausgiebig"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_relaxation_moderate_group_flexible",
+              "text": "🎯 Perfekte Empfehlung für entspannte Gruppenzeit: Magische Flussfahrt plus Wellenbad 'Atlantica'! 🛟🌊✨ Warum ideal für Sie: Magische Flussfahrt: Entspannung für die Ruhesuchenden Wellenbad: Sanfte Action für Abwechslung Verschiedene Intensitäten für jeden Geschmack Flexible Nutzung - jeder nach seinem Tempo🎉 So findet jeder in der Gruppe sein perfektes Erlebnis!",
+              "applies_to_keywords": ["entspannung", "gemäßigt", "gruppe", "flexibel"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_action_extreme_alone_quick",
+              "text": "🎯 Perfekte Empfehlung für Solo-Adrenalin: Die Vulkan-Rutsche 'Inferno'! 🌋🚀⚡ Warum ideal für Sie: Maximaler Nervenkitzel bei bis zu 45 km/h Spektakuläre Lichteffekte und Hitzeimpulse Schnell und intensiv - purer Adrenalinstoß Deutschlands einzige Rutsche dieser Art🔥 Bereit für das ultimative Solo-Abenteuer? Der Kick Ihres Lebens wartet!",
+              "applies_to_keywords": ["action", "extrem", "allein", "schnell"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_relaxation_quiet_family_quick",
+              "text": "🎯 Perfekte Empfehlung für kurze Familienentspannung: Tropica Island! 🏴‍☠️✨ Warum ideal für Sie: Sichere, flache Wasserbereiche für alle Kinder Entspannt für Eltern, spannend für Kids Schnell erreichbar und sofort nutzbar Piratenschiff und interaktive Wasserspiele🌊 Kurz, aber unvergesslich - perfekt für eine entspannte Familienpause!",
+              "applies_to_keywords": ["entspannung", "ruhig", "familie", "schnell"],
+              "context_group_id": "attraction_flow_complete_group"
+            },
+            {
+              "response_id": "attraction_recommendation_action_exciting_alone_extended",
+              "text": "🎯 Perfekte Empfehlung für ausgiebige Solo-Action: Wellenbad 'Atlantica' plus Vulkan-Rutsche 'Inferno'! 🌊🌋⚡ Warum ideal für Sie: Wellenbad: Ausdauertraining in bis zu 3m hohen Wellen Vulkan-Rutsche: Adrenalinkicks zwischendurch Beliebig lange nutzbar für maximalen Spaß Abwechslung zwischen Kondition und Nervenkitzel🚀 Ihr persönliches Action-Programm für stundenlangen Spaß!",
+              "applies_to_keywords": ["action", "aufregend", "allein", "ausgiebig"],
               "context_group_id": "attraction_flow_complete_group"
             }
           ]
@@ -1416,8 +1711,10 @@
             "attraction_flow_start_group",
             "attraction_flow_step1_relaxation_group",
             "attraction_flow_step1_action_group",
-            "attraction_flow_step2_relaxation_group",
-            "attraction_flow_step2_action_group",
+            "attraction_flow_step2_relaxation_quiet_group",
+            "attraction_flow_step2_relaxation_moderate_group",
+            "attraction_flow_step2_action_exciting_group",
+            "attraction_flow_step2_action_extreme_group",
             "attraction_flow_step3_group"
           ],
           "spotting_keywords": [
@@ -1430,7 +1727,7 @@
           "responses": [
             {
               "response_id": "attraction_flow_help",
-              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen:\n\n• Sagen Sie 'neustart' um von vorne zu beginnen\n• Oder stellen Sie eine andere Frage\n• Ich bin hier um zu helfen!\n\nWas möchten Sie tun?",
+              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen: Sagen Sie 'neustart' um von vorne zu beginnen Oder stellen Sie eine andere Frage Ich bin hier um zu helfen!Was möchten Sie tun?",
               "context_group_id": "attraction_flow_help_group"
             }
           ]
@@ -1441,8 +1738,10 @@
             "attraction_flow_start_group",
             "attraction_flow_step1_relaxation_group",
             "attraction_flow_step1_action_group",
-            "attraction_flow_step2_relaxation_group",
-            "attraction_flow_step2_action_group",
+            "attraction_flow_step2_relaxation_quiet_group",
+            "attraction_flow_step2_relaxation_moderate_group",
+            "attraction_flow_step2_action_exciting_group",
+            "attraction_flow_step2_action_extreme_group",
             "attraction_flow_step3_group",
             "attraction_flow_help_group"
           ],
@@ -1450,7 +1749,7 @@
           "responses": [
             {
               "response_id": "attraction_flow_restart_response",
-              "text": "🔄 Perfekt! Starten wir nochmal von vorne.\n\n🎯 Welche Art von Erlebnis suchen Sie heute?\n\n• 'entspannung' für ruhige Momente\n• 'action' für aufregende Abenteuer\n\nWas darf es sein?",
+              "text": "🔄 Perfekt! Starten wir nochmal von vorne.🎯 Welche Art von Erlebnis suchen Sie heute? 'entspannung' für ruhige Momente 'action' für aufregende AbenteuerWas darf es sein?",
               "context_group_id": "attraction_flow_start_group"
             }
           ]
@@ -1479,7 +1778,7 @@
           "responses": [
             {
               "response_id": "pricing_flow_start",
-              "text": "💰 Gerne berechne ich Ihren persönlichen Eintrittspreis! \n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
+              "text": "💰 Gerne berechne ich Ihren persönlichen Eintrittspreis! 📅 Wann möchten Sie uns besuchen? 'wochentag' (Mo-Fr) - günstigere Preise 'wochenende' (Sa-So) - WochenendpreiseWann haben Sie geplant zu kommen?",
               "context_group_id": "pricing_flow_start_group",
               "suggested_follow_ups": ["wochentag", "wochenende"]
             }
@@ -1503,7 +1802,7 @@
           "responses": [
             {
               "response_id": "pricing_group_composition_weekday",
-              "text": "📋 Super! Unter der Woche sind unsere Preise günstiger. Wer kommt alles mit?\n\n👥 **Personenanzahl:**\n• 'nur erwachsene' - keine Kinder dabei\n• 'familie mit kindern' - Erwachsene + Kinder\n• 'senioren dabei' - 65+ Jahre\n• 'studenten dabei' - mit Studentenausweis\n\nWie ist Ihre Gruppe zusammengesetzt?",
+              "text": "📋 Super! Unter der Woche sind unsere Preise günstiger. Wer kommt alles mit?👥 Personenanzahl: 'nur erwachsene' - keine Kinder dabei 'familie mit kindern' - Erwachsene + Kinder 'senioren dabei' - 65+ Jahre 'studenten dabei' - mit StudentenausweisWie ist Ihre Gruppe zusammengesetzt?",
               "context_group_id": "pricing_flow_weekday_group"
             }
           ]
@@ -1515,7 +1814,7 @@
           "responses": [
             {
               "response_id": "pricing_group_composition_weekend",
-              "text": "📋 Wochenende - perfekt für einen Familienausflug! Wer kommt alles mit?\n\n👥 **Personenanzahl:**\n• 'nur erwachsene' - keine Kinder dabei\n• 'familie mit kindern' - Erwachsene + Kinder\n• 'senioren dabei' - 65+ Jahre\n• 'studenten dabei' - mit Studentenausweis\n\nWie ist Ihre Gruppe zusammengesetzt?",
+              "text": "📋 Wochenende - perfekt für einen Familienausflug! Wer kommt alles mit?👥 Personenanzahl: 'nur erwachsene' - keine Kinder dabei 'familie mit kindern' - Erwachsene + Kinder 'senioren dabei' - 65+ Jahre 'studenten dabei' - mit StudentenausweisWie ist Ihre Gruppe zusammengesetzt?",
               "context_group_id": "pricing_flow_weekend_group"
             }
           ]
@@ -1530,7 +1829,7 @@
           "responses": [
             {
               "response_id": "pricing_adults_count",
-              "text": "👥 Wie viele Erwachsene sind Sie?\n\n📝 Bitte geben Sie die **Anzahl** an:\n• '2 personen' oder '2'\n• '3 personen' oder '3'\n• etc.\n\nWie viele Erwachsene kommen mit?",
+              "text": "👥 Wie viele Erwachsene sind Sie?📝 Bitte geben Sie die Anzahl an: '2 personen' oder '2' '3 personen' oder '3' etc.Wie viele Erwachsene kommen mit?",
               "context_group_id": "pricing_flow_adults_only_group"
             }
           ]
@@ -1545,7 +1844,7 @@
           "responses": [
             {
               "response_id": "pricing_family_details",
-              "text": "👨‍👩‍👧‍👦 Perfekt! Bitte geben Sie mir die Details:\n\n📝 **Format: 'X Erwachsene, Y Kinder'**\nBeispiele:\n• '2 erwachsene, 2 kinder'\n• '1 erwachsener, 3 kinder'\n• '4 erwachsene, 1 kind'\n\nWie viele Erwachsene und Kinder kommen mit?",
+              "text": "👨‍👩‍👧‍👦 Perfekt! Bitte geben Sie mir die Details:📝 Format: 'X Erwachsene, Y Kinder'Beispiele: '2 erwachsene, 2 kinder' '1 erwachsener, 3 kinder' '4 erwachsene, 1 kind'Wie viele Erwachsene und Kinder kommen mit?",
               "context_group_id": "pricing_flow_family_group"
             }
           ]
@@ -1560,7 +1859,7 @@
           "responses": [
             {
               "response_id": "pricing_seniors_details",
-              "text": "👴👵 Für Senioren ab 65 haben wir vergünstigte Preise!\n\n📝 **Bitte angeben:**\n• 'X senioren, Y erwachsene'\n• Falls Kinder dabei: '+ Z kinder'\n\nBeispiel: '2 senioren, 1 erwachsener, 2 kinder'\n\nWie ist die genaue Zusammensetzung?",
+              "text": "👴👵 Für Senioren ab 65 haben wir vergünstigte Preise!📝 Bitte angeben: 'X senioren, Y erwachsene' Falls Kinder dabei: '+ Z kinder'Beispiel: '2 senioren, 1 erwachsener, 2 kinder'Wie ist die genaue Zusammensetzung?",
               "context_group_id": "pricing_flow_seniors_group"
             }
           ]
@@ -1581,7 +1880,7 @@
           "responses": [
             {
               "response_id": "pricing_students_details",
-              "text": "🎓 Studenten erhalten Ermäßigung (mit Ausweis)!\n\n📝 **Bitte angeben:**\n• 'X studenten, Y erwachsene'\n• Falls Kinder dabei: '+ Z kinder'\n\nBeispiel: '2 studenten, 1 erwachsener'\n\nWie viele sind Sie genau?",
+              "text": "🎓 Studenten erhalten Ermäßigung (mit Ausweis)!📝 Bitte angeben: 'X studenten, Y erwachsene' Falls Kinder dabei: '+ Z kinder'Beispiel: '2 studenten, 1 erwachsener'Wie viele sind Sie genau?",
               "context_group_id": "pricing_flow_students_group"
             }
           ]
@@ -1597,7 +1896,7 @@
           "responses": [
             {
               "response_id": "pricing_children_ages",
-              "text": "👶 Wichtig für die Preisberechnung: Wie alt sind die Kinder?\n\n💡 **Kinderpreise:**\n• Unter 4 Jahre: **Kostenlos** 🎉\n• 4-13 Jahre: Kinderpreis\n• 14+ Jahre: Erwachsenenpreis\n\n📝 **Beispiel:** '6 Jahre, 10 Jahre' oder '2 Jahre, 8 Jahre, 15 Jahre'\n\nWie alt sind die Kinder?",
+              "text": "👶 Wichtig für die Preisberechnung: Wie alt sind die Kinder?💡 Kinderpreise: Unter 4 Jahre: Kostenlos 🎉 4-13 Jahre: Kinderpreis 14+ Jahre: Erwachsenenpreis📝 Beispiel: '6 Jahre, 10 Jahre' oder '2 Jahre, 8 Jahre, 15 Jahre'Wie alt sind die Kinder?",
               "context_group_id": "pricing_flow_children_ages_group"
             }
           ]
@@ -1612,7 +1911,7 @@
           "responses": [
             {
               "response_id": "pricing_time_options",
-              "text": "⏰ Haben Sie eine zeitliche Präferenz?\n\n🕘 **Optionen:**\n• 'ganztags' - Volle Öffnungszeit (09:00-22:00)\n• 'frühschwimmer' - Mo-Fr 09:00-12:00 (nur 10,90€!)\n• 'abendtarif' - Ab 18:00 Uhr (günstiger!)\n\n💡 Mit Zeittarifen können Sie sparen!\n\nWelche Zeit bevorzugen Sie?",
+              "text": "⏰ Haben Sie eine zeitliche Präferenz?🕘 Optionen: 'ganztags' - Volle Öffnungszeit (09:00-22:00) 'frühschwimmer' - Mo-Fr 09:00-12:00 (nur 10,90€!) 'abendtarif' - Ab 18:00 Uhr (günstiger!)💡 Mit Zeittarifen können Sie sparen!Welche Zeit bevorzugen Sie?",
               "context_group_id": "pricing_flow_time_group"
             }
           ]
@@ -1624,7 +1923,7 @@
           "responses": [
             {
               "response_id": "pricing_extras_sauna",
-              "text": "🧖‍♀️ Möchten Sie auch unsere Saunawelt 'Elemente' nutzen?\n\n♨️ **Sauna-Zuschlag: +8,00€ pro Person**\n• 4 Themensaunen (Feuer, Wasser, Luft, Erde)\n• Inkl. Bademantel & Saunatuch\n• Aufgüsse mit ätherischen Ölen\n\n📝 **Antworten:**\n• 'mit sauna' - Sauna inklusive\n• 'ohne sauna' - Nur Erlebnisbad\n\nWas möchten Sie?",
+              "text": "🧖‍♀️ Möchten Sie auch unsere Saunawelt 'Elemente' nutzen?♨️ Sauna-Zuschlag: +8,00€ pro Person 4 Themensaunen (Feuer, Wasser, Luft, Erde) Inkl. Bademantel & Saunatuch Aufgüsse mit ätherischen Ölen📝 Antworten: 'mit sauna' - Sauna inklusive 'ohne sauna' - Nur ErlebnisbadWas möchten Sie?",
               "context_group_id": "pricing_flow_extras_group"
             }
           ]
@@ -1636,7 +1935,7 @@
           "responses": [
             {
               "response_id": "pricing_calculation_result",
-              "text": "💰 **Ihr persönlicher Preis-Überblick:**\n\n🎯 **Gesamtpreis wird basierend auf Ihrer Auswahl berechnet**\n\n✨ **Immer inklusive:**\n• Alle Attraktionen (Vulkan-Rutsche, Wellenbad, etc.)\n• Tropica Island Kinderwelt\n• Magische Flussfahrt & Polar-Lagune\n• Kostenlose Parkplätze\n\n🎫 Tickets erhalten Sie an unserem Eingang. Noch Fragen?",
+              "text": "💰 Ihr persönlicher Preis-Überblick:🎯 Gesamtpreis wird basierend auf Ihrer Auswahl berechnet✨ Immer inklusive: Alle Attraktionen (Vulkan-Rutsche, Wellenbad, etc.) Tropica Island Kinderwelt Magische Flussfahrt & Polar-Lagune Kostenlose Parkplätze🎫 Tickets erhalten Sie an unserem Eingang. Noch Fragen?",
               "context_group_id": "pricing_flow_complete_group"
             }
           ]
@@ -1648,7 +1947,7 @@
           "responses": [
             {
               "response_id": "pricing_group_discount",
-              "text": "🎉 **Gruppentarif verfügbar!** Ab 15 Personen erhalten Sie 15% Rabatt!\n\n📞 **Bitte vorab anmelden:**\n+49 (0)761 / 123456\n\n💰 **Beispiel-Ersparnis:**\n• 15 Personen Wochentag: 298,50€ → 253,73€\n• Sie sparen: 44,77€!\n\nMöchten Sie die Kontaktdaten für die Anmeldung?",
+              "text": "🎉 Gruppentarif verfügbar! Ab 15 Personen erhalten Sie 15% Rabatt!📞 Bitte vorab anmelden:+49 (0)761 / 123456💰 Beispiel-Ersparnis: 15 Personen Wochentag: 298,50€ → 253,73€ Sie sparen: 44,77€!Möchten Sie die Kontaktdaten für die Anmeldung?",
               "context_group_id": "pricing_flow_group_discount_group"
             }
           ]
@@ -1660,7 +1959,7 @@
           "responses": [
             {
               "response_id": "pricing_birthday_special",
-              "text": "🎂 **Kindergeburtstag-Special!**\n\nGeburtstagskinder bis 13 Jahre haben **kostenlosen Eintritt** am Geburtstag!\n\n📋 **Benötigt:**\n• Ausweis/Kinderausweis als Nachweis\n• Gültig am Geburtstag selbst\n\n🎉 **Zusatz-Tipp:**\n• Gruppentarife für Gäste ab 15 Personen\n• Piraten-Kantine für die Feier\n\nIst ein Geburtstagskind dabei?",
+              "text": "🎂 Kindergeburtstag-Special!Geburtstagskinder bis 13 Jahre haben kostenlosen Eintritt am Geburtstag!📋 Benötigt: Ausweis/Kinderausweis als Nachweis Gültig am Geburtstag selbst🎉 Zusatz-Tipp: Gruppentarife für Gäste ab 15 Personen Piraten-Kantine für die FeierIst ein Geburtstagskind dabei?",
               "context_group_id": "pricing_flow_birthday_group"
             }
           ]
@@ -1672,7 +1971,7 @@
           "responses": [
             {
               "response_id": "pricing_savings_advice",
-              "text": "💡 **Spar-Tipps für Ihren nächsten Besuch:**\n\n🌅 **Frühschwimmer Mo-Fr:** Nur 10,90€ (09:00-12:00)\n🌙 **Abendtarif:** Günstiger ab 18:00 Uhr\n📅 **Wochentags:** Bis zu 4€ pro Person sparen\n🎯 **Dauerkarten:** Ab 15 Besuchen günstiger\n\n💰 **Ihr Sparpotenzial:**\n• Frühschwimmer statt Ganztag: -9€ pro Person\n• Wochentag statt Wochenende: -4€ pro Person\n\nInteresse an weiteren Spar-Optionen?",
+              "text": "💡 Spar-Tipps für Ihren nächsten Besuch:🌅 Frühschwimmer Mo-Fr: Nur 10,90€ (09:00-12:00)🌙 Abendtarif: Günstiger ab 18:00 Uhr📅 Wochentags: Bis zu 4€ pro Person sparen🎯 Dauerkarten: Ab 15 Besuchen günstiger💰 Ihr Sparpotenzial: Frühschwimmer statt Ganztag: -9€ pro Person Wochentag statt Wochenende: -4€ pro PersonInteresse an weiteren Spar-Optionen?",
               "context_group_id": "pricing_flow_savings_group"
             }
           ]
@@ -1693,7 +1992,7 @@
           "responses": [
             {
               "response_id": "pricing_flow_help",
-              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen:\n\n💡 **Häufige Formate:**\n• Besuchstag: 'wochentag' oder 'wochenende'\n• Personen: '2 erwachsene, 3 kinder'\n• Alter: '6 Jahre, 10 Jahre, 15 Jahre'\n\n🔄 **Optionen:**\n• 'neustart' - Von vorne beginnen\n• 'beispiel' - Beispiel-Eingabe zeigen\n• Oder versuchen Sie es nochmal\n\nWas kann ich tun?",
+              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen:💡 Häufige Formate: Besuchstag: 'wochentag' oder 'wochenende' Personen: '2 erwachsene, 3 kinder' Alter: '6 Jahre, 10 Jahre, 15 Jahre'🔄 Optionen: 'neustart' - Von vorne beginnen 'beispiel' - Beispiel-Eingabe zeigen Oder versuchen Sie es nochmalWas kann ich tun?",
               "context_group_id": "pricing_flow_help_group"
             }
           ]
@@ -1715,7 +2014,7 @@
           "responses": [
             {
               "response_id": "pricing_flow_restart_response",
-              "text": "🔄 Alles klar! Starten wir die Preisberechnung neu.\n\n💰 Gerne berechne ich Ihren persönlichen Eintrittspreis!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
+              "text": "🔄 Alles klar! Starten wir die Preisberechnung neu.💰 Gerne berechne ich Ihren persönlichen Eintrittspreis!📅 Wann möchten Sie uns besuchen? 'wochentag' (Mo-Fr) - günstigere Preise 'wochenende' (Sa-So) - WochenendpreiseWann haben Sie geplant zu kommen?",
               "context_group_id": "pricing_flow_start_group"
             }
           ]
@@ -1731,7 +2030,7 @@
           "responses": [
             {
               "response_id": "pricing_flow_interrupt_info",
-              "text": "📍 Gerne! Unsere Öffnungszeiten: täglich 09:00-22:00 Uhr | Adresse: Bäderstraße 12, Freiburg | 300 kostenlose Parkplätze!\n\n💰 **Zurück zur Preisberechnung:** Soll ich weitermachen wo wir aufgehört haben?\n\n• 'weiter' - Preisberechnung fortsetzen\n• 'neustart' - Preisberechnung neu beginnen\n\nWie möchten Sie verfahren?",
+              "text": "📍 Gerne! Unsere Öffnungszeiten: täglich 09:00-22:00 Uhr | Adresse: Bäderstraße 12, Freiburg | 300 kostenlose Parkplätze!💰 Zurück zur Preisberechnung: Soll ich weitermachen wo wir aufgehört haben? 'weiter' - Preisberechnung fortsetzen 'neustart' - Preisberechnung neu beginnenWie möchten Sie verfahren?",
               "context_group_id": "pricing_flow_interrupt_group"
             }
           ]

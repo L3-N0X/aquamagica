@@ -258,8 +258,8 @@ User: "Welche Attraktion passt zu mir?"
 Bot: "🎯 Perfekt! Ich helfe Ihnen gerne bei der Auswahl der idealen Attraktion! Mögen Sie eher entspannende Aktivitäten oder actionreiche Abenteuer? 🌊⚡
 
 Antworten Sie mit:
-• 'entspannung' für ruhige Erlebnisse  
-• 'action' für aufregende Aktivitäten"
+• "Entspannung" für ruhige Erlebnisse
+• "action" für aufregende Aktivitäten"
 
 User: "entspannung"
 Bot: "🧘‍♀️ Entspannung ist eine ausgezeichnete Wahl! Wie entspannend soll es sein?
@@ -355,7 +355,8 @@ Der neue Flow nutzt das bestehende Context-System und ergänzt die vorhandenen A
 ### 3. Keyword-Konflikte vermeiden
 
 Die neuen Keywords sind spezifisch genug, um Konflikte mit bestehenden Interactions zu vermeiden:
-- Bestehend: "attraktion", "rutsche", "wellenbad" 
+
+- Bestehend: "attraktion", "rutsche", "wellenbad"
 - Neu: "welche attraktion", "was passt zu mir", "empfehlung"
 
 ## Testing & Validierung

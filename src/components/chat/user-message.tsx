@@ -10,7 +10,7 @@ export function UserMessage({ message }: UserMessageProps) {
     <div className="flex justify-end gap-3 items-start">
       <div className="flex flex-col items-end max-w-[75%]">
         <div className="bg-primary text-primary-foreground px-4 py-3 rounded-lg rounded-br-sm">
-          <p className="text-sm leading-relaxed">{message.content}</p>
+          <p className="text-lg leading-relaxed">{message.content}</p>
         </div>
         <div className="flex items-center">
           <span className="text-sm text-muted-foreground mt-1 mr-1">

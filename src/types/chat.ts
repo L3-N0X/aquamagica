@@ -7,6 +7,10 @@ export interface ChatMessage {
   type: "user" | "bot" | "system";
   timestamp: Date;
   isTyping?: boolean;
+  // Context fields for conversation flow support
+  interactionId?: string;
+  responseId?: string;
+  contextGroupId?: string;
 }
 
 export interface ChatState {
