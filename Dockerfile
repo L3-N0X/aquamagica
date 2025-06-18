@@ -26,7 +26,6 @@ COPY --from=prerelease /usr/src/app/dist ./dist
 COPY --from=prerelease /usr/src/app/server.ts .
 COPY --from=prerelease /usr/src/app/services ./services
 COPY --from=prerelease /usr/src/app/types ./types
-COPY --from=prerelease /usr/src/app/utils ./utils
 COPY --from=prerelease /usr/src/app/chatbot-config.json .
 COPY --from=prerelease /usr/src/app/node_modules ./node_modules
 COPY --from=prerelease /usr/src/app/package.json .
