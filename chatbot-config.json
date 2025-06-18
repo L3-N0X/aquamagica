@@ -32,23 +32,87 @@
     },
     {
       "keywords": ["hilfe"],
-      "response": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten und Einrichtungen helfen."
+      "response": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und allen Einrichtungen helfen. Frag mich einfach!"
     },
     {
-      "keywords": ["öffnungszeiten"],
-      "response": "Wir haben täglich von 9:00 bis 22:00 Uhr geöffnet."
+      "keywords": ["öffnungszeiten", "geöffnet", "öffnung"],
+      "response": "🕘 **Öffnungszeiten:**\n• Erlebnisbad: Täglich 09:00 – 22:00 Uhr\n• Saunawelt: Täglich 10:00 – 22:00 Uhr\n• Nachtschwimmen: Freitags bis 24:00 Uhr"
     },
     {
-      "keywords": ["adresse"],
-      "response": "AquaMagica, Musterstraße 123, 12345 Musterstadt"
+      "keywords": ["adresse", "anschrift", "wo"],
+      "response": "📍 **AquaMagica – Die Wasserwelt der Sinne**\nBäderstraße 12\n79100 Freiburg im Breisgau"
     },
     {
-      "keywords": ["telefon"],
-      "response": "Telefon: +49 123 456789"
+      "keywords": ["telefon", "anrufen", "nummer"],
+      "response": "📞 **Telefon:** +49 (0)761 / 123456\n(Mo-Fr 09:00-17:00 Uhr)"
     },
     {
       "keywords": ["danke"],
       "response": "Gern geschehen! Wenn du weitere Fragen hast, stehe ich zur Verfügung."
+    },
+    {
+      "keywords": ["email", "mail", "e-mail"],
+      "response": "📧 **E-Mail:** info@aquamagica.de"
+    },
+    {
+      "keywords": ["anfahrt", "auto", "parkplatz", "parken"],
+      "response": "🚗 **Anfahrt:** A5 Ausfahrt Freiburg-Mitte, dann B31 Richtung Zentrum, Ausfahrt Bäderstraße.\n🅿️ Über 300 **kostenlose** Parkplätze direkt am AquaMagica!"
+    },
+    {
+      "keywords": ["öpnv", "tram", "öffentlich", "bus"],
+      "response": "🚋 **Öffentliche Verkehrsmittel:** Tramlinie 5 bis Haltestelle 'Bäderstraße', dann ca. 5 Minuten Fußweg."
+    },
+    {
+      "keywords": ["vulkan", "inferno", "rutsche"],
+      "response": "🌋 **Vulkan-Rutsche 'Inferno':** Deutschlands einzige 4-fach-Tunnelrutsche! Rasante Abfahrt mit bis zu 45 km/h, spektakulären Lichteffekten und simulierten Hitzeimpulsen."
+    },
+    {
+      "keywords": ["wellen", "wellenbad", "atlantica"],
+      "response": "🌊 **Wellenbad 'Atlantica':** Alle 30 Minuten bis zu 3 Meter hohe Wellen! Mit authentischem Meeresrauschen und Delfingeräuschen. Halte Ausschau nach unserem 'Tropischen Sturm-Modus'!"
+    },
+    {
+      "keywords": ["kinder", "kinderwelt", "tropica", "pirat"],
+      "response": "🏴‍☠️ **Kinderwelt 'Tropica Island':** Großes Piratenschiff, Mini-Rutschen, interaktive Wasserspiele und sprechende Tierfiguren. Ein Paradies für kleine Entdecker!"
+    },
+    {
+      "keywords": ["lazy", "river", "fluss", "entspannung"],
+      "response": "🚤 **Magische Flussfahrt:** 300m langer Lazy-River mit faszinierenden Lichteffekten, sanftem Nebel und beruhigenden Klangwelten aus verschiedenen Kontinenten."
+    },
+    {
+      "keywords": ["polar", "lagune", "außen", "eisbär"],
+      "response": "🐻‍❄️ **Polar-Lagune:** Einzigartiges Außenbecken mit Schneeinsel (saisonal), Polarlichter-Projektionen und unserem beweglichen Eisbären-Roboter 'Frosti'!"
+    },
+    {
+      "keywords": ["sauna", "elemente", "wellness"],
+      "response": "🧖‍♀️ **Saunawelt 'Elemente':** Vier Themen-Saunen (Feuer, Wasser, Luft, Erde) mit wechselnden Aufgüssen, natürlichen Kräutern und ätherischen Ölen. +8€ Aufpreis."
+    },
+    {
+      "keywords": ["restaurant", "essen", "trinken", "gastronomie"],
+      "response": "🍽️ **Gastronomie:**\n• **AquaBistro:** Mediterrane & vegane Küche\n• **Piraten-Kantine:** Speziell für Kinder\n• **Sauna-Lounge 'AufgussBar':** Smoothies & Snacks"
+    },
+    {
+      "keywords": ["nachtschwimmen", "freitag", "party", "dj"],
+      "response": "🌙 **Nachtschwimmen:** Jeden Freitag 20:00-24:00 Uhr! Lichtermeer mit Unterwasser-Lasern und Live-DJ-Musik. Ein magisches Erlebnis!"
+    },
+    {
+      "keywords": ["yoga", "aqua-yoga", "sonntag"],
+      "response": "🧘‍♀️ **Aqua-Yoga:** Jeden Sonntag 9:30-10:15 Uhr im Erlebnisbecken. Entspannter Start in den Tag! (Anmeldung empfohlen, kleine Zusatzgebühr)"
+    },
+    {
+      "keywords": ["handtuch", "bademantel", "ausleihen"],
+      "response": "🏖️ **Verleih:** Handtücher (4€ + 10€ Pfand) und Bademäntel (7€ + 20€ Pfand) an der Kasse. Bei Sauna-Buchung sind Bademantel & Saunatuch inklusive!"
+    },
+    {
+      "keywords": ["armband", "digital", "bezahlen"],
+      "response": "⌚ **Digitales Armband:** Dient als Schlüssel, Zahlungsmittel und Fotospeicher. Bei Verlust: 5€ Ersatzgebühr."
+    },
+    {
+      "keywords": ["wlan", "wifi", "internet"],
+      "response": "📶 **WLAN:** Kostenloses WLAN im Eingangsbereich und allen Gastronomiebereichen verfügbar."
+    },
+    {
+      "keywords": ["barrierefrei", "rollstuhl", "behinderung"],
+      "response": "♿ **Barrierefreiheit:** Gesamte Anlage rollstuhlgeeignet mit barrierefreien Umkleiden, Duschen und WCs. Spezielle Tarife für Menschen mit Behinderung."
     }
   ],
   "flows": {
@@ -93,19 +157,19 @@
           "fallback": "Bitte wähle 'Rutschen' oder 'Wasserspiele'."
         },
         "calm_water": {
-          "message": "Ich empfehle dir das Strömungsbecken oder das warme Außenbecken. Beide sind perfekt zum Entspannen! 🏊‍♀️",
+          "message": "Ich empfehle dir die **Magische Flussfahrt** (300m Lazy-River) oder die **Polar-Lagune** (Außenbecken). Beide sind perfekt zum Entspannen! 🏊‍♀️",
           "isEnd": true
         },
         "calm_dry": {
-          "message": "Die Sauna-Lounge oder unser Aqua-Yoga sind ideal für dich! 🧘‍♀️",
+          "message": "Die **Saunawelt 'Elemente'** mit vier Themen-Saunen oder unser **Aqua-Yoga** (sonntags 9:30-10:15 Uhr) sind ideal für dich! 🧘‍♀️",
           "isEnd": true
         },
         "slides": {
-          "message": "Die große Halfpipe-Rutsche und die Krokodilrutsche werden dir gefallen! 🛝",
+          "message": "Die **Vulkan-Rutsche 'Inferno'** (4-fach-Tunnel, bis 45 km/h) wird dir den ultimativen Nervenkitzel bieten! 🛝",
           "isEnd": true
         },
         "water_games": {
-          "message": "Der Kinderbereich mit Kletterturm und Wasserfällen ist perfekt für Wasserspiele! 🌊",
+          "message": "Die **Kinderwelt 'Tropica Island'** mit Piratenschiff und das **Wellenbad 'Atlantica'** mit 3m hohen Wellen sind perfekt für Wasserspiele! 🌊",
           "isEnd": true
         }
       }
@@ -128,15 +192,15 @@
           "fallback": "Bitte wähle 'Wochenende', 'Frühschwimmer' oder 'regulär'."
         },
         "weekend_prices": {
-          "message": "🎫 **Wochenend-Tarife:**\n• Erwachsene: 16€\n• Kinder (4-14): 12€\n• Familienkarte: 45€\n\nGültig Sa-So und Feiertage.",
+          "message": "🎫 **Wochenend-Tarife (Sa-So & Feiertage):**\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw. + 2 Ki.): 64,90€\n• Senioren (ab 65J): 19,90€\n• Studierende: 19,90€",
           "isEnd": true
         },
         "early_prices": {
-          "message": "🌅 **Frühschwimmer-Tarife (6:00-9:00):**\n• Erwachsene: 8€\n• Kinder: 5€\n\nPerfekt für den ruhigen Start in den Tag!",
+          "message": "🌅 **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!",
           "isEnd": true
         },
         "regular_prices": {
-          "message": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 12€\n• Kinder (4-14): 8€\n• Familienkarte: 35€\n\nBeste Preise unter der Woche!",
+          "message": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€\n• Familie (2 Erw. + 2 Ki.): 54,90€\n• Senioren (ab 65J): 16,90€\n• Studierende: 16,90€\n\n**Abendtarif (ab 18:00):** Erwachsene 12,90€, Kinder 8,90€",
           "isEnd": true
         }
       }
