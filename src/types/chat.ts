@@ -41,10 +41,15 @@ export interface ChatApiResponse {
 }
 
 // Add new types for chatbot configuration and flows
+export interface SimpleKeywordRule {
+  keywords: string[];
+  response: string | string[];
+}
+
 export interface BotConfig {
   version: string;
   defaultResponses: Record<string, string[]>;
-  simpleKeywords: Record<string, string | string[]>;
+  simpleKeywords: SimpleKeywordRule[];
   flows: Record<string, FlowDefinition>;
 }
 

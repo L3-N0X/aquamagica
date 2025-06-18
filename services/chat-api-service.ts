@@ -25,7 +25,7 @@ class WordSpottingBot {
             flowInterrupted: ["Du befindest dich gerade in einem Gespräch."],
             flowCancelled: ["Gespräch beendet."],
           },
-          simpleKeywords: {},
+          simpleKeywords: [],
           flows: {},
         };
       }
@@ -234,18 +234,23 @@ class WordSpottingBot {
    * Handle simple keyword responses
    */
   private handleSimpleKeywords(message: string): ChatApiResponse {
-    for (const [keyword, response] of Object.entries(this.config!.simpleKeywords)) {
-      if (message.includes(keyword.toLowerCase())) {
-        if (Array.isArray(response)) {
+    for (const rule of this.config!.simpleKeywords) {
+      // Check if any of the keywords in this rule match the message
+      const matchedKeyword = rule.keywords.find((keyword) =>
+        message.includes(keyword.toLowerCase())
+      );
+
+      if (matchedKeyword) {
+        if (Array.isArray(rule.response)) {
           // Reference to default response
-          return this.getDefaultResponse(response[0]);
-        } else if (response === "flow_cancel") {
+          return this.getDefaultResponse(rule.response[0]);
+        } else if (rule.response === "flow_cancel") {
           return this.handleFlowCancellation();
         } else {
           return {
             success: true,
             response: {
-              content: response,
+              content: rule.response,
               delay: 500,
             },
           };
