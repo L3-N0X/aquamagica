@@ -59,9 +59,14 @@ export interface FlowDefinition {
   states: Record<string, FlowStateConfig>;
 }
 
+export interface KeywordGroup {
+  keywords: string[];
+  nextState: string;
+}
+
 export interface FlowStateConfig {
   message: string;
-  expectedKeywords?: Record<string, string>;
+  expectedKeywords?: KeywordGroup[];
   fallback?: string;
   isEnd?: boolean;
 }

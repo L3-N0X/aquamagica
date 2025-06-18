@@ -1,4 +1,10 @@
-import type { ChatApiResponse, ChatHistoryItem, BotConfig, FlowState } from "../types/chat";
+import type {
+  ChatApiResponse,
+  ChatHistoryItem,
+  BotConfig,
+  FlowState,
+  KeywordGroup,
+} from "../types/chat";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
@@ -100,11 +106,19 @@ class WordSpottingBot {
   }
 
   /**
-   * Check if message is a flow cancellation command
+   * Helper function to check if a keyword matches as a whole word in the message
+   */
+  private matchesWholeWord(message: string, keyword: string): boolean {
+    const regex = new RegExp(`\\b${keyword.toLowerCase()}\\b`, "i");
+    return regex.test(message);
+  }
+
+  /**
+   * Check if message is a flow cancellation command - use whole word matching to avoid false positives
    */
   private isFlowCancellation(message: string): boolean {
     const cancelKeywords = ["abbrechen", "stopp", "ende", "cancel", "quit"];
-    return cancelKeywords.some((keyword) => message.includes(keyword));
+    return cancelKeywords.some((keyword) => this.matchesWholeWord(message, keyword));
   }
 
   /**
@@ -174,10 +188,13 @@ class WordSpottingBot {
 
     // Check for expected keywords
     if (currentStateConfig.expectedKeywords) {
-      const matchedKeyword = this.findMatchingKeyword(message, currentStateConfig.expectedKeywords);
+      const matchedGroup = this.findMatchingKeywordGroup(
+        message,
+        currentStateConfig.expectedKeywords
+      );
 
-      if (matchedKeyword) {
-        const nextStateId = currentStateConfig.expectedKeywords[matchedKeyword];
+      if (matchedGroup) {
+        const nextStateId = matchedGroup.nextState;
         const nextState = flow.states[nextStateId];
 
         if (!nextState) {
@@ -216,15 +233,17 @@ class WordSpottingBot {
   }
 
   /**
-   * Find matching keyword in expected keywords
+   * Find matching keyword group in expected keywords
    */
-  private findMatchingKeyword(
+  private findMatchingKeywordGroup(
     message: string,
-    expectedKeywords: Record<string, string>
-  ): string | null {
-    for (const keyword of Object.keys(expectedKeywords)) {
-      if (message.includes(keyword.toLowerCase())) {
-        return keyword;
+    expectedKeywords: KeywordGroup[]
+  ): KeywordGroup | null {
+    for (const group of expectedKeywords) {
+      for (const keyword of group.keywords) {
+        if (message.includes(keyword.toLowerCase())) {
+          return group;
+        }
       }
     }
     return null;
@@ -236,9 +255,14 @@ class WordSpottingBot {
   private handleSimpleKeywords(message: string): ChatApiResponse {
     for (const rule of this.config!.simpleKeywords) {
       // Check if any of the keywords in this rule match the message
-      const matchedKeyword = rule.keywords.find((keyword) =>
-        message.includes(keyword.toLowerCase())
-      );
+      const matchedKeyword = rule.keywords.find((keyword) => {
+        // Use whole-word matching for problematic short keywords
+        if (keyword === "wo") {
+          return this.matchesWholeWord(message, keyword);
+        }
+        // Use partial matching for all other keywords
+        return message.includes(keyword.toLowerCase());
+      });
 
       if (matchedKeyword) {
         if (Array.isArray(rule.response)) {

@@ -35,7 +35,7 @@
       "response": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und allen Einrichtungen helfen. Frag mich einfach!"
     },
     {
-      "keywords": ["öffnungszeiten", "geöffnet", "öffnung"],
+      "keywords": ["öffnungszeiten", "geöffnet", "öffnung", "offen"],
       "response": "🕘 **Öffnungszeiten:**\n• Erlebnisbad: Täglich 09:00 – 22:00 Uhr\n• Saunawelt: Täglich 10:00 – 22:00 Uhr\n• Nachtschwimmen: Freitags bis 24:00 Uhr"
     },
     {
@@ -113,6 +113,35 @@
     {
       "keywords": ["barrierefrei", "rollstuhl", "behinderung"],
       "response": "♿ **Barrierefreiheit:** Gesamte Anlage rollstuhlgeeignet mit barrierefreien Umkleiden, Duschen und WCs. Spezielle Tarife für Menschen mit Behinderung."
+    },
+    {
+      "keywords": ["frühschwimmer", "früh", "frühschwimmen", "morgentarif"],
+      "response": "🌅 **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!"
+    },
+    {
+      "keywords": ["wochenende", "wochenendtarif", "samstag", "sonntag", "feiertag"],
+      "response": "🎫 **Wochenend-Tarife (Sa-So & Feiertage):**\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw. + 2 Ki.): 64,90€\n• Senioren (ab 65J): 19,90€\n• Studierende: 19,90€"
+    },
+    {
+      "keywords": [
+        "regulär",
+        "normale preise",
+        "wochentag",
+        "montag",
+        "dienstag",
+        "mittwoch",
+        "donnerstag",
+        "freitag"
+      ],
+      "response": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€\n• Familie (2 Erw. + 2 Ki.): 54,90€\n• Senioren (ab 65J): 16,90€\n• Studierende: 16,90€\n\n**Abendtarif (ab 18:00):** Erwachsene 12,90€, Kinder 8,90€"
+    },
+    {
+      "keywords": ["ruhig", "entspannung", "entspannen", "relaxen"],
+      "response": "🧘‍♀️ Für entspannte Momente empfehle ich dir:\n• **Magische Flussfahrt** (300m Lazy-River)\n• **Polar-Lagune** (Außenbecken)\n• **Saunawelt 'Elemente'** (+8€)\n• **Aqua-Yoga** (sonntags 9:30-10:15)"
+    },
+    {
+      "keywords": ["aufregend", "action", "abenteuer", "adrenalin"],
+      "response": "🚀 Für Adrenalin-Junkies haben wir:\n• **Vulkan-Rutsche 'Inferno'** (bis 45 km/h!)\n• **Wellenbad 'Atlantica'** (3m hohe Wellen)\n• **Kinderwelt 'Tropica Island'** (Piratenschiff & Wasserspiele)"
     }
   ],
   "flows": {
@@ -122,38 +151,44 @@
       "states": {
         "start": {
           "message": "Gerne helfe ich dir bei der Auswahl! Magst du eher ruhige oder aufregende Attraktionen?",
-          "expectedKeywords": {
-            "ruhig": "calm_activities",
-            "aufregend": "exciting_activities",
-            "entspannung": "calm_activities",
-            "entspannen": "calm_activities",
-            "action": "exciting_activities",
-            "abenteuer": "exciting_activities"
-          },
+          "expectedKeywords": [
+            {
+              "keywords": ["ruhig", "entspannung", "entspannen"],
+              "nextState": "calm_activities"
+            },
+            {
+              "keywords": ["aufregend", "action", "abenteuer"],
+              "nextState": "exciting_activities"
+            }
+          ],
           "fallback": "Bitte antworte mit 'ruhig' oder 'aufregend'."
         },
         "calm_activities": {
           "message": "Perfekt! Bevorzugst du Wasser oder trockene Entspannung?",
-          "expectedKeywords": {
-            "wasser": "calm_water",
-            "trocken": "calm_dry",
-            "pool": "calm_water",
-            "schwimmen": "calm_water",
-            "sauna": "calm_dry",
-            "wellness": "calm_dry"
-          },
+          "expectedKeywords": [
+            {
+              "keywords": ["wasser", "pool", "schwimmen"],
+              "nextState": "calm_water"
+            },
+            {
+              "keywords": ["trocken", "sauna", "wellness"],
+              "nextState": "calm_dry"
+            }
+          ],
           "fallback": "Bitte wähle 'Wasser' oder 'trocken'."
         },
         "exciting_activities": {
           "message": "Super! Magst du hohe Rutschen oder lieber Wasserspiele?",
-          "expectedKeywords": {
-            "rutschen": "slides",
-            "wasserspiele": "water_games",
-            "hoch": "slides",
-            "rutsche": "slides",
-            "spiele": "water_games",
-            "kinder": "water_games"
-          },
+          "expectedKeywords": [
+            {
+              "keywords": ["rutschen", "hoch", "rutsche"],
+              "nextState": "slides"
+            },
+            {
+              "keywords": ["wasserspiele", "spiele", "kinder"],
+              "nextState": "water_games"
+            }
+          ],
           "fallback": "Bitte wähle 'Rutschen' oder 'Wasserspiele'."
         },
         "calm_water": {
@@ -180,15 +215,20 @@
       "states": {
         "start": {
           "message": "Für welche Preise interessierst du dich? Wochenende, Frühschwimmer oder reguläre Preise?",
-          "expectedKeywords": {
-            "wochenende": "weekend_prices",
-            "frühschwimmer": "early_prices",
-            "früh": "early_prices",
-            "morgen": "early_prices",
-            "regulär": "regular_prices",
-            "normal": "regular_prices",
-            "woche": "regular_prices"
-          },
+          "expectedKeywords": [
+            {
+              "keywords": ["wochenende"],
+              "nextState": "weekend_prices"
+            },
+            {
+              "keywords": ["frühschwimmer", "früh", "morgen"],
+              "nextState": "early_prices"
+            },
+            {
+              "keywords": ["regulär", "normal", "woche"],
+              "nextState": "regular_prices"
+            }
+          ],
           "fallback": "Bitte wähle 'Wochenende', 'Frühschwimmer' oder 'regulär'."
         },
         "weekend_prices": {
