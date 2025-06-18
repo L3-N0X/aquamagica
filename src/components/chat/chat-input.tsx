@@ -71,7 +71,7 @@ export function ChatInput({
         disabled={disabled || !message.trim()}
         className="px-3 h-14 w-14"
       >
-        <Send className="size-8" />
+        <Send className="size-6" />
         <span className="sr-only">Nachricht senden</span>
       </Button>
     </form>

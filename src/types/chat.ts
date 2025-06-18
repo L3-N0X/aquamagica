@@ -1,16 +1,9 @@
-// Frontend-specific chat types
-// Note: This is a subset of the full chat types, containing only what the frontend needs
-
 export interface ChatMessage {
   id: string;
   content: string;
   type: "user" | "bot" | "system";
   timestamp: Date;
   isTyping?: boolean;
-  // Context fields for conversation flow support
-  interactionId?: string;
-  responseId?: string;
-  contextGroupId?: string;
 }
 
 export interface ChatState {
@@ -18,18 +11,6 @@ export interface ChatState {
   isOpen: boolean;
   isTyping: boolean;
   unreadCount: number;
-  escalationLevel: number;
-  fallbackCount: number;
-}
-
-export interface ChatContextType {
-  state: ChatState;
-  toggleChat: () => void;
-  closeChat: () => void;
-  openChat: () => void;
-  sendMessage: (content: string) => Promise<void>;
-  clearMessages: () => void;
-  markAsRead: () => void;
 }
 
 export interface BotResponse {
@@ -37,12 +18,8 @@ export interface BotResponse {
   delay?: number;
 }
 
-// API Types for the chat endpoint - shared between frontend and backend
 export interface ChatHistoryItem {
   messageId: string;
-  interactionId?: string;
-  responseId?: string;
-  contextGroupId?: string;
   timestamp: Date;
   type: "user" | "bot";
   content: string;
@@ -50,25 +27,47 @@ export interface ChatHistoryItem {
 
 export interface ChatApiRequest {
   message: string;
-  currentPage: string;
   chatHistory: ChatHistoryItem[];
-  escalationLevel?: number;
-  fallbackCount?: number;
 }
 
 export interface ChatApiResponse {
   success: boolean;
-  data?: {
-    messageId: string;
-    content: string;
-    interactionId?: string;
-    responseId?: string;
-    contextGroupId?: string;
-    suggestedFollowUps?: string[];
-  };
+  response?: BotResponse;
   error?: {
     code: string;
     message: string;
     details?: Record<string, unknown>;
   };
+}
+
+// Add new types for chatbot configuration and flows
+export interface SimpleKeywordRule {
+  keywords: string[];
+  response: string | string[];
+}
+
+export interface BotConfig {
+  version: string;
+  defaultResponses: Record<string, string[]>;
+  simpleKeywords: SimpleKeywordRule[];
+  flows: Record<string, FlowDefinition>;
+}
+
+export interface FlowDefinition {
+  startKeywords: string[];
+  name: string;
+  states: Record<string, FlowStateConfig>;
+}
+
+export interface FlowStateConfig {
+  message: string;
+  expectedKeywords?: Record<string, string>;
+  fallback?: string;
+  isEnd?: boolean;
+}
+
+export interface FlowState {
+  flowId: string;
+  currentState: string;
+  startedAt: Date;
 }

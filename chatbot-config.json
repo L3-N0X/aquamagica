@@ -1,2041 +1,506 @@
 {
-  "bot_config": {
-    "bot_name": "AquaMagica Assistant",
-    "greeting_messages": [
-      {
-        "id": "greet_1",
-        "text": "Hallo! Willkommen im AquaMagica! Ich helfe Ihnen gerne bei Fragen zu unserem Erlebnisbad. Wie kann ich Ihnen behilflich sein?"
-      },
-      {
-        "id": "greet_2",
-        "text": "Hi! Schön, dass Sie sich für AquaMagica interessieren! Was möchten Sie über unsere Wasserwelt der Sinne erfahren?"
-      },
-      {
-        "id": "greet_3",
-        "text": "Willkommen bei AquaMagica! 🌊 Ich freue mich, Ihnen bei allen Fragen zu unserem Erlebnisbad zu helfen."
-      }
+  "version": "1.0.0",
+  "defaultResponses": {
+    "greeting": [
+      "Hallo! Wie kann ich dir bei AquaMagica helfen?",
+      "Hi! Schön, dass du da bist. Was möchtest du wissen?",
+      "Willkommen bei AquaMagica! Wie kann ich dir behilflich sein?",
+      "Hey! Lass mich dir bei deinen Fragen helfen."
     ],
-    "clarification_prompts": [
-      {
-        "id": "clarify_1",
-        "text": "Könnten Sie etwas spezifischer werden? Ich helfe Ihnen gerne weiter!"
-      },
-      {
-        "id": "clarify_2",
-        "text": "Um Ihnen bestmöglich zu helfen, benötige ich etwas mehr Details. Was genau möchten Sie wissen?"
-      },
-      {
-        "id": "clarify_3",
-        "text": "Gerne helfe ich Ihnen weiter! Könnten Sie Ihre Frage etwas präzisieren? Geht es um Preise, Attraktionen, Öffnungszeiten oder etwas anderes?"
-      }
+    "unknown": [
+      "Entschuldigung, das habe ich nicht verstanden. Kannst du deine Frage anders formulieren?",
+      "Das verstehe ich leider nicht. Könntest du es nochmal versuchen?",
+      "Hmm, da bin ich überfragt. Kannst du mir das anders erklären?",
+      "Tut mir leid, damit kann ich dir nicht helfen. Probier es anders."
     ],
-    "fallback_settings": {
-      "strategy": "contextual_then_general",
-      "max_fallback_repetitions_before_escalation": 2,
-      "messages": [
-        {
-          "id": "fallback_general_1",
-          "text": "Diese Information finde ich leider nicht in meinen Daten. Ich kann Ihnen aber gerne bei Fragen zu unseren Attraktionen, Preisen, Öffnungszeiten oder der Anfahrt helfen!",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_2",
-          "text": "Das kann ich Ihnen leider nicht beantworten. Aber ich helfe gerne bei Fragen rund um AquaMagica - von Wasserspaß bis Wellnesswelt! 🌊",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_3",
-          "text": "Hmm, dazu habe ich keine passenden Informationen. Fragen Sie mich gerne nach unseren tollen Attraktionen, aktuellen Preisen oder praktischen Tipps! 💡",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_4",
-          "text": "Entschuldigung, aber diese Frage kann ich nicht beantworten. Ich kenne mich dafür umso besser mit unserem Erlebnisbad aus - probieren Sie es mal! 🏊‍♂️",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_5",
-          "text": "Da bin ich überfragt! Aber wenn es um AquaMagica geht - Vulkan-Rutsche, Wellenbad oder Preise - dann bin ich Ihr Experte! 🎢",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_6",
-          "text": "Das weiß ich leider nicht. Stellen Sie mir doch eine Frage zu unserem Wassererlebnis - da kenne ich mich bestens aus! ✨",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_general_7",
-          "text": "Dazu kann ich Ihnen nichts sagen. Aber falls Sie Lust auf Wasserspaß haben - fragen Sie mich nach unseren Attraktionen! 🌊💫",
-          "type": "general",
-          "context_group_id": "fallback_general_group"
-        },
-        {
-          "id": "fallback_pricing_context",
-          "text": "Diese spezielle Preisinformation habe ich leider nicht parat. Schauen Sie doch auf unsere Preisübersicht oder kontaktieren Sie uns unter +49 (0)761 / 123456.",
-          "type": "contextual",
-          "relevant_topic_id_hint": ["pricing_info"]
-        },
-        {
-          "id": "fallback_escalate_1",
-          "text": "Es tut mir leid, dass ich Ihnen nicht weiterhelfen konnte. Für weitere Informationen kontaktieren Sie uns unter +49 (0)761 / 123456.",
-          "type": "escalation_offer"
-        },
-        {
-          "id": "fallback_escalate_2",
-          "text": "Leider kann ich Ihnen dabei nicht helfen. Unser freundliches Team erreichen Sie telefonisch unter +49 (0)761 / 123456 - die haben bestimmt eine Antwort für Sie! 📞",
-          "type": "escalation_offer"
-        },
-        {
-          "id": "fallback_escalate_3",
-          "text": "Hier stoße ich an meine Grenzen. Kontaktieren Sie doch direkt unser AquaMagica-Team unter +49 (0)761 / 123456 oder info@aquamagica.de! 😊",
-          "type": "escalation_offer"
-        }
-      ]
-    },
-    "context_memory": {
-      "history_length": 5,
-      "active_topic_decay": 3
-    },
-    "global_commands": [
-      {
-        "command_id": "cmd_help",
-        "keywords": ["hilfe", "help", "menu", "was kannst du", "befehle"],
-        "response": "Ich kann Ihnen bei vielen Themen rund um AquaMagica helfen: Preise & Tickets, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und vieles mehr."
-      },
-      {
-        "command_id": "cmd_contact",
-        "keywords": ["telefon", "anrufen", "kontakt", "email", "erreichbar"],
-        "response": "Sie erreichen uns telefonisch unter +49 (0)761 / 123456 (Mo-Fr 09:00-17:00 Uhr) oder per E-Mail unter info@aquamagica.de. Gerne helfe ich Ihnen auch direkt weiter!"
-      }
+    "flowInterrupted": [
+      "Du befindest dich gerade in einem Gespräch. Beende dieses zuerst oder sage 'abbrechen'.",
+      "Wir sind noch mitten in einem Gespräch. Sag 'abbrechen' um neu zu starten.",
+      "Lass uns erst unser aktuelles Thema beenden. Sage 'abbrechen' zum Stoppen."
+    ],
+    "flowCancelled": [
+      "Gespräch beendet. Wie kann ich dir sonst helfen?",
+      "Ok, Gespräch abgebrochen. Was möchtest du sonst wissen?",
+      "Kein Problem! Womit kann ich dir stattdessen helfen?",
+      "Alles klar. Was gibt es denn sonst für Fragen?"
     ]
   },
-  "topics": [
+  "simpleKeywords": [
     {
-      "topic_id": "pricing_info",
-      "name": "Preise und Tarife",
-      "keywords": [
-        "preis",
-        "kosten",
-        "tarif",
-        "ticket",
-        "eintritt",
-        "euro",
-        "teuer",
-        "günstig",
-        "kostet",
-        "tageskarte",
-        "familienkarte",
-        "kostenlos",
-        "gratis"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "pricing_general_query",
-          "spotting_keywords": [
-            "preis",
-            "preise",
-            "kosten",
-            "tarif",
-            "wieviel",
-            "was kostet",
-            "ausgaben",
-            "budget",
-            "teuer",
-            "günstig"
-          ],
-          "requires_clarification_if_too_general": false,
-          "responses": [
-            {
-              "response_id": "price_overview_1",
-              "text": "Gerne helfe ich Ihnen bei den Preisen! 💰 Was möchten Sie wissen?\n\n🎯 Optionen:\n• 'Preise anzeigen' - Aktuelle Preisübersicht\n• 'Preis berechnen' - Ihren persönlichen Preis ermitteln\n• 'Ermäßigungen' - Rabatte und Vergünstigungen\n• 'Zeittarife' - Frühschwimmer & Abendtarife\n\n💡 Tipp: Mit dem Preisrechner kann ich Ihren exakten Eintrittspreis berechnen!\n\nWas kann ich für Sie tun?",
-              "context_group_id": "pricing_overview_group",
-              "suggested_follow_ups": [
-                "pricing_day_tickets",
-                "pricing_time_rates",
-                "pricing_sauna",
-                "pricing_calculator_flow"
-              ]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_show_prices",
-          "spotting_keywords": [
-            "preise anzeigen",
-            "preise zeigen",
-            "aktuelle preise",
-            "preisübersicht",
-            "übersicht preise",
-            "alle preise",
-            "preisliste",
-            "tarife anzeigen",
-            "kosten anzeigen"
-          ],
-          "requires_clarification_if_too_general": false,
-          "responses": [
-            {
-              "response_id": "prices_display_complete",
-              "text": "📋 Unsere aktuellen Preise im Überblick:\n\n🎫 **Tageskarten Erlebnisbad:**\n• Erwachsene: Mo-Fr 19,90€ | Sa-So 23,90€\n• Kinder (4-13J): Mo-Fr 12,90€ | Sa-So 15,90€\n• Familie (2 Erw.+2 Ki.): Mo-Fr 54,90€ | Sa-So 64,90€\n• Senioren 65+: Mo-Fr 16,90€ | Sa-So 19,90€\n• Studenten: Mo-Fr 16,90€ | Sa-So 19,90€\n• Kleinkinder unter 4J: **KOSTENLOS** 🎉\n\n⏰ **Zeittarife:**\n• Frühschwimmer Mo-Fr (09:00-12:00): 10,90€\n• Abendtarif täglich (ab 18:00): Erw. 12,90€ | Ki. 8,90€\n\n🧖‍♀️ **Sauna-Zuschlag:** +8,00€ pro Person\n\n💡 Tipp: Mit dem Preisrechner kann ich Ihren exakten Preis berechnen!",
-              "context_group_id": "pricing_display_group",
-              "suggested_follow_ups": [
-                "pricing_calculator_flow",
-                "pricing_time_rates",
-                "pricing_sauna"
-              ]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_day_tickets",
-          "spotting_keywords": [
-            "tageskarte",
-            "erwachsene",
-            "kinder",
-            "familie",
-            "senioren",
-            "student",
-            "einzelticket",
-            "tagesticket",
-            "familienticket",
-            "kinderticket"
-          ],
-          "responses": [
-            {
-              "response_id": "day_ticket_prices",
-              "text": "Unsere Tageskarten für das Erlebnisbad: Erwachsene Mo-Fr 19,90€, Wochenende 23,90€ | Kinder (4-13J) Mo-Fr 12,90€, Wochenende 15,90€ | Familie (2 Erw.+2 Ki.) Mo-Fr 54,90€, Wochenende 64,90€ | Kleinkinder unter 4 Jahren sind kostenlos! Tickets erhalten Sie an unserem Eingang.",
-              "applies_to_keywords": ["tageskarte", "erwachsene", "kinder", "familie"],
-              "context_group_id": "day_tickets_group",
-              "related_info_ids": ["online_discount", "family_offers"]
-            },
-            {
-              "response_id": "senior_student_prices",
-              "text": "Senioren ab 65 Jahren und Studierende (mit Ausweis) zahlen Mo-Fr 16,90€, am Wochenende 19,90€. Menschen mit Behinderung (ab GdB 50) zahlen Mo-Fr 14,90€, Wochenende 17,90€. Begleitpersonen mit Merkzeichen B sind kostenfrei.",
-              "applies_to_keywords": ["senioren", "student", "behinderung", "ermäßigung"],
-              "context_group_id": "reduced_tickets_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_time_rates",
-          "spotting_keywords": ["abendtarif", "frühschwimmer", "zeit", "18 uhr", "abend", "morgen"],
-          "responses": [
-            {
-              "response_id": "time_rates_info",
-              "text": "Unsere Zeittarife: 🌅 Frühschwimmer Mo-Fr 09:00-12:00 Uhr nur 10,90€ (3 Stunden) | 🌙 Abendtarif täglich ab 18:00 Uhr: Erwachsene 12,90€, Kinder 8,90€. So können Sie richtig sparen!",
-              "context_group_id": "time_rates_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_sauna",
-          "spotting_keywords": ["sauna", "aufpreis", "zuschlag", "elemente", "saunawelt"],
-          "responses": [
-            {
-              "response_id": "sauna_pricing",
-              "text": "Unsere Saunawelt 'Elemente' kostet als Zuschlag zum Erlebnisbad +8,00€ pro Person (inkl. Leih-Bademantel & Saunatuch). Reine Saunanutzung als Tageskarte: 24,90€. Wir haben 4 Themensaunen: Feuer, Wasser, Luft und Erde!",
-              "context_group_id": "sauna_pricing_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_discounts",
-          "spotting_keywords": [
-            "ermäßigung",
-            "ermäßigungen",
-            "rabatt",
-            "vergünstigung",
-            "vergünstigungen",
-            "günstiger",
-            "reduziert",
-            "discount"
-          ],
-          "requires_clarification_if_too_general": false,
-          "responses": [
-            {
-              "response_id": "discounts_overview",
-              "text": "💰 Unsere Ermäßigungen und Rabatte:\n\n👴👵 **Senioren ab 65 Jahren:**\n• Mo-Fr: 16,90€ (statt 19,90€)\n• Sa-So: 19,90€ (statt 23,90€)\n\n🎓 **Studenten (mit Ausweis):**\n• Mo-Fr: 16,90€ (statt 19,90€) \n• Sa-So: 19,90€ (statt 23,90€)\n\n♿ **Menschen mit Behinderung (ab GdB 50):**\n• Mo-Fr: 14,90€ | Sa-So: 17,90€\n• Begleitpersonen mit Merkzeichen B: **KOSTENLOS**\n\n👥 **Gruppentarife (ab 15 Personen):**\n• 15% Rabatt auf reguläre Preise\n• Anmeldung erforderlich: +49 (0)761 / 123456\n\n🎂 **Geburtstagskinder bis 13 Jahre:**\n• **KOSTENLOSER** Eintritt am Geburtstag!\n\n💡 Weitere Sparmöglichkeiten: Frühschwimmer- & Abendtarife!",
-              "context_group_id": "discounts_overview_group",
-              "suggested_follow_ups": ["pricing_time_rates", "pricing_calculator_flow"]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_group_discounts",
-          "spotting_keywords": [
-            "gruppentarife",
-            "gruppenrabatt",
-            "gruppe",
-            "15 personen",
-            "gruppenermäßigung"
-          ],
-          "responses": [
-            {
-              "response_id": "group_discount_info",
-              "text": "👥 Gruppentarife ab 15 Personen!\n\n💰 **15% Rabatt** auf alle regulären Tageskartenpreise\n\n📞 **Anmeldung erforderlich:**\n+49 (0)761 / 123456 (Mo-Fr 09:00-17:00 Uhr)\n\n💡 **Beispiel-Ersparnis:**\n15 Personen Wochentag: 298,50€ → 253,73€\n**Sie sparen: 44,77€!**\n\n🎉 Perfekt für Vereine, Schulklassen, Betriebsausflüge oder große Familienfeiern!",
-              "context_group_id": "group_discount_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_annual_passes",
-          "spotting_keywords": ["dauerkarte", "jahres", "annual", "abo", "jahrespass"],
-          "responses": [
-            {
-              "response_id": "annual_pass_info",
-              "text": "Unsere Dauerkarten (12 Monate gültig): Einzelkarte Erwachsene 299€ (Erlebnisbad) oder 399€ (+ Sauna) | Einzelkarte Kind 199€ | Familienkarte (2 Erw. + bis zu 3 Ki.) 649€ oder 849€ (+ Sauna). Lohnt sich ab ca. 15 Besuchen!",
-              "context_group_id": "annual_passes_group"
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "pricing_overview_to_calculator",
-          "trigger_if_previous_group_ids_in_history": ["pricing_overview_group"],
-          "spotting_keywords": [
-            "preis berechnen",
-            "preisrechner",
-            "berechnen",
-            "persönlichen preis",
-            "mein preis",
-            "für uns",
-            "was kostet für",
-            "rechner"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_calculator_redirect",
-              "text": "💰 Perfekt! Gerne berechne ich Ihren persönlichen Eintrittspreis!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
-              "context_group_id": "pricing_flow_start_group",
-              "suggested_follow_ups": ["wochentag", "wochenende"]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_display_to_calculator",
-          "trigger_if_previous_group_ids_in_history": ["pricing_display_group"],
-          "spotting_keywords": [
-            "preis berechnen",
-            "preisrechner",
-            "berechnen",
-            "persönlichen preis",
-            "mein preis",
-            "für uns",
-            "was kostet für",
-            "rechner",
-            "exakten preis"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_calculator_from_display",
-              "text": "💰 Perfekt! Da Sie die Preise gesehen haben - lassen Sie uns Ihren exakten Preis berechnen!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
-              "context_group_id": "pricing_flow_start_group",
-              "suggested_follow_ups": ["wochentag", "wochenende"]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_discounts_to_calculator",
-          "trigger_if_previous_group_ids_in_history": ["discounts_overview_group"],
-          "spotting_keywords": [
-            "preis berechnen",
-            "preisrechner",
-            "berechnen",
-            "persönlichen preis",
-            "mein preis",
-            "für uns",
-            "was kostet für",
-            "rechner"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_calculator_from_discounts",
-              "text": "💰 Sehr gut! Mit den Ermäßigungen können Sie richtig sparen. Lassen Sie uns Ihren persönlichen Preis berechnen!\n\n📅 Wann möchten Sie uns besuchen?\n\n• 'wochentag' (Mo-Fr) - günstigere Preise\n• 'wochenende' (Sa-So) - Wochenendpreise\n\nWann haben Sie geplant zu kommen?",
-              "context_group_id": "pricing_flow_start_group",
-              "suggested_follow_ups": ["wochentag", "wochenende"]
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_day_and_type_response",
-          "trigger_if_previous_group_ids_in_history": ["pricing_overview_group"],
-          "spotting_keywords": [
-            "wochentag",
-            "wochenende",
-            "montag",
-            "dienstag",
-            "mittwoch",
-            "donnerstag",
-            "freitag",
-            "samstag",
-            "sonntag",
-            "mo-fr",
-            "sa-so",
-            "tageskarten",
-            "familientickets",
-            "zeittarife",
-            "frühschwimmer",
-            "abendtarif",
-            "sauna"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_weekday_day_tickets",
-              "text": "Perfekt! Für Wochentage (Mo-Fr) haben wir diese Preise:\n\n🎫 Tageskarten Erlebnisbad:\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€ \n• Familie (2 Erw.+2 Ki.): 54,90€\n• Senioren 65+: 16,90€\n• Studenten: 16,90€\n• Kleinkinder unter 4J: KOSTENLOS 🎉\n\n✨ Alle Attraktionen inklusive: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River!\n\n💡 Spar-Tipp: Frühschwimmer-Tarif (09:00-12:00): nur 10,90€!",
-              "applies_to_keywords": [
-                "wochentag",
-                "tageskarten",
-                "mo-fr",
-                "montag",
-                "dienstag",
-                "mittwoch",
-                "donnerstag",
-                "freitag"
-              ],
-              "context_group_id": "pricing_detailed_weekday_group"
-            },
-            {
-              "response_id": "pricing_weekend_day_tickets",
-              "text": "Perfekt! Für Wochenenden (Sa-So) haben wir diese Preise:\n\n🎫 Tageskarten Erlebnisbad:\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw.+2 Ki.): 64,90€\n• Senioren 65+: 19,90€\n• Studenten: 19,90€\n• Kleinkinder unter 4J: KOSTENLOS 🎉\n\n✨ Alle Attraktionen inklusive: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River!\n\n💡 Spar-Tipp: Abendtarif ab 18:00 Uhr günstiger!",
-              "applies_to_keywords": ["wochenende", "tageskarten", "sa-so", "samstag", "sonntag"],
-              "context_group_id": "pricing_detailed_weekend_group"
-            },
-            {
-              "response_id": "pricing_time_tariffs_info",
-              "text": "Unsere Zeittarife - perfekt zum Sparen! ⏰\n\n🌅 Frühschwimmer-Tarif (Mo-Fr 09:00-12:00):\n• Nur 10,90€ für 3 Stunden Wasserspaß!\n• Alle Attraktionen nutzbar\n\n🌙 Abendtarif (täglich ab 18:00):\n• Erwachsene: 12,90€\n• Kinder: 8,90€\n• Bis zur Schließung um 22:00 Uhr\n\n💰 So sparen Sie bis zu 11€ pro Person!",
-              "applies_to_keywords": ["zeittarife", "frühschwimmer", "abendtarif"],
-              "context_group_id": "pricing_time_tariffs_group"
-            },
-            {
-              "response_id": "pricing_family_focus",
-              "text": "Familienpreise bei AquaMagica! 👨‍👩‍👧‍👦\n\nWochentags (Mo-Fr):\n• Familienkarte (2 Erw.+2 Ki.): 54,90€\n• Zusätzliches Kind: +12,90€\n\nWochenende (Sa-So):\n• Familienkarte (2 Erw.+2 Ki.): 64,90€  \n• Zusätzliches Kind: +15,90€\n\n🎂 Geburtstags-Special: Kinder bis 13J haben am Geburtstag freien Eintritt!\n\n👶 Kleinkinder unter 4 Jahren sind immer kostenlos!",
-              "applies_to_keywords": ["familientickets", "familie"],
-              "context_group_id": "pricing_family_focus_group"
-            },
-            {
-              "response_id": "pricing_sauna_addition",
-              "text": "Saunawelt 'Elemente' - Entspannung pur! 🧖‍♀️\n\nSauna-Zuschlag zum Erlebnisbad:\n• +8,00€ pro Person\n• Inklusive: Bademantel & Saunatuch\n\nReine Sauna-Tageskarte:\n• 24,90€ (ohne Erlebnisbad)\n\n🌿 4 Themensaunen: Feuer, Wasser, Luft und Erde\n♨️ Aufgüsse mit ätherischen Ölen\n\n💡 Tipp: Perfekt nach dem Wasserspaß zum Entspannen!",
-              "applies_to_keywords": ["sauna", "saunawelt"],
-              "context_group_id": "pricing_sauna_focus_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_entrance_tickets_followup",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_overview_group",
-            "day_tickets_group",
-            "pricing_detailed_weekday_group",
-            "pricing_detailed_weekend_group"
-          ],
-          "spotting_keywords": [
-            "online",
-            "rabatt",
-            "sparen",
-            "discount",
-            "günstiger",
-            "tickets",
-            "kaufen",
-            "wo kaufen",
-            "reservieren"
-          ],
-          "responses": [
-            {
-              "response_id": "entrance_tickets_details",
-              "text": "🎫 Tickets kaufen: Alle Tickets erhalten Sie direkt an unserem Eingang! So vermeiden Sie lange Anfahrtswege für den Ticketkauf und können spontan entscheiden. Unsere Kasse ist täglich ab 9:00 Uhr geöffnet.\n\n📍 Adresse: Bäderstraße 12, 79100 Freiburg\n🅿️ 300 kostenlose Parkplätze direkt vor Ort!",
-              "context_group_id": "entrance_tickets_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_family_offers_followup",
-          "trigger_if_previous_group_ids_in_history": [
-            "day_tickets_group",
-            "pricing_overview_group"
-          ],
-          "spotting_keywords": ["familie", "kinder", "angebot", "special", "birthday"],
-          "responses": [
-            {
-              "response_id": "family_offers_details",
-              "text": "Für Familien haben wir tolle Angebote: Geburtstagskinder bis 13 Jahre haben freien Eintritt! Gruppentarife ab 15 Personen mit 15% Rabatt. Kleinkinder unter 4 Jahren sind immer kostenlos dabei.",
-              "context_group_id": "family_offers_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["hallo", "hi", "hey", "servus"],
+      "response": ["greeting"]
     },
     {
-      "topic_id": "attractions_info",
-      "name": "Attraktionen und Erlebnisse",
-      "keywords": [
-        "attraktion",
-        "rutsche",
-        "becken",
-        "wellenbad",
-        "kinder",
-        "sauna",
-        "spaß",
-        "erlebnis",
-        "highlight",
-        "abenteuer",
-        "action",
-        "entspannung",
-        "wasserrutsche",
-        "kinderbecken",
-        "erlebnisbad",
-        "wellness",
-        "nervenkitzel"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "attractions_overview",
-          "spotting_keywords": ["attraktion", "was gibt es", "angebot", "highlight", "erleben"],
-          "requires_clarification_if_too_general": true,
-          "responses": [
-            {
-              "response_id": "attractions_overview_1",
-              "text": "AquaMagica bietet spektakuläre Erlebnisse für alle! 🌋 Vulkan-Rutsche 'Inferno' (bis 45 km/h!), 🌊 Wellenbad 'Atlantica' (3m hohe Wellen!), 🏴‍☠️ Kinderwelt 'Tropica Island', 🛟 Magische Flussfahrt, ❄️ Polar-Lagune und 🧖‍♀️ Saunawelt 'Elemente'. Alle Attraktionen sind im Tagesticket inklusive!",
-              "context_group_id": "attractions_overview_group",
-              "suggested_follow_ups": [
-                "volcano_slide",
-                "wave_pool",
-                "kids_area",
-                "lazy_river",
-                "sauna_world"
-              ]
-            }
-          ]
-        },
-        {
-          "interaction_id": "volcano_slide_info",
-          "spotting_keywords": ["vulkan", "inferno", "rutsche", "schnell", "adrenali", "tunnel"],
-          "responses": [
-            {
-              "response_id": "volcano_slide_details",
-              "text": "Die Vulkan-Rutsche 'Inferno' ist ein absolutes Highlight! 🌋 Deutschlands einzige 4-fach-Tunnelrutsche mit spektakulären Lichteffekten und simulierten Hitzeimpulsen. Rausche mit bis zu 45 km/h durch vier verschlungene Röhren - purer Nervenkitzel!",
-              "context_group_id": "volcano_slide_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "wave_pool_info",
-          "spotting_keywords": ["wellenbad", "atlantica", "wellen", "meer", "sturm"],
-          "responses": [
-            {
-              "response_id": "wave_pool_details",
-              "text": "Das Wellenbad 'Atlantica' ist gigantisch! 🌊 Alle 30 Minuten gibt es bis zu 3 Meter hohe Wellen mit authentischem Meeresrauschen und Delfingeräuschen. Manchmal überraschen wir Sie sogar mit unserem 'Tropischen Sturm-Modus' - noch intensiver!",
-              "context_group_id": "wave_pool_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "kids_area_info",
-          "spotting_keywords": ["kinder", "tropica island", "pirat", "familie", "klein"],
-          "responses": [
-            {
-              "response_id": "kids_area_details",
-              "text": "Die Kinderwelt 'Tropica Island' ist ein Paradies für unsere kleinen Gäste! 🏴‍☠️ Großes Piratenschiff, Mini-Rutschen, interaktive Wasserspiele und sprechende Tierfiguren sorgen für strahlende Kinderaugen. Sichere, flache Wasserbereiche!",
-              "context_group_id": "kids_area_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "lazy_river_info",
-          "spotting_keywords": ["flussfahrt", "lazy river", "entspann", "treiben", "magic"],
-          "responses": [
-            {
-              "response_id": "lazy_river_details",
-              "text": "Die Magische Flussfahrt ist pure Entspannung! 🛟 300 Meter lange Lazy-River-Anlage mit faszinierenden Lichteffekten, sanftem Nebel und beruhigenden Klangwelten aus verschiedenen Kontinenten. Ein Erlebnis für alle Sinne!",
-              "context_group_id": "lazy_river_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "polar_lagoon_info",
-          "spotting_keywords": ["polar", "lagune", "außen", "kalt", "eisbär", "schnee"],
-          "responses": [
-            {
-              "response_id": "polar_lagoon_details",
-              "text": "Die Polar-Lagune ist einzigartig! ❄️ Unser Außenbecken mit saisonaler Schneeinsel, magischen Polarlichter-Projektionen und unserem knuffigen Eisbären-Roboter 'Frosti', der sich bewegt und brummt. Arktisches Flair im Schwarzwald!",
-              "context_group_id": "polar_lagoon_group"
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "attractions_speed_followup",
-          "trigger_if_previous_group_ids_in_history": [
-            "volcano_slide_group",
-            "attractions_overview_group"
-          ],
-          "spotting_keywords": ["geschwindigkeit", "schnell", "km/h", "tempo"],
-          "responses": [
-            {
-              "response_id": "speed_details",
-              "text": "Die Vulkan-Rutsche 'Inferno' erreicht Geschwindigkeiten von bis zu 45 km/h! Das macht sie zu einer der schnellsten Rutschen in der Region. Der Adrenalinstoß ist garantiert! 🚀",
-              "context_group_id": "speed_details_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attractions_age_suitability",
-          "trigger_if_previous_group_ids_in_history": [
-            "kids_area_group",
-            "attractions_overview_group"
-          ],
-          "spotting_keywords": ["alter", "geeignet", "jahre", "kleinkind", "baby"],
-          "responses": [
-            {
-              "response_id": "age_suitability_info",
-              "text": "Tropica Island ist perfekt für Kinder jeden Alters! Die flachen Wasserbereiche sind auch für Kleinkinder sicher. Für größere Kinder gibt es aufregende Mini-Rutschen. Alle Attraktionen werden von geschulten Bademeistern überwacht.",
-              "context_group_id": "safety_and_age_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["hilfe"],
+      "response": "Ich kann dir bei Fragen zu Preisen, Attraktionen, Öffnungszeiten, Anfahrt, Gastronomie und allen Einrichtungen helfen. Frag mich einfach!"
     },
     {
-      "topic_id": "opening_hours",
-      "name": "Öffnungszeiten",
+      "keywords": ["öffnungszeiten", "geöffnet", "öffnung", "offen"],
+      "response": "🕘 **Öffnungszeiten:**\n• Erlebnisbad: Täglich 09:00 – 22:00 Uhr\n• Saunawelt: Täglich 10:00 – 22:00 Uhr\n• Nachtschwimmen: Freitags bis 24:00 Uhr"
+    },
+    {
+      "keywords": ["adresse", "anschrift", "wo"],
+      "response": "📍 **AquaMagica – Die Wasserwelt der Sinne**\nBäderstraße 12\n79100 Freiburg im Breisgau"
+    },
+    {
+      "keywords": ["telefon", "anrufen", "nummer"],
+      "response": "📞 **Telefon:** +49 (0)761 / 123456\n(Mo-Fr 09:00-17:00 Uhr)"
+    },
+    {
+      "keywords": ["danke"],
+      "response": "Gern geschehen! Wenn du weitere Fragen hast, stehe ich zur Verfügung."
+    },
+    {
+      "keywords": ["email", "mail", "e-mail"],
+      "response": "📧 **E-Mail:** info@aquamagica.de"
+    },
+    {
+      "keywords": ["anfahrt", "auto", "parkplatz", "parken"],
+      "response": "🚗 **Anfahrt:** A5 Ausfahrt Freiburg-Mitte, dann B31 Richtung Zentrum, Ausfahrt Bäderstraße.\n🅿️ Über 300 **kostenlose** Parkplätze direkt am AquaMagica!"
+    },
+    {
+      "keywords": ["öpnv", "tram", "öffentlich", "bus"],
+      "response": "🚋 **Öffentliche Verkehrsmittel:** Tramlinie 5 bis Haltestelle 'Bäderstraße', dann ca. 5 Minuten Fußweg."
+    },
+    {
+      "keywords": ["vulkan", "inferno", "rutsche"],
+      "response": "🌋 **Vulkan-Rutsche 'Inferno':** Deutschlands einzige 4-fach-Tunnelrutsche! Rasante Abfahrt mit bis zu 45 km/h, spektakulären Lichteffekten und simulierten Hitzeimpulsen."
+    },
+    {
+      "keywords": ["wellen", "wellenbad", "atlantica"],
+      "response": "🌊 **Wellenbad 'Atlantica':** Alle 30 Minuten bis zu 3 Meter hohe Wellen! Mit authentischem Meeresrauschen und Delfingeräuschen. Halte Ausschau nach unserem 'Tropischen Sturm-Modus'!"
+    },
+    {
+      "keywords": ["kinder", "kinderwelt", "tropica", "pirat"],
+      "response": "🏴‍☠️ **Kinderwelt 'Tropica Island':** Großes Piratenschiff, Mini-Rutschen, interaktive Wasserspiele und sprechende Tierfiguren. Ein Paradies für kleine Entdecker!"
+    },
+    {
+      "keywords": ["lazy", "river", "fluss", "entspannung"],
+      "response": "🚤 **Magische Flussfahrt:** 300m langer Lazy-River mit faszinierenden Lichteffekten, sanftem Nebel und beruhigenden Klangwelten aus verschiedenen Kontinenten."
+    },
+    {
+      "keywords": ["polar", "lagune", "außen", "eisbär"],
+      "response": "🐻‍❄️ **Polar-Lagune:** Einzigartiges Außenbecken mit Schneeinsel (saisonal), Polarlichter-Projektionen und unserem beweglichen Eisbären-Roboter 'Frosti'!"
+    },
+    {
+      "keywords": ["sauna", "elemente", "wellness"],
+      "response": "🧖‍♀️ **Saunawelt 'Elemente':** Vier Themen-Saunen (Feuer, Wasser, Luft, Erde) mit wechselnden Aufgüssen, natürlichen Kräutern und ätherischen Ölen. +8€ Aufpreis."
+    },
+    {
+      "keywords": ["restaurant", "essen", "trinken", "gastronomie"],
+      "response": "🍽️ **Gastronomie:**\n• **AquaBistro:** Mediterrane & vegane Küche\n• **Piraten-Kantine:** Speziell für Kinder\n• **Sauna-Lounge 'AufgussBar':** Smoothies & Snacks"
+    },
+    {
+      "keywords": ["nachtschwimmen", "freitag", "party", "dj"],
+      "response": "🌙 **Nachtschwimmen:** Jeden Freitag 20:00-24:00 Uhr! Lichtermeer mit Unterwasser-Lasern und Live-DJ-Musik. Ein magisches Erlebnis!"
+    },
+    {
+      "keywords": ["yoga", "aqua-yoga", "sonntag"],
+      "response": "🧘‍♀️ **Aqua-Yoga:** Jeden Sonntag 9:30-10:15 Uhr im Erlebnisbecken. Entspannter Start in den Tag! (Anmeldung empfohlen, kleine Zusatzgebühr)"
+    },
+    {
+      "keywords": ["handtuch", "bademantel", "ausleihen"],
+      "response": "🏖️ **Verleih:** Handtücher (4€ + 10€ Pfand) und Bademäntel (7€ + 20€ Pfand) an der Kasse. Bei Sauna-Buchung sind Bademantel & Saunatuch inklusive!"
+    },
+    {
+      "keywords": ["armband", "digital", "bezahlen"],
+      "response": "⌚ **Digitales Armband:** Dient als Schlüssel, Zahlungsmittel und Fotospeicher. Bei Verlust: 5€ Ersatzgebühr."
+    },
+    {
+      "keywords": ["wlan", "wifi", "internet"],
+      "response": "📶 **WLAN:** Kostenloses WLAN im Eingangsbereich und allen Gastronomiebereichen verfügbar."
+    },
+    {
+      "keywords": ["barrierefrei", "rollstuhl", "behinderung"],
+      "response": "♿ **Barrierefreiheit:** Gesamte Anlage rollstuhlgeeignet mit barrierefreien Umkleiden, Duschen und WCs. Spezielle Tarife für Menschen mit Behinderung."
+    },
+    {
+      "keywords": ["bier", "wein", "cocktails", "spaßgetränke", "alkohol", "getränke", "bar"],
+      "response": "🍺 Natürlich gibt es das bei uns! Bei unserer **AufgussBar** in der Saunawelt gibt es erfrischende Getränke und im **AquaBistro** findest du mediterrane Köstlichkeiten mit Blick aufs Wellenbad!"
+    },
+    {
+      "keywords": ["essen", "hunger", "snacks", "mittagessen"],
+      "response": "🍽️ Lecker! Wir haben das **AquaBistro** (mediterrane & vegane Küche), die **Piraten-Kantine** für Kinder und die **Sauna-Lounge AufgussBar** mit gesunden Smoothies und Snacks."
+    },
+    {
+      "keywords": ["mitbringen", "eigenes essen", "picknick"],
+      "response": "🥪 Eigene Speisen sind nur in den ausgewiesenen Picknickbereichen im Außenbereich erlaubt. Für Babynahrung machen wir natürlich eine Ausnahme!"
+    },
+    {
+      "keywords": ["geburtstag", "geburtstagskind", "party"],
+      "response": "🎂 **Geburtstagskinder** (bis 13 Jahre) haben am Tag ihres Geburtstags freien Eintritt ins Erlebnisbad! Einfach Ausweis mitbringen."
+    },
+    {
+      "keywords": ["gutschein", "geschenk", "verschenken"],
+      "response": "🎁 **Gutscheine** für magische Momente sind an unserer Kasse erhältlich - das perfekte Geschenk für Wasserratten!"
+    },
+    {
+      "keywords": ["gruppe", "gruppentarif", "rabatt"],
+      "response": "👥 **Gruppentarife:** Ab 15 Personen gibt es 15% Rabatt auf die regulären Tagespreise! Anmeldung erforderlich."
+    },
+    {
+      "keywords": ["dauerkarte", "jahreskarte", "jahresabo"],
+      "response": "💳 **Dauerkarten** (12 Monate gültig): Einzelkarte Erwachsene 299€, mit Sauna 399€. Familienkarte (2 Erw. + bis zu 3 Ki.) 649€, mit Sauna 849€."
+    },
+    {
+      "keywords": ["roboter", "frosti", "eisbär"],
+      "response": "🐻‍❄️ Unser knuffiger **Eisbären-Roboter 'Frosti'** in der Polar-Lagune bewegt sich und brummt! Ein echtes Highlight für Groß und Klein!"
+    },
+    {
+      "keywords": ["nachhaltigkeit", "umwelt", "grün", "solar"],
+      "response": "🌱 **Nachhaltigkeit** ist uns wichtig! AquaMagica wird CO₂-neutral betrieben durch Solarstrom, Wärmerückgewinnung und regionale Wasseraufbereitung."
+    },
+    {
+      "keywords": ["team", "mitarbeiter", "jobs", "arbeiten"],
+      "response": "👨‍💼 Unser **Team** besteht aus 85 engagierten Mitarbeiterinnen und Mitarbeitern - von Bademeistern bis zum Technikteam, alle sorgen für deine Sicherheit und unvergessliche Momente!"
+    },
+    {
+      "keywords": ["schwarzwald", "freiburg", "region", "umgebung"],
+      "response": "🌲 AquaMagica liegt malerisch am **Tor zum Schwarzwald** in Freiburg im Breisgau - perfekt gelegen für einen Ausflug in die wunderschöne Region!"
+    },
+    {
+      "keywords": ["foto", "fotografieren", "bilder", "erinnerung"],
+      "response": "📸 Mit unserem **digitalen Armband** kannst du deine schönsten Fotomomente bei uns speichern! Das Armband dient auch als Schlüssel und Zahlungsmittel."
+    },
+    {
+      "keywords": ["temperatur", "wassertemperatur", "warm", "kalt"],
+      "response": "🌡️ Unsere **Wasserbereiche** haben angenehme Temperaturen: Die Polar-Lagune ist erfrischend kühl, während unsere anderen Becken wohlig warm sind!"
+    },
+    {
+      "keywords": ["frühschwimmer", "früh", "frühschwimmen", "morgentarif"],
+      "response": " **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!"
+    },
+    {
+      "keywords": ["wochenende", "wochenendtarif", "samstag", "sonntag", "feiertag"],
+      "response": "🎫 **Wochenend-Tarife (Sa-So & Feiertage):**\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw. + 2 Ki.): 64,90€\n• Senioren (ab 65J): 19,90€\n• Studierende: 19,90€"
+    },
+    {
       "keywords": [
-        "öffnungszeit",
-        "geöffnet",
-        "wann",
-        "zeit",
-        "uhrzeit",
-        "offen",
-        "geschlossen",
+        "regulär",
+        "normale preise",
+        "wochentag",
         "montag",
         "dienstag",
         "mittwoch",
         "donnerstag",
-        "freitag",
-        "samstag",
-        "sonntag",
-        "wochentag",
-        "wochenende"
+        "freitag"
       ],
-      "entry_interactions": [
-        {
-          "interaction_id": "general_opening_hours",
-          "spotting_keywords": ["öffnungszeit", "geöffnet", "wann", "uhrzeit"],
-          "responses": [
-            {
-              "response_id": "opening_hours_info",
-              "text": "Unsere Öffnungszeiten: 🏊‍♂️ Erlebnisbad täglich 09:00-22:00 Uhr | 🧖‍♀️ Saunawelt täglich 10:00-22:00 Uhr | 🌙 Nachtschwimmen freitags bis 24:00 Uhr! An Feiertagen können die Zeiten abweichen - schauen Sie auf unsere Startseite.",
-              "context_group_id": "opening_hours_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "night_swimming",
-          "spotting_keywords": ["nachtschwimmen", "freitag", "nacht", "länger", "24 uhr"],
-          "responses": [
-            {
-              "response_id": "night_swimming_info",
-              "text": "Unser Nachtschwimmen mit Lichtershow! 🌙✨ Jeden Freitag von 20:00-24:00 Uhr verwandelt sich AquaMagica in ein faszinierendes Lichtermeer mit Unterwasser-Lasern und Live-DJ-Musik. Ein magisches Erlebnis!",
-              "context_group_id": "night_swimming_group"
-            }
-          ]
-        }
-      ]
+      "response": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€\n• Familie (2 Erw. + 2 Ki.): 54,90€\n• Senioren (ab 65J): 16,90€\n• Studierende: 16,90€\n\n**Abendtarif (ab 18:00):** Erwachsene 12,90€, Kinder 8,90€"
     },
     {
-      "topic_id": "booking_tickets",
-      "name": "Buchung und Tickets",
-      "keywords": [
-        "buchen",
-        "reservieren",
-        "ticket",
-        "online",
-        "kasse",
-        "gutschein",
-        "gruppe",
-        "kaufen",
-        "eingang",
-        "gruppenbuchung"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "ticket_purchase",
-          "spotting_keywords": [
-            "online buchen",
-            "reservieren",
-            "internet",
-            "website",
-            "tickets kaufen"
-          ],
-          "responses": [
-            {
-              "response_id": "ticket_purchase_info",
-              "text": "Tickets erhalten Sie ganz einfach an unserem Eingang! 🎫 Unsere Kasse ist täglich ab 9:00 Uhr geöffnet. So können Sie spontan entscheiden und direkt ins Vergnügen starten. Bei Fragen rufen Sie uns gerne an!",
-              "context_group_id": "entrance_tickets_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "group_booking",
-          "spotting_keywords": ["gruppe", "gruppenrabatt", "15 personen", "verein"],
-          "responses": [
-            {
-              "response_id": "group_booking_info",
-              "text": "Gruppenrabatt für 15+ Personen: 15% auf reguläre Tageskartenpreise! 👥 Perfekt für Vereine, Schulklassen oder große Familienfeiern. Anmeldung erforderlich - rufen Sie uns an: +49 (0)761 / 123456",
-              "context_group_id": "group_booking_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "gift_vouchers",
-          "spotting_keywords": ["gutschein", "geschenk", "verschenken", "birthday"],
-          "responses": [
-            {
-              "response_id": "voucher_info",
-              "text": "Verschenken Sie magische Momente! 🎁 Gutscheine sind an der Kasse erhältlich. Perfekt für Geburtstage, Weihnachten oder als Überraschung. Gutscheine sind 3 Jahre gültig!",
-              "context_group_id": "voucher_group"
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "visit_recommendation_followup",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_overview_group",
-            "entrance_tickets_group"
-          ],
-          "spotting_keywords": ["empfehlung", "wann kommen", "vorher", "rechtzeitig", "voll"],
-          "responses": [
-            {
-              "response_id": "visit_recommendation",
-              "text": "Meine Empfehlung: An Wochentagen ist meist weniger los als an Wochenenden! Unsere Kasse öffnet täglich um 9:00 Uhr. In den Ferienzeiten kann es etwas voller werden, aber das gehört zum Spaß dazu! 📅",
-              "context_group_id": "visit_advice_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "ticket_purchase_location",
-          "spotting_keywords": ["wo kaufe ich tickets", "wo tickets kaufen", "tickets wo"],
-          "responses": [
-            {
-              "response_id": "ticket_location_info",
-              "text": "AquaMagica finden Sie in der Bäderstraße 12, 79100 Freiburg im Breisgau. 🚗 A5 Ausfahrt Freiburg-Mitte → B31 → Ausfahrt Bäderstraße | 🚊 Tramlinie 5 bis 'Bäderstraße' (5 Min. Fußweg) | 🚲 Fahrradständer am Eingang",
-              "context_group_id": "ticket_location_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["ruhig", "entspannung", "entspannen", "relaxen"],
+      "response": "🧘‍♀️ Für entspannte Momente empfehle ich dir:\n• **Magische Flussfahrt** (300m Lazy-River)\n• **Polar-Lagune** (Außenbecken)\n• **Saunawelt 'Elemente'** (+8€)\n• **Aqua-Yoga** (sonntags 9:30-10:15)"
     },
     {
-      "topic_id": "weather_seasons",
-      "name": "Wetter und Saisonales",
-      "keywords": [
-        "wetter",
-        "regen",
-        "winter",
-        "sommer",
-        "draußen",
-        "außen",
-        "saison",
-        "kalt",
-        "warm",
-        "indoor",
-        "drinnen",
-        "überdacht"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "weather_independence",
-          "spotting_keywords": ["wetter", "regen", "schlecht", "draußen"],
-          "responses": [
-            {
-              "response_id": "weather_info",
-              "text": "Perfekt bei jedem Wetter! 🌦️ AquaMagica hat sowohl Innen- als auch Außenbereiche. Bei Regen genießen Sie alle Attraktionen drinnen. Die Polar-Lagune im Außenbereich ist teilweise überdacht und auch bei schlechtem Wetter erlebbar!",
-              "context_group_id": "weather_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "seasonal_features",
-          "spotting_keywords": ["winter", "sommer", "saison", "schneeinsel"],
-          "responses": [
-            {
-              "response_id": "seasonal_info",
-              "text": "Saisonale Highlights: ❄️ Winter: Schneeinsel in der Polar-Lagune und gemütliche Saunawelt | ☀️ Sommer: Erweiterte Außenbereiche und Picknickzonen. Ganzjährig 25°C warmes Wasser in allen Innenbereichen!",
-              "context_group_id": "seasonal_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["aufregend", "action", "abenteuer", "adrenalin"],
+      "response": "🚀 Für Adrenalin-Junkies haben wir:\n• **Vulkan-Rutsche 'Inferno'** (bis 45 km/h!)\n• **Wellenbad 'Atlantica'** (3m hohe Wellen)\n• **Kinderwelt 'Tropica Island'** (Piratenschiff & Wasserspiele)"
     },
     {
-      "topic_id": "safety_rules",
-      "name": "Sicherheit und Regeln",
-      "keywords": [
-        "sicherheit",
-        "regel",
-        "verbot",
-        "erlaubt",
-        "bademeister",
-        "schwimmen können",
-        "nichtschwimmer",
-        "tief",
-        "flach"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "safety_overview",
-          "spotting_keywords": ["sicherheit", "regel", "verbot", "erlaubt"],
-          "responses": [
-            {
-              "response_id": "safety_info",
-              "text": "Ihre Sicherheit steht an erster Stelle! 🛡️ Geschulte Bademeister überwachen alle Bereiche. Wichtigste Regeln: Duschen vor dem Baden, keine Glasgegenstände, Rutschen nur einzeln. Alle Attraktionen haben Alters-/Größenempfehlungen.",
-              "context_group_id": "safety_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "swimming_ability",
-          "spotting_keywords": ["schwimmen können", "nichtschwimmer", "tief", "wassertief"],
-          "responses": [
-            {
-              "response_id": "swimming_ability_info",
-              "text": "Auch Nichtschwimmer sind willkommen! 🏊‍♂️ Viele Bereiche sind flach (Kinderwelt, Teile der Lazy-River). Schwimmer-Bereiche sind klar gekennzeichnet. Bei Unsicherheit helfen unsere Bademeister gerne!",
-              "context_group_id": "swimming_ability_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["sicherheit", "bademeister", "aufsicht"],
+      "response": "🏊‍♂️ **Sicherheit** steht bei uns an erster Stelle! Unsere erfahrenen Bademeister sorgen für deine Sicherheit und stehen bei Fragen zur Verfügung."
     },
     {
-      "topic_id": "special_occasions",
-      "name": "Besondere Anlässe",
-      "keywords": [
-        "geburtstag",
-        "hochzeit",
-        "feier",
-        "event",
-        "privat",
-        "birthday",
-        "party",
-        "kindergeburtstag",
-        "firmenfeier"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "birthday_celebration",
-          "spotting_keywords": ["geburtstag", "birthday", "geburi", "feiern"],
-          "responses": [
-            {
-              "response_id": "birthday_info",
-              "text": "Geburtstag im AquaMagica! 🎂 Geburtstagskinder bis 13 Jahre haben freien Eintritt am Geburtstag (Ausweis erforderlich). Kombinieren Sie es mit Gruppentarifen für die Gäste und der Piraten-Kantine für das perfekte Fest!",
-              "context_group_id": "birthday_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "private_events",
-          "spotting_keywords": ["hochzeit", "feier", "privat", "exklusiv", "mieten"],
-          "responses": [
-            {
-              "response_id": "private_events_info",
-              "text": "Für private Veranstaltungen kontaktieren Sie uns direkt! 🎉 Wir bieten individuelle Lösungen für besondere Anlässe. Sprechen Sie mit unserem Team: +49 (0)761 / 123456 - wir machen Ihr Event unvergesslich!",
-              "context_group_id": "private_events_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["größe", "fläche", "25000", "quadratmeter", "anlage"],
+      "response": "🏢 **AquaMagica Fakten:** Unsere moderne Wasserwelt erstreckt sich über beeindruckende **25.000 m²** im Innen- und Außenbereich - seit der Eröffnung 2019 ein Highlight am Tor zum Schwarzwald!"
     },
     {
-      "topic_id": "health_wellness",
-      "name": "Gesundheit und Wellness",
-      "keywords": [
-        "gesundheit",
-        "wellness",
-        "entspannung",
-        "fitness",
-        "erholung",
-        "ruhe",
-        "sport",
-        "training",
-        "aquafitness"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "wellness_benefits",
-          "spotting_keywords": ["wellness", "entspannung", "gesundheit", "erholung"],
-          "responses": [
-            {
-              "response_id": "wellness_info",
-              "text": "AquaMagica ist Wellness für Körper und Seele! 💆‍♀️ Warmes Wasser entspannt Muskeln, die Saunawelt entgiftet, Aqua-Yoga stärkt sanft. Die Magische Flussfahrt mit Klangwelten beruhigt den Geist. Perfekte Auszeit vom Stress!",
-              "context_group_id": "wellness_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "aqua_fitness",
-          "spotting_keywords": ["fitness", "sport", "training", "aqua fitness"],
-          "responses": [
-            {
-              "response_id": "aqua_fitness_info",
-              "text": "Aqua-Fitness im AquaMagica! 💪 Neben Aqua-Yoga (sonntags) bietet das Wasser gelenkschonendes Training. Das Wellenbad 'Atlantica' ist perfekt für Konditionstraining. Sprechen Sie uns für weitere Kurse an!",
-              "context_group_id": "fitness_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["eröffnung", "2019", "geschichte", "entstehung"],
+      "response": "🎉 **Geschichte:** AquaMagica öffnete seine Pforten im Jahr **2019** mit der Vision, ein einzigartiges Wassererlebnis zu schaffen, das Besucher aller Generationen verzaubert!"
     },
     {
-      "topic_id": "technical_questions",
-      "name": "Technische Fragen",
-      "keywords": [
-        "wasserqualität",
-        "temperatur",
-        "chlor",
-        "sauber",
-        "hygiene",
-        "wasser",
-        "warm",
-        "kalt",
-        "grad"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "water_quality",
-          "spotting_keywords": ["wasserqualität", "sauber", "hygiene", "chlor"],
-          "responses": [
-            {
-              "response_id": "water_quality_info",
-              "text": "Höchste Wasserqualität garantiert! 💧 Modernste Filteranlagen, regionale Wasseraufbereitung und kontinuierliche Überwachung. Alle Werte werden streng nach DIN-Normen kontrolliert. Ihr Wohlbefinden und Ihre Gesundheit stehen im Mittelpunkt!",
-              "context_group_id": "water_quality_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "water_temperature",
-          "spotting_keywords": ["temperatur", "warm", "kalt", "grad"],
-          "responses": [
-            {
-              "response_id": "temperature_info",
-              "text": "Optimale Wassertemperaturen für jeden Bereich! 🌡️ Innenbereiche konstant 25-28°C, Außenbereiche je nach Saison. Die Polar-Lagune ist bewusst kühler für den Erfrischungs-Kick! Saunen von 45-90°C je nach Element.",
-              "context_group_id": "temperature_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["elektroauto", "e-ladestationen", "laden", "elektro"],
+      "response": "⚡ **E-Mobilität:** Wir haben **E-Ladestationen** für Elektroautos direkt bei unseren kostenlosen Parkplätzen! Umweltfreundlich zu uns fahren und entspannt aufladen."
     },
     {
-      "topic_id": "cross_topic_smart_responses",
-      "name": "Intelligente Querverweise",
-      "keywords": [],
-      "entry_interactions": [],
-      "contextual_interactions": [
-        {
-          "interaction_id": "price_after_attraction_interest",
-          "trigger_if_previous_group_ids_in_history": [
-            "attractions_overview_group",
-            "volcano_slide_group",
-            "wave_pool_group",
-            "kids_area_group"
-          ],
-          "spotting_keywords": ["kostet", "preis", "eintritt", "bezahlen"],
-          "responses": [
-            {
-              "response_id": "price_after_attraction",
-              "text": "Da Sie sich für unsere Attraktionen interessieren: Eine Tageskarte kostet Mo-Fr 19,90€ (Erwachsene), am Wochenende 23,90€. Tickets erhalten Sie an unserem Eingang! Familienkarten und weitere Ermäßigungen verfügbar. Alle Attraktionen inklusive! 🎢",
-              "context_group_id": "price_after_attraction_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "booking_after_price_interest",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_overview_group",
-            "day_tickets_group",
-            "time_rates_group"
-          ],
-          "spotting_keywords": ["buchen", "reservieren", "kaufen", "ticket"],
-          "responses": [
-            {
-              "response_id": "booking_after_price",
-              "text": "Super, dass Sie sich für unsere Preise interessieren! Tickets gibt es direkt an unserem Eingang - einfach vorbeikommen und loslegen. Auch an Wochenenden sind Sie bei uns herzlich willkommen. 🎫",
-              "context_group_id": "booking_after_price_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "directions_after_interest",
-          "trigger_if_previous_group_ids_in_history": [
-            "entrance_tickets_group",
-            "visit_advice_group"
-          ],
-          "spotting_keywords": ["anfahrt", "wo", "finden", "adresse", "navigation"],
-          "responses": [
-            {
-              "response_id": "directions_after_interest",
-              "text": "Perfekt, dann können Sie direkt zu uns kommen! 🎫 Sie finden uns in der Bäderstraße 12, Freiburg. Mit dem Auto: A5 → B31 → Ausfahrt Bäderstraße. 300 kostenlose Parkplätze! Mit der Tram: Linie 5 bis 'Bäderstraße'. Wir freuen uns auf Sie! 🚗🚊",
-              "context_group_id": "directions_after_interest_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "opening_hours_planning",
-          "trigger_if_previous_group_ids_in_history": [
-            "visit_advice_group",
-            "entrance_tickets_group"
-          ],
-          "spotting_keywords": ["wann", "öffnungszeit", "uhrzeit", "geöffnet"],
-          "responses": [
-            {
-              "response_id": "hours_planning_info",
-              "text": "Für Ihren geplanten Besuch: Wir haben täglich 09:00-22:00 Uhr geöffnet! 🕘 Tipp: Frühschwimmer-Tarif Mo-Fr 09:00-12:00 für nur 10,90€ oder Abendtarif ab 18:00 Uhr günstiger. Freitags sogar Nachtschwimmen bis 24:00! ✨",
-              "context_group_id": "hours_planning_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "food_after_long_visit",
-          "trigger_if_previous_group_ids_in_history": [
-            "hours_planning_group",
-            "attractions_overview_group"
-          ],
-          "spotting_keywords": ["essen", "hunger", "trinken", "restaurant", "pause"],
-          "responses": [
-            {
-              "response_id": "food_visit_planning",
-              "text": "Bei einem längeren Besuch werden Sie sicher hungrig! 🍽️ Das AquaBistro bietet mediterrane Küche mit Blick aufs Wellenbad, die Piraten-Kantine ist perfekt für Kinder. Zahlung einfach mit dem digitalen Armband! Eigenes Essen nur im Außen-Picknickbereich erlaubt.",
-              "context_group_id": "food_planning_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "sauna_upsell_after_attractions",
-          "trigger_if_previous_group_ids_in_history": [
-            "attractions_overview_group",
-            "wellness_group"
-          ],
-          "spotting_keywords": ["entspannung", "ruhe", "sauna", "wellness"],
-          "responses": [
-            {
-              "response_id": "sauna_upsell_info",
-              "text": "Nach den Attraktionen noch entspannen? 🧖‍♀️ Unsere Saunawelt 'Elemente' mit 4 Themensaunen ist perfekt! Nur +8€ zum Erlebnisbad-Ticket, inkl. Bademantel & Saunatuch. Feuer-, Wasser-, Luft- und Erde-Sauna mit Aufgüssen & ätherischen Ölen! 🌿",
-              "context_group_id": "sauna_upsell_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "family_complete_package",
-          "trigger_if_previous_group_ids_in_history": ["kids_area_group", "family_offers_group"],
-          "spotting_keywords": ["komplett", "alles", "ganz", "tag", "planen"],
-          "responses": [
-            {
-              "response_id": "family_package_info",
-              "text": "Kompletter Familientag im AquaMagica! 👨‍👩‍👧‍👦 Familienkarte (2 Erw.+2 Ki.) 54,90€ Mo-Fr. Kinder lieben Tropica Island & Magische Flussfahrt, Eltern entspannen im Lazy River. Piraten-Kantine fürs Essen, 300 kostenlose Parkplätze. Perfekter Familienausflug! 🏴‍☠️",
-              "context_group_id": "family_complete_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "weather_indoor_alternative",
-          "trigger_if_previous_group_ids_in_history": ["weather_group", "seasonal_group"],
-          "spotting_keywords": ["drinnen", "indoor", "überdacht", "regen"],
-          "responses": [
-            {
-              "response_id": "indoor_alternative_info",
-              "text": "Bei schlechtem Wetter ist AquaMagica perfekt! 🌧️ Alle Hauptattraktionen sind überdacht: Vulkan-Rutsche, Wellenbad, Kinderwelt, Lazy River, komplette Saunawelt. Konstant 25°C warmes Wasser. Regen kann uns nichts anhaben! ☔➡️😊",
-              "context_group_id": "indoor_weather_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["behindertenparkplatz", "familienparkplatz", "behindertengerecht"],
+      "response": "🅿️ **Spezielle Parkplätze:** Wir haben ausgewiesene **Behindertenparkplätze** und **Familienparkplätze** direkt am Eingang für mehr Komfort!"
     },
     {
-      "topic_id": "gastronomy_info",
-      "name": "Gastronomie",
-      "keywords": [
-        "essen",
-        "trinken",
-        "restaurant",
-        "bistro",
-        "hunger",
-        "gastronomie",
-        "snack",
-        "vegetarisch",
-        "vegan"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "gastronomy_overview",
-          "spotting_keywords": ["essen", "trinken", "restaurant", "hunger", "gastronomie"],
-          "responses": [
-            {
-              "response_id": "gastronomy_overview_info",
-              "text": "Für Ihr leibliches Wohl sorgen drei Gastronomiebereiche: 🍽️ AquaBistro (mediterran & vegan mit Blick aufs Wellenbad), 🏴‍☠️ Piraten-Kantine (für kleine Abenteurer) und 🧖‍♀️ Sauna-Lounge 'AufgussBar' (Smoothies & Tees).",
-              "context_group_id": "gastronomy_overview_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "aquabistro_info",
-          "spotting_keywords": ["aquabistro", "mediterran", "vegan", "hauptrestaurant"],
-          "responses": [
-            {
-              "response_id": "aquabistro_details",
-              "text": "Das AquaBistro bietet mediterrane und vegane Köstlichkeiten mit direktem Blick auf das Wellenbad 'Atlantica'! 🌊 Unsere Spezialität: Die erfrischende Wassermelonen-Basilikum-Bowl. Perfekt für eine entspannte Pause!",
-              "context_group_id": "aquabistro_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pirates_canteen_info",
-          "spotting_keywords": ["piraten", "kantine", "kinder", "mini burger"],
-          "responses": [
-            {
-              "response_id": "pirates_canteen_details",
-              "text": "Die Piraten-Kantine ist speziell für unsere kleinen Abenteurer! 🏴‍☠️ Hier gibt es Mini-Burger, Meerjungfrauen-Slush und knusprige Goldmünzen-Kekse. Kinderfreundlich und lecker!",
-              "context_group_id": "pirates_canteen_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "sauna_lounge_info",
-          "spotting_keywords": ["aufgussbar", "sauna lounge", "smoothie", "tee"],
-          "responses": [
-            {
-              "response_id": "sauna_lounge_details",
-              "text": "Die Sauna-Lounge 'AufgussBar' ist perfekt nach dem Schwitzen! 🧖‍♀️ Stärken Sie sich mit gesunden Smoothies, erlesenen Teesorten und herzhaften Snacks. Entspannung pur!",
-              "context_group_id": "sauna_lounge_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "gastronomy_vegan_options",
-          "spotting_keywords": ["vegan", "vegetarisch", "veganes essen", "pflanzlich"],
-          "responses": [
-            {
-              "response_id": "vegan_food_info",
-              "text": "Ja, unser AquaBistro bietet eine Vielzahl an veganen und vegetarischen Gerichten an, darunter Salate, Suppen, Pasta und Snacks. Wir legen großen Wert auf frische, regionale Zutaten. Unsere Speisekarte ist saisonal und wechselt regelmäßig.",
-              "context_group_id": "vegan_food_group"
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "own_food_policy",
-          "trigger_if_previous_group_ids_in_history": ["gastronomy_overview_group"],
-          "spotting_keywords": ["mitbringen", "eigenes essen", "picknick", "erlaubt"],
-          "responses": [
-            {
-              "response_id": "own_food_policy_info",
-              "text": "Das Mitbringen von eigenen Speisen und Getränken in den Bade- und Gastronomiebereich ist aus hygienischen Gründen nicht gestattet. Es gibt jedoch ausgewiesene Picknickbereiche im Außenbereich (saisonal geöffnet), wo Sie gerne Ihre mitgebrachten Snacks verzehren können. Für Babynahrung machen wir selbstverständlich eine Ausnahme.",
-              "context_group_id": "food_policy_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["umkleide", "dusche", "wc", "behindertengerecht"],
+      "response": "♿ **Barrierefreie Ausstattung:** Spezielle **barrierefreie Umkleiden, Duschen und WCs** stehen zur Verfügung. Unser Personal hilft gerne bei Fragen zur Zugänglichkeit!"
     },
     {
-      "topic_id": "events_specials",
-      "name": "Events und Specials",
-      "keywords": [
-        "event",
-        "veranstaltung",
-        "special",
-        "aqua yoga",
-        "nachtschwimmen",
-        "lichtershow",
-        "yoga",
-        "freitag",
-        "sonntag"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "events_overview",
-          "spotting_keywords": ["event", "veranstaltung", "special", "besonder"],
-          "responses": [
-            {
-              "response_id": "events_overview_info",
-              "text": "Unsere regelmäßigen Events: 🌙 Nachtschwimmen mit Lichtershow (freitags 20:00-24:00) und 🧘‍♂️ Aqua-Yoga (sonntags 9:30-10:15). Beide Events bieten einzigartige Erlebnisse!",
-              "context_group_id": "events_overview_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "aqua_yoga_info",
-          "spotting_keywords": ["aqua yoga", "yoga", "sonntag", "entspannung"],
-          "responses": [
-            {
-              "response_id": "aqua_yoga_details",
-              "text": "Aqua-Yoga - starten Sie entspannt in den Sonntag! 🧘‍♂️ Jeden Sonntag 9:30-10:15 Uhr im Erlebnisbecken. Sanfte Yoga-Übungen im Wasser für Körper und Geist. Anmeldung empfohlen, kleine Zusatzgebühr.",
-              "context_group_id": "aqua_yoga_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["partner", "kooperation", "schwarzwald tourismus"],
+      "response": "🤝 **Unsere Partner:** Wir arbeiten stolz mit **Schwarzwald Tourismus GmbH**, **GreenEnergy Solar Deutschland** und **Erlebnisland Baden** zusammen - für Qualität und regionale Verbundenheit!"
     },
     {
-      "topic_id": "contact_directions",
-      "name": "Kontakt und Anfahrt",
-      "keywords": [
-        "adresse",
-        "anfahrt",
-        "auto",
-        "parken",
-        "kontakt",
-        "telefon",
-        "freiburg",
-        "parkplatz",
-        "email",
-        "anrufen"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "contact_info",
-          "spotting_keywords": ["kontakt", "telefon", "email", "anrufen"],
-          "responses": [
-            {
-              "response_id": "contact_details",
-              "text": "So erreichen Sie uns: 📞 +49 (0)761 / 123456 (Mo-Fr 09:00-17:00 Uhr) | 📧 info@aquamagica.de | 📍 Bäderstraße 12, 79100 Freiburg im Breisgau. Gerne helfe ich Ihnen auch direkt weiter!",
-              "context_group_id": "contact_info_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "directions_info",
-          "spotting_keywords": ["anfahrt", "adresse", "finden", "navigation"],
-          "responses": [
-            {
-              "response_id": "directions_details",
-              "text": "AquaMagica finden Sie in der Bäderstraße 12, 79100 Freiburg im Breisgau. 🚗 A5 Ausfahrt Freiburg-Mitte → B31 → Ausfahrt Bäderstraße | 🚊 Tramlinie 5 bis 'Bäderstraße' (5 Min. Fußweg) | 🚲 Fahrradständer am Eingang",
-              "context_group_id": "directions_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "parking_info",
-          "spotting_keywords": [
-            "parken",
-            "parkplatz",
-            "kostenlos",
-            "auto",
-            "stellplatz",
-            "garage",
-            "parkhaus",
-            "parkplätze"
-          ],
-          "responses": [
-            {
-              "response_id": "parking_details",
-              "text": "Parken ist bei uns kein Problem! 🚗 Über 300 kostenlose Parkplätze direkt am AquaMagica, inklusive Behinderten- und Familienparkplätzen. E-Ladestationen für Elektroautos sind ebenfalls vorhanden! ⚡",
-              "context_group_id": "parking_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["feuer sauna", "finnische sauna", "90 grad"],
+      "response": "🔥 **Feuer-Sauna:** Klassische **finnische Sauna mit 90°C** für intensive Entschlackung und das authentische Saunaerlebnis mit natürlichen Aufgüssen!"
     },
     {
-      "topic_id": "facilities_services",
-      "name": "Ausstattung und Services",
-      "keywords": [
-        "handtuch",
-        "schließfach",
-        "umkleide",
-        "armband",
-        "verleih",
-        "wlan",
-        "barrierefrei",
-        "service",
-        "bademantel"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "facilities_overview",
-          "spotting_keywords": ["ausstattung", "service", "angebot", "facility"],
-          "responses": [
-            {
-              "response_id": "facilities_overview_info",
-              "text": "Unsere Services: 💳 Digitales Armband-System (Schlüssel, Bezahlen, Fotos), 🏊‍♂️ Handtuch-/Bademantel-Verleih, ♿ Barrierefreier Zugang, 📶 Kostenloses WLAN, 🅿️ 300 Parkplätze.",
-              "context_group_id": "facilities_overview_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "digital_wristband",
-          "spotting_keywords": ["armband", "digital", "bezahlen", "schlüssel", "foto"],
-          "responses": [
-            {
-              "response_id": "wristband_details",
-              "text": "Unser digitales Armband-System bietet höchsten Komfort! 💳 Es dient als Spind-Schlüssel, Zahlungsmittel in Gastronomie & Shop und speichert Ihre schönsten Fotomomente. Innovation trifft Bequemlichkeit!",
-              "context_group_id": "wristband_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "towel_rental",
-          "spotting_keywords": ["handtuch", "bademantel", "verleih", "mieten"],
-          "responses": [
-            {
-              "response_id": "rental_details",
-              "text": "Handtuch-/Bademantel-Verleih: 🏊‍♂️ Handtücher 4€ Leihgebühr + 10€ Pfand | 🥽 Bademäntel 7€ Leihgebühr + 20€ Pfand. Bei Sauna-Buchung sind Bademantel & Saunatuch inklusive!",
-              "context_group_id": "rental_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "accessibility_info",
-          "spotting_keywords": ["barrierefrei", "rollstuhl", "behinderung", "zugänglich"],
-          "responses": [
-            {
-              "response_id": "accessibility_details",
-              "text": "AquaMagica ist weitestgehend barrierefrei! ♿ Rollstuhlgeeignete Umkleiden, Duschen und WCs. Unsere Mitarbeiter helfen gerne weiter. Bei Fragen zur Zugänglichkeit spezieller Attraktionen kontaktieren Sie uns vorab.",
-              "context_group_id": "accessibility_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "wifi_info",
-          "spotting_keywords": ["wlan", "wifi", "internet", "w-lan"],
-          "responses": [
-            {
-              "response_id": "wifi_details",
-              "text": "Ja, im gesamten Eingangsbereich und in unseren Gastronomiebereichen steht Ihnen kostenfreies WLAN zur Verfügung.",
-              "context_group_id": "wifi_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "parking_faq",
-          "spotting_keywords": [
-            "kostenlose parkplätze",
-            "parken kostenlos",
-            "parkplätze kostenlos"
-          ],
-          "responses": [
-            {
-              "response_id": "parking_faq_details",
-              "text": "Ja, direkt am AquaMagica stehen Ihnen über 300 kostenfreie Parkplätze zur Verfügung, darunter auch ausgewiesene Behindertenparkplätze und Familienparkplätze.",
-              "context_group_id": "parking_faq_group"
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "wristband_lost_followup",
-          "trigger_if_previous_group_ids_in_history": [
-            "wristband_group",
-            "facilities_overview_group"
-          ],
-          "spotting_keywords": ["verloren", "verlust", "weg", "kaputt"],
-          "responses": [
-            {
-              "response_id": "lost_wristband_info",
-              "text": "Bei Verlust des Armbands melden Sie sich bitte umgehend an der Kasse oder bei einem Bademeister! Gegen 5€ Gebühr erhalten Sie ein Ersatzarmband. Gebuchte Leistungen können nach Prüfung übertragen werden. 💳",
-              "context_group_id": "lost_wristband_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["wasser sauna", "dampfbad", "45 grad"],
+      "response": "💧 **Wasser-Sauna:** Wohltuendes **Dampfbad mit 45°C** und hoher Luftfeuchtigkeit - perfekt für Haut und Atemwege, besonders schonend!"
     },
     {
-      "topic_id": "fun_questions",
-      "name": "Lustige und spezielle Fragen",
-      "keywords": [
-        "bier",
-        "alkohol",
-        "badekleidung",
-        "nackt",
-        "lustig",
-        "spaß",
-        "badeanzug",
-        "bikini",
-        "badehose"
-      ],
-      "entry_interactions": [
-        {
-          "interaction_id": "beer_question",
-          "spotting_keywords": ["bier", "alkohol", "trinken", "bar", "cocktail"],
-          "responses": [
-            {
-              "response_id": "beer_fun_answer",
-              "text": "Ha! 🍺 Bier gibt es bei uns natürlich auch! Zudem gibt es eine große Auswahl an Cocktails, Weinen und alkoholfreien Getränken.",
-              "context_group_id": "fun_beer_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "swimwear_question",
-          "spotting_keywords": [
-            "badekleidung",
-            "badeanzug",
-            "bikini",
-            "badehose",
-            "nackt",
-            "ohne",
-            "kleidung"
-          ],
-          "responses": [
-            {
-              "response_id": "swimwear_fun_answer",
-              "text": "Badekleidung ist definitiv Pflicht! 🩱 Ohne geht's nicht - das ist nicht nur höflich, sondern auch hygienisch! Falls Sie Ihre Badesachen vergessen haben: In unserem Shop gibt es stylische Bademode. Übrigens: In der Saunawelt gilt textile-freie Zone - aber da gibt's ja Handtücher! 😉",
-              "context_group_id": "fun_swimwear_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "changing_rooms_question",
-          "spotting_keywords": ["umkleide", "umkleiden", "kabine", "garderobe", "anziehen"],
-          "responses": [
-            {
-              "response_id": "changing_rooms_fun_answer",
-              "text": "Aber klar gibt es Umkleiden! 🚿 Moderne, saubere Umkleidekabinen mit Duschen - sogar beheizbar! Plus digitale Schließfächer mit unserem coolen Armband-System. Sie können sich in Ruhe umziehen und dann direkt ins Wasser-Abenteuer starten.",
-              "context_group_id": "fun_changing_rooms_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "water_depth_question",
-          "spotting_keywords": ["tief", "tiefe", "wassertief", "meter", "grund", "boden"],
-          "responses": [
-            {
-              "response_id": "water_depth_answer",
-              "text": "Die Wassertiefen variieren je nach Bereich! 🏊‍♂️ Kinderwelt 0,3-0,8m (perfekt für die Kleinen), Wellenbad 0,8-1,8m, Lazy River 1,2m, Schwimmerbecken bis 2,0m. Überall sind die Tiefen gut markiert - so wissen Sie immer, wo Sie stehen!",
-              "context_group_id": "water_depth_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pets_question",
-          "spotting_keywords": ["hund", "tier", "haustier", "katze", "mitbringen"],
-          "responses": [
-            {
-              "response_id": "pets_answer",
-              "text": "Haustiere sind leider nicht erlaubt! 🐕 Auch wenn Ihr Vierbeiner sicher ein toller Schwimmer wäre - aus hygienischen Gründen müssen sie zu Hause bleiben. Dafür haben wir knuffige Wassertiere-Figuren in der Kinderwelt, die sprechen können!",
-              "context_group_id": "pets_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "photography_question",
-          "spotting_keywords": ["foto", "fotografieren", "handy", "kamera", "bilder", "selfie"],
-          "responses": [
-            {
-              "response_id": "photography_answer",
-              "text": "Fotografieren ist in den Umkleiden und Duschen streng verboten! 📵 In den Schwimmbereichen können Sie gerne Fotos machen - am besten mit unserem digitalen Armband-System, das automatisch tolle Erinnerungsfotos erstellt! So haben Sie die Hände frei zum Planschen.",
-              "context_group_id": "photography_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["luft sauna", "bio sauna", "60 grad", "farblicht"],
+      "response": "🌈 **Luft-Sauna:** Sanfte **Bio-Sauna mit 60°C** und heilsamer **Farblichttherapie** für Kreislauf und Entspannung - ideal für Sauna-Einsteiger!"
     },
     {
-      "topic_id": "general_pool_questions",
-      "name": "Allgemeine Schwimmbad-Fragen",
-      "keywords": ["schwimmbad", "pool", "wasser", "schwimmen", "baden", "erlebnisbad", "becken"],
-      "entry_interactions": [
-        {
-          "interaction_id": "pool_size_question",
-          "spotting_keywords": ["groß", "größe", "fläche", "quadratmeter", "wie groß"],
-          "responses": [
-            {
-              "response_id": "pool_size_answer",
-              "text": "AquaMagica erstreckt sich über beeindruckende 25.000 Quadratmeter! 🏊‍♂️ Das entspricht etwa 3,5 Fußballfeldern voller Wasserspaß. Mit 6 verschiedenen Themenbereichen und über 2.000 Quadratmetern Wasserfläche ist für jeden etwas dabei.",
-              "context_group_id": "pool_size_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "capacity_question",
-          "spotting_keywords": ["voll", "überfüllt", "kapazität", "wie viele", "gäste", "besucher"],
-          "responses": [
-            {
-              "response_id": "capacity_answer",
-              "text": "Wir achten auf angenehme Besucherzahlen! 👥 Auch bei vollem Haus gibt es durch unsere 6 Bereiche immer ruhige Ecken. Tipp: Wochentags und unser Frühschwimmer-Tarif (Mo-Fr 09:00-12:00) sind besonders entspannt. Außerdem haben wir 300 kostenlose Parkplätze!",
-              "context_group_id": "capacity_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "cleanliness_question",
-          "spotting_keywords": ["sauber", "hygiene", "reinigung", "putzen", "dreck"],
-          "responses": [
-            {
-              "response_id": "cleanliness_answer",
-              "text": "Sauberkeit ist bei uns oberste Priorität! ✨ Modernste Filteranlagen, kontinuierliche Wasserüberwachung nach DIN-Normen und regelmäßige Reinigung aller Bereiche. Unser Team sorgt rund um die Uhr für perfekte Hygiene. Sie können sich voll auf den Wasserspaß konzentrieren!",
-              "context_group_id": "cleanliness_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "staff_question",
-          "spotting_keywords": [
-            "personal",
-            "mitarbeiter",
-            "bademeister",
-            "rettungsschwimmer",
-            "hilfe"
-          ],
-          "responses": [
-            {
-              "response_id": "staff_answer",
-              "text": "Unser 85-köpfiges Team sorgt für Ihre Sicherheit und Ihr Wohlbefinden! 🛡️ Geschulte Bademeister überwachen alle Bereiche, freundliches Service-Personal hilft gerne weiter. Bei Fragen oder Problemen sind wir sofort da. Sicherheit wird bei uns GROSS geschrieben!",
-              "context_group_id": "staff_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "first_visit_question",
-          "spotting_keywords": ["erstes mal", "zum ersten mal", "noch nie", "tipps", "empfehlung"],
-          "responses": [
-            {
-              "response_id": "first_visit_answer",
-              "text": "Ihr erster Besuch bei AquaMagica wird unvergesslich! 🌟 Mein Tipp: Starten Sie mit der Vulkan-Rutsche für den Adrenalinkick, entspannen Sie dann im Lazy River und genießen Sie unser Wellenbad. Für Familien ist die Kinderwelt Tropica Island ein Muss!",
-              "context_group_id": "first_visit_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "what_to_bring_question",
-          "spotting_keywords": ["mitbringen", "brauche ich", "vergessen", "dabei haben"],
-          "responses": [
-            {
-              "response_id": "what_to_bring_answer",
-              "text": "Einfach Badesachen und gute Laune mitbringen! 🏊‍♂️ Handtücher können Sie bei uns leihen (4€), ebenso Bademäntel (7€). Unser digitales Armband-System ersetzt Geldbörse und Schlüssel. Shampoo und Duschgel gibt es in den Duschen. So können Sie ganz entspannt anreisen!",
-              "context_group_id": "what_to_bring_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["erde sauna", "80 grad", "außenbereich", "rustikale"],
+      "response": "🌍 **Erde-Sauna:** Ursprüngliches Saunaerlebnis im **Außenbereich mit 80°C** und authentischen Erdaromen - rustikale Atmosphäre unter freiem Himmel!"
     },
     {
-      "topic_id": "about_sustainability",
-      "name": "Über AquaMagica",
-      "keywords": ["über", "unternehmen", "geschichte", "nachhaltig", "umwelt", "info"],
-      "entry_interactions": [
-        {
-          "interaction_id": "about_overview",
-          "spotting_keywords": ["über", "unternehmen", "geschichte", "wer"],
-          "responses": [
-            {
-              "response_id": "about_details",
-              "text": "AquaMagica öffnete 2019 am Tor zum Schwarzwald bei Freiburg! 🌲 Auf 25.000m² schaffen 85 engagierte Mitarbeiter unvergessliche Wassererlebnisse. Wir sind CO₂-neutral durch Solarstrom und Wärmerückgewinnung. Innovation trifft Nachhaltigkeit!",
-              "context_group_id": "about_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "sustainability_info",
-          "spotting_keywords": ["nachhaltig", "umwelt", "co2", "solar", "grün"],
-          "responses": [
-            {
-              "response_id": "sustainability_details",
-              "text": "Nachhaltigkeit ist uns wichtig! 🌱 AquaMagica wird CO₂-neutral betrieben durch Solarstrom von unseren Dächern, effiziente Wärmerückgewinnungssysteme und regionales Wasseraufbereitungskonzept. Verantwortung für die Umwelt! ♻️",
-              "context_group_id": "sustainability_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["wärmerückgewinnung", "wasseraufbereitung", "regional"],
+      "response": "🔄 **Nachhaltige Technik:** Wir nutzen effiziente **Wärmerückgewinnungssysteme** und ein **regionales Wasseraufbereitungskonzept**, das Ressourcen schont und die Umwelt schützt!"
     },
     {
-      "topic_id": "attraction_recommendation_flow",
-      "name": "Attraktions-Empfehlungsflow",
-      "keywords": ["welche attraktion", "empfehlung", "was soll ich", "auswahl hilfe"],
-      "entry_interactions": [
-        {
-          "interaction_id": "start_attraction_recommendation",
-          "spotting_keywords": [
-            "welche attraktion",
-            "was soll ich",
-            "empfehlung",
-            "was passt zu mir",
-            "attraktion für mich",
-            "auswahl hilfe",
-            "was würden sie empfehlen"
-          ],
-          "requires_clarification_if_too_general": false,
-          "responses": [
-            {
-              "response_id": "attraction_flow_start",
-              "text": "🎯 Perfekt! Ich helfe Ihnen gerne bei der Auswahl der idealen Attraktion! Mögen Sie eher entspannende Aktivitäten oder actionreiche Abenteuer? 🌊⚡Antworten Sie mit: 'Entspannung' für ruhige Erlebnisse 'Action' für aufregende Aktivitäten",
-              "context_group_id": "attraction_flow_start_group",
-              "suggested_follow_ups": ["entspannung", "action"]
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "attraction_flow_step2_relaxation",
-          "trigger_if_previous_group_ids_in_history": ["attraction_flow_start_group"],
-          "spotting_keywords": ["entspannung", "ruhig", "entspannend", "relax"],
-          "responses": [
-            {
-              "response_id": "attraction_intensity_relaxation",
-              "text": "🧘‍♀️ Entspannung ist eine ausgezeichnete Wahl! Wie entspannend soll es sein? 'sehr ruhig' - für pure Entspannung 'gemäßigt' - für sanfte Aktivität mit EntspannungWas gefällt Ihnen besser?",
-              "context_group_id": "attraction_flow_step1_relaxation_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_step2_action",
-          "trigger_if_previous_group_ids_in_history": ["attraction_flow_start_group"],
-          "spotting_keywords": ["action", "aufregend", "abenteuer", "nervenkitzel", "adrenali"],
-          "responses": [
-            {
-              "response_id": "attraction_intensity_action",
-              "text": "🚀 Action - das ist großartig! Wie viel Nervenkitzel darf es sein? 'aufregend' - für spannende Erlebnisse 'extrem' - für maximalen AdrenalinstoßWas ist Ihr Level?",
-              "context_group_id": "attraction_flow_step1_action_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_step3_from_relaxation",
-          "trigger_if_previous_group_ids_in_history": ["attraction_flow_step1_relaxation_group"],
-          "spotting_keywords": ["sehr ruhig", "ruhig", "gemäßigt", "entspannt"],
-          "responses": [
-            {
-              "response_id": "attraction_group_type_from_relaxation_quiet",
-              "text": "👥 Verstehe! Sind Sie heute allein unterwegs oder in Begleitung? 'allein' - für eine persönliche Auszeit 'familie' - mit Partner/Familie 'gruppe' - mit FreundenWer ist heute dabei?",
-              "applies_to_keywords": ["sehr ruhig", "ruhig"],
-              "context_group_id": "attraction_flow_step2_relaxation_quiet_group"
-            },
-            {
-              "response_id": "attraction_group_type_from_relaxation_moderate",
-              "text": "👥 Verstehe! Sind Sie heute allein unterwegs oder in Begleitung? 'allein' - für eine persönliche Auszeit 'familie' - mit Partner/Familie 'gruppe' - mit FreundenWer ist heute dabei?",
-              "applies_to_keywords": ["gemäßigt", "entspannt"],
-              "context_group_id": "attraction_flow_step2_relaxation_moderate_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_step3_from_action",
-          "trigger_if_previous_group_ids_in_history": ["attraction_flow_step1_action_group"],
-          "spotting_keywords": ["aufregend", "extrem", "nervenkitzel", "adrenali"],
-          "responses": [
-            {
-              "response_id": "attraction_group_type_from_action_exciting",
-              "text": "💪 Ausgezeichnet! Sind Sie allein oder mit anderen unterwegs? 'allein' - für das persönliche Abenteuer 'familie' - mit Familie/Partner 'gruppe' - mit der CliqueWer ist heute dabei?",
-              "applies_to_keywords": ["aufregend"],
-              "context_group_id": "attraction_flow_step2_action_exciting_group"
-            },
-            {
-              "response_id": "attraction_group_type_from_action_extreme",
-              "text": "💪 Ausgezeichnet! Sind Sie allein oder mit anderen unterwegs? 'allein' - für das persönliche Abenteuer 'familie' - mit Familie/Partner 'gruppe' - mit der CliqueWer ist heute dabei?",
-              "applies_to_keywords": ["extrem", "nervenkitzel", "adrenali"],
-              "context_group_id": "attraction_flow_step2_action_extreme_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_step4",
-          "trigger_if_previous_group_ids_in_history": [
-            "attraction_flow_step2_relaxation_quiet_group",
-            "attraction_flow_step2_relaxation_moderate_group",
-            "attraction_flow_step2_action_exciting_group",
-            "attraction_flow_step2_action_extreme_group"
-          ],
-          "spotting_keywords": ["allein", "familie", "gruppe", "freunde", "partner"],
-          "responses": [
-            {
-              "response_id": "attraction_time_preference",
-              "text": "⏰ Fast geschafft! Eine letzte Frage: Haben Sie zeitliche Präferenzen? 'schnell' - für kurze, intensive Erlebnisse 'ausgiebig' - für längere Aktivitäten 'flexibel' - Zeit spielt keine RolleWie sieht es mit der Zeit aus?",
-              "context_group_id": "attraction_flow_step3_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_final_recommendation",
-          "trigger_if_previous_group_ids_in_history": ["attraction_flow_step3_group"],
-          "spotting_keywords": ["schnell", "ausgiebig", "flexibel", "egal", "keine präferenz"],
-          "responses": [
-            {
-              "response_id": "attraction_recommendation_relaxation_quiet_family_extended",
-              "text": "🎯 Perfekte Empfehlung für entspannte Familienzeit: Die Magische Flussfahrt kombiniert mit Tropica Island! 🛟🏴‍☠️✨ Warum ideal für Sie: Magische Flussfahrt: 300m pure Entspannung mit beruhigenden Lichteffekten Tropica Island: Sichere Wasserspiele für die Kinder Beliebig lange genießbar - perfekt für ausgiebige Familienzeit Ruhige Atmosphäre für echte Erholung🌊 Eine entspannte Kombination, die Eltern und Kinder gleichermaßen begeistert! Möchten Sie mehr Details zu diesen Attraktionen?",
-              "applies_to_keywords": ["entspannung", "ruhig", "familie", "ausgiebig"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_relaxation_quiet_alone_flexible",
-              "text": "🎯 Perfekte Empfehlung für Ihre persönliche Auszeit: Die Magische Flussfahrt! 🛟✨ Warum ideal für Sie: 300m pure Entspannung mit faszinierenden Lichteffekten Beruhigende Klangwelten aus verschiedenen Kontinenten Perfekt für eine persönliche Auszeit vom Stress Flexibel in der Dauer - so lange Sie möchten🌊 Lassen Sie sich treiben und genießen Sie die Ruhe! Ein Erlebnis für alle Sinne.",
-              "applies_to_keywords": ["entspannung", "ruhig", "allein", "flexibel"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_action_extreme_group_quick",
-              "text": "🎯 Perfekte Empfehlung für Action-Gruppe: Die Vulkan-Rutsche 'Inferno'! 🌋⚡🚀 Warum ideal für Sie: Deutschlands einzige 4-fach-Tunnelrutsche Bis zu 45 km/h - maximaler Adrenalinstoß Perfekt für Mutproben in der Gruppe Schnelles, intensives Erlebnis💪 Wer traut sich als erstes? Unvergessliche Gruppenerlebnisse garantiert!",
-              "applies_to_keywords": ["action", "extrem", "gruppe", "schnell"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_action_exciting_family_extended",
-              "text": "🎯 Perfekte Empfehlung für actionreiche Familienzeit: Das Wellenbad 'Atlantica' kombiniert mit Tropica Island! 🌊🏴‍☠️⚡ Warum ideal für Sie: Wellenbad: Bis zu 3m hohe Wellen für spannende Action Tropica Island: Sicher für Kinder, aufregend für alle Stundenlanger Familienspaß mit verschiedenen Intensitäten Aufregende Erlebnisse für jedes Familienmitglied🎢 Die perfekte Mischung aus Spannung und Sicherheit für die ganze Familie!",
-              "applies_to_keywords": ["action", "aufregend", "familie", "ausgiebig"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_relaxation_moderate_group_flexible",
-              "text": "🎯 Perfekte Empfehlung für entspannte Gruppenzeit: Magische Flussfahrt plus Wellenbad 'Atlantica'! 🛟🌊✨ Warum ideal für Sie: Magische Flussfahrt: Entspannung für die Ruhesuchenden Wellenbad: Sanfte Action für Abwechslung Verschiedene Intensitäten für jeden Geschmack Flexible Nutzung - jeder nach seinem Tempo🎉 So findet jeder in der Gruppe sein perfektes Erlebnis!",
-              "applies_to_keywords": ["entspannung", "gemäßigt", "gruppe", "flexibel"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_action_extreme_alone_quick",
-              "text": "🎯 Perfekte Empfehlung für Solo-Adrenalin: Die Vulkan-Rutsche 'Inferno'! 🌋🚀⚡ Warum ideal für Sie: Maximaler Nervenkitzel bei bis zu 45 km/h Spektakuläre Lichteffekte und Hitzeimpulse Schnell und intensiv - purer Adrenalinstoß Deutschlands einzige Rutsche dieser Art🔥 Bereit für das ultimative Solo-Abenteuer? Der Kick Ihres Lebens wartet!",
-              "applies_to_keywords": ["action", "extrem", "allein", "schnell"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_relaxation_quiet_family_quick",
-              "text": "🎯 Perfekte Empfehlung für kurze Familienentspannung: Tropica Island! 🏴‍☠️✨ Warum ideal für Sie: Sichere, flache Wasserbereiche für alle Kinder Entspannt für Eltern, spannend für Kids Schnell erreichbar und sofort nutzbar Piratenschiff und interaktive Wasserspiele🌊 Kurz, aber unvergesslich - perfekt für eine entspannte Familienpause!",
-              "applies_to_keywords": ["entspannung", "ruhig", "familie", "schnell"],
-              "context_group_id": "attraction_flow_complete_group"
-            },
-            {
-              "response_id": "attraction_recommendation_action_exciting_alone_extended",
-              "text": "🎯 Perfekte Empfehlung für ausgiebige Solo-Action: Wellenbad 'Atlantica' plus Vulkan-Rutsche 'Inferno'! 🌊🌋⚡ Warum ideal für Sie: Wellenbad: Ausdauertraining in bis zu 3m hohen Wellen Vulkan-Rutsche: Adrenalinkicks zwischendurch Beliebig lange nutzbar für maximalen Spaß Abwechslung zwischen Kondition und Nervenkitzel🚀 Ihr persönliches Action-Programm für stundenlangen Spaß!",
-              "applies_to_keywords": ["action", "aufregend", "allein", "ausgiebig"],
-              "context_group_id": "attraction_flow_complete_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_fallback",
-          "trigger_if_previous_group_ids_in_history": [
-            "attraction_flow_start_group",
-            "attraction_flow_step1_relaxation_group",
-            "attraction_flow_step1_action_group",
-            "attraction_flow_step2_relaxation_quiet_group",
-            "attraction_flow_step2_relaxation_moderate_group",
-            "attraction_flow_step2_action_exciting_group",
-            "attraction_flow_step2_action_extreme_group",
-            "attraction_flow_step3_group"
-          ],
-          "spotting_keywords": [
-            "hilfe",
-            "verstehe nicht",
-            "andere frage",
-            "abbrechen",
-            "neu starten"
-          ],
-          "responses": [
-            {
-              "response_id": "attraction_flow_help",
-              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen: Sagen Sie 'neustart' um von vorne zu beginnen Oder stellen Sie eine andere Frage Ich bin hier um zu helfen!Was möchten Sie tun?",
-              "context_group_id": "attraction_flow_help_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "attraction_flow_restart",
-          "trigger_if_previous_group_ids_in_history": [
-            "attraction_flow_start_group",
-            "attraction_flow_step1_relaxation_group",
-            "attraction_flow_step1_action_group",
-            "attraction_flow_step2_relaxation_quiet_group",
-            "attraction_flow_step2_relaxation_moderate_group",
-            "attraction_flow_step2_action_exciting_group",
-            "attraction_flow_step2_action_extreme_group",
-            "attraction_flow_step3_group",
-            "attraction_flow_help_group"
-          ],
-          "spotting_keywords": ["neustart", "von vorne", "nochmal", "neu beginnen"],
-          "responses": [
-            {
-              "response_id": "attraction_flow_restart_response",
-              "text": "🔄 Perfekt! Starten wir nochmal von vorne.🎯 Welche Art von Erlebnis suchen Sie heute? 'entspannung' für ruhige Momente 'action' für aufregende AbenteuerWas darf es sein?",
-              "context_group_id": "attraction_flow_start_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["picknickbereich", "außenbereich", "saisonal"],
+      "response": "🧺 **Picknickbereiche:** Im **Außenbereich** gibt es ausgewiesene **Picknickbereiche** (saisonal geöffnet), wo eigene Snacks erlaubt sind. Für Babynahrung machen wir immer eine Ausnahme!"
     },
-
     {
-      "topic_id": "pricing_calculator_flow",
-      "name": "Preis-Berechnungsflow",
-      "keywords": ["preis berechnen", "was kostet", "familienpreis", "gruppenpreis", "gesamtpreis"],
-      "entry_interactions": [
-        {
-          "interaction_id": "start_pricing_calculator",
-          "spotting_keywords": [
-            "preis berechnen",
-            "was kostet",
-            "familienpreis",
-            "gruppenpreis",
-            "kosten berechnen",
-            "preisrechner",
-            "was zahlen wir",
-            "kostet für uns"
-          ],
-          "requires_clarification_if_too_general": false,
-          "responses": [
-            {
-              "response_id": "pricing_flow_start",
-              "text": "💰 Gerne berechne ich Ihren persönlichen Eintrittspreis! 📅 Wann möchten Sie uns besuchen? 'wochentag' (Mo-Fr) - günstigere Preise 'wochenende' (Sa-So) - WochenendpreiseWann haben Sie geplant zu kommen?",
-              "context_group_id": "pricing_flow_start_group",
-              "suggested_follow_ups": ["wochentag", "wochenende"]
-            }
-          ]
-        }
-      ],
-      "contextual_interactions": [
-        {
-          "interaction_id": "pricing_flow_step2_weekday",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_start_group"],
-          "spotting_keywords": [
-            "wochentag",
-            "montag",
-            "dienstag",
-            "mittwoch",
-            "donnerstag",
-            "freitag",
-            "mo-fr",
-            "unter der woche"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_group_composition_weekday",
-              "text": "📋 Super! Unter der Woche sind unsere Preise günstiger. Wer kommt alles mit?👥 Personenanzahl: 'nur erwachsene' - keine Kinder dabei 'familie mit kindern' - Erwachsene + Kinder 'senioren dabei' - 65+ Jahre 'studenten dabei' - mit StudentenausweisWie ist Ihre Gruppe zusammengesetzt?",
-              "context_group_id": "pricing_flow_weekday_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step2_weekend",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_start_group"],
-          "spotting_keywords": ["wochenende", "samstag", "sonntag", "sa", "so", "sa-so", "weekend"],
-          "responses": [
-            {
-              "response_id": "pricing_group_composition_weekend",
-              "text": "📋 Wochenende - perfekt für einen Familienausflug! Wer kommt alles mit?👥 Personenanzahl: 'nur erwachsene' - keine Kinder dabei 'familie mit kindern' - Erwachsene + Kinder 'senioren dabei' - 65+ Jahre 'studenten dabei' - mit StudentenausweisWie ist Ihre Gruppe zusammengesetzt?",
-              "context_group_id": "pricing_flow_weekend_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step3_adults_only",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group"
-          ],
-          "spotting_keywords": ["nur erwachsene", "keine kinder", "erwachsene", "ohne kinder"],
-          "responses": [
-            {
-              "response_id": "pricing_adults_count",
-              "text": "👥 Wie viele Erwachsene sind Sie?📝 Bitte geben Sie die Anzahl an: '2 personen' oder '2' '3 personen' oder '3' etc.Wie viele Erwachsene kommen mit?",
-              "context_group_id": "pricing_flow_adults_only_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step3_family",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group"
-          ],
-          "spotting_keywords": ["familie mit kindern", "kinder dabei", "familie", "mit kindern"],
-          "responses": [
-            {
-              "response_id": "pricing_family_details",
-              "text": "👨‍👩‍👧‍👦 Perfekt! Bitte geben Sie mir die Details:📝 Format: 'X Erwachsene, Y Kinder'Beispiele: '2 erwachsene, 2 kinder' '1 erwachsener, 3 kinder' '4 erwachsene, 1 kind'Wie viele Erwachsene und Kinder kommen mit?",
-              "context_group_id": "pricing_flow_family_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step3_seniors",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group"
-          ],
-          "spotting_keywords": ["senioren dabei", "senioren", "65+", "über 65", "rentner"],
-          "responses": [
-            {
-              "response_id": "pricing_seniors_details",
-              "text": "👴👵 Für Senioren ab 65 haben wir vergünstigte Preise!📝 Bitte angeben: 'X senioren, Y erwachsene' Falls Kinder dabei: '+ Z kinder'Beispiel: '2 senioren, 1 erwachsener, 2 kinder'Wie ist die genaue Zusammensetzung?",
-              "context_group_id": "pricing_flow_seniors_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step3_students",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group"
-          ],
-          "spotting_keywords": [
-            "studenten dabei",
-            "studenten",
-            "student",
-            "studentenausweis",
-            "uni"
-          ],
-          "responses": [
-            {
-              "response_id": "pricing_students_details",
-              "text": "🎓 Studenten erhalten Ermäßigung (mit Ausweis)!📝 Bitte angeben: 'X studenten, Y erwachsene' Falls Kinder dabei: '+ Z kinder'Beispiel: '2 studenten, 1 erwachsener'Wie viele sind Sie genau?",
-              "context_group_id": "pricing_flow_students_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step4_children_ages",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_family_group",
-            "pricing_flow_seniors_group",
-            "pricing_flow_students_group"
-          ],
-          "spotting_keywords": ["erwachsene", "kinder", "kind", "personen"],
-          "responses": [
-            {
-              "response_id": "pricing_children_ages",
-              "text": "👶 Wichtig für die Preisberechnung: Wie alt sind die Kinder?💡 Kinderpreise: Unter 4 Jahre: Kostenlos 🎉 4-13 Jahre: Kinderpreis 14+ Jahre: Erwachsenenpreis📝 Beispiel: '6 Jahre, 10 Jahre' oder '2 Jahre, 8 Jahre, 15 Jahre'Wie alt sind die Kinder?",
-              "context_group_id": "pricing_flow_children_ages_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step5_time_preference",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_adults_only_group",
-            "pricing_flow_children_ages_group"
-          ],
-          "spotting_keywords": ["jahre", "alt", "personen", "erwachsene", "leute"],
-          "responses": [
-            {
-              "response_id": "pricing_time_options",
-              "text": "⏰ Haben Sie eine zeitliche Präferenz?🕘 Optionen: 'ganztags' - Volle Öffnungszeit (09:00-22:00) 'frühschwimmer' - Mo-Fr 09:00-12:00 (nur 10,90€!) 'abendtarif' - Ab 18:00 Uhr (günstiger!)💡 Mit Zeittarifen können Sie sparen!Welche Zeit bevorzugen Sie?",
-              "context_group_id": "pricing_flow_time_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_step6_extras",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_time_group"],
-          "spotting_keywords": ["ganztags", "frühschwimmer", "abendtarif", "abend", "früh"],
-          "responses": [
-            {
-              "response_id": "pricing_extras_sauna",
-              "text": "🧖‍♀️ Möchten Sie auch unsere Saunawelt 'Elemente' nutzen?♨️ Sauna-Zuschlag: +8,00€ pro Person 4 Themensaunen (Feuer, Wasser, Luft, Erde) Inkl. Bademantel & Saunatuch Aufgüsse mit ätherischen Ölen📝 Antworten: 'mit sauna' - Sauna inklusive 'ohne sauna' - Nur ErlebnisbadWas möchten Sie?",
-              "context_group_id": "pricing_flow_extras_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_final_calculation",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_extras_group"],
-          "spotting_keywords": ["mit sauna", "ohne sauna", "sauna", "nur erlebnisbad"],
-          "responses": [
-            {
-              "response_id": "pricing_calculation_result",
-              "text": "💰 Ihr persönlicher Preis-Überblick:🎯 Gesamtpreis wird basierend auf Ihrer Auswahl berechnet✨ Immer inklusive: Alle Attraktionen (Vulkan-Rutsche, Wellenbad, etc.) Tropica Island Kinderwelt Magische Flussfahrt & Polar-Lagune Kostenlose Parkplätze🎫 Tickets erhalten Sie an unserem Eingang. Noch Fragen?",
-              "context_group_id": "pricing_flow_complete_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_group_discount_check",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_adults_only_group"],
-          "spotting_keywords": ["15", "16", "17", "18", "19", "20", "viele personen"],
-          "responses": [
-            {
-              "response_id": "pricing_group_discount",
-              "text": "🎉 Gruppentarif verfügbar! Ab 15 Personen erhalten Sie 15% Rabatt!📞 Bitte vorab anmelden:+49 (0)761 / 123456💰 Beispiel-Ersparnis: 15 Personen Wochentag: 298,50€ → 253,73€ Sie sparen: 44,77€!Möchten Sie die Kontaktdaten für die Anmeldung?",
-              "context_group_id": "pricing_flow_group_discount_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_birthday_check",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_children_ages_group"],
-          "spotting_keywords": ["geburtstag", "birthday", "geburi", "kindergeburtstag"],
-          "responses": [
-            {
-              "response_id": "pricing_birthday_special",
-              "text": "🎂 Kindergeburtstag-Special!Geburtstagskinder bis 13 Jahre haben kostenlosen Eintritt am Geburtstag!📋 Benötigt: Ausweis/Kinderausweis als Nachweis Gültig am Geburtstag selbst🎉 Zusatz-Tipp: Gruppentarife für Gäste ab 15 Personen Piraten-Kantine für die FeierIst ein Geburtstagskind dabei?",
-              "context_group_id": "pricing_flow_birthday_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_savings_tips",
-          "trigger_if_previous_group_ids_in_history": ["pricing_flow_complete_group"],
-          "spotting_keywords": ["teuer", "günstiger", "sparen", "billiger", "rabatt"],
-          "responses": [
-            {
-              "response_id": "pricing_savings_advice",
-              "text": "💡 Spar-Tipps für Ihren nächsten Besuch:🌅 Frühschwimmer Mo-Fr: Nur 10,90€ (09:00-12:00)🌙 Abendtarif: Günstiger ab 18:00 Uhr📅 Wochentags: Bis zu 4€ pro Person sparen🎯 Dauerkarten: Ab 15 Besuchen günstiger💰 Ihr Sparpotenzial: Frühschwimmer statt Ganztag: -9€ pro Person Wochentag statt Wochenende: -4€ pro PersonInteresse an weiteren Spar-Optionen?",
-              "context_group_id": "pricing_flow_savings_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_input_error",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_start_group",
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group",
-            "pricing_flow_adults_only_group",
-            "pricing_flow_family_group",
-            "pricing_flow_children_ages_group",
-            "pricing_flow_time_group",
-            "pricing_flow_extras_group"
-          ],
-          "spotting_keywords": ["verstehe nicht", "hilfe", "falsch", "fehler", "nochmal"],
-          "responses": [
-            {
-              "response_id": "pricing_flow_help",
-              "text": "🤔 Kein Problem! Lassen Sie mich Ihnen helfen:💡 Häufige Formate: Besuchstag: 'wochentag' oder 'wochenende' Personen: '2 erwachsene, 3 kinder' Alter: '6 Jahre, 10 Jahre, 15 Jahre'🔄 Optionen: 'neustart' - Von vorne beginnen 'beispiel' - Beispiel-Eingabe zeigen Oder versuchen Sie es nochmalWas kann ich tun?",
-              "context_group_id": "pricing_flow_help_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_restart",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_start_group",
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group",
-            "pricing_flow_adults_only_group",
-            "pricing_flow_family_group",
-            "pricing_flow_children_ages_group",
-            "pricing_flow_time_group",
-            "pricing_flow_extras_group",
-            "pricing_flow_help_group"
-          ],
-          "spotting_keywords": ["neustart", "von vorne", "nochmal", "neu berechnen"],
-          "responses": [
-            {
-              "response_id": "pricing_flow_restart_response",
-              "text": "🔄 Alles klar! Starten wir die Preisberechnung neu.💰 Gerne berechne ich Ihren persönlichen Eintrittspreis!📅 Wann möchten Sie uns besuchen? 'wochentag' (Mo-Fr) - günstigere Preise 'wochenende' (Sa-So) - WochenendpreiseWann haben Sie geplant zu kommen?",
-              "context_group_id": "pricing_flow_start_group"
-            }
-          ]
-        },
-        {
-          "interaction_id": "pricing_flow_interrupt_for_info",
-          "trigger_if_previous_group_ids_in_history": [
-            "pricing_flow_start_group",
-            "pricing_flow_weekday_group",
-            "pricing_flow_weekend_group"
-          ],
-          "spotting_keywords": ["öffnungszeiten", "adresse", "parken", "anfahrt"],
-          "responses": [
-            {
-              "response_id": "pricing_flow_interrupt_info",
-              "text": "📍 Gerne! Unsere Öffnungszeiten: täglich 09:00-22:00 Uhr | Adresse: Bäderstraße 12, Freiburg | 300 kostenlose Parkplätze!💰 Zurück zur Preisberechnung: Soll ich weitermachen wo wir aufgehört haben? 'weiter' - Preisberechnung fortsetzen 'neustart' - Preisberechnung neu beginnenWie möchten Sie verfahren?",
-              "context_group_id": "pricing_flow_interrupt_group"
-            }
-          ]
-        }
-      ]
+      "keywords": ["babynahrung", "baby", "kleinkind"],
+      "response": "👶 **Babynahrung:** Selbstverständlich ist das **Mitbringen von Babynahrung** überall erlaubt! Wir denken an die Bedürfnisse unserer kleinsten Gäste."
     }
-  ]
+  ],
+  "flows": {
+    "anfahrt": {
+      "startKeywords": [
+        "wie komme ich zu euch",
+        "wegbeschreibung",
+        "anreise",
+        "anfahrt detailliert",
+        "route"
+      ],
+      "name": "Anfahrt & Wegbeschreibung",
+      "states": {
+        "start": {
+          "message": "Gerne helfe ich dir bei der Anfahrt! Wie möchtest du zu uns kommen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["auto", "pkw", "fahren", "parken"],
+              "nextState": "by_car"
+            },
+            {
+              "keywords": ["öpnv", "öffentlich", "tram", "bus", "bahn"],
+              "nextState": "by_public_transport"
+            },
+            {
+              "keywords": ["fahrrad", "rad", "bike"],
+              "nextState": "by_bike"
+            }
+          ],
+          "fallback": "Bitte wähle 'Auto', 'öffentlich' oder 'Fahrrad'."
+        },
+        "by_car": {
+          "message": "🚗 **Anfahrt mit dem Auto:**\n• A5 Ausfahrt Freiburg-Mitte nehmen\n• Dann B31 Richtung Freiburg-Zentrum\n• Ausfahrt Bäderstraße\n\n🅿️ **Parkplätze:** Über 300 **kostenlose** Parkplätze direkt am AquaMagica, inklusive Behinderten- und Familienparkplätze. Es gibt auch E-Ladestationen für Elektroautos!",
+          "isEnd": true
+        },
+        "by_public_transport": {
+          "message": "🚋 **Anfahrt mit öffentlichen Verkehrsmitteln:**\n• **Tramlinie 5** bis Haltestelle 'Bäderstraße'\n• Von dort ca. **5 Minuten Fußweg** zum AquaMagica\n\nDie Tram fährt regelmäßig und bringt dich bequem direkt vor unsere Haustür!",
+          "isEnd": true
+        },
+        "by_bike": {
+          "message": "🚴‍♀️ **Anfahrt mit dem Fahrrad:**\nFahrradständer sind direkt am Eingang vorhanden. Freiburg ist sehr fahrradfreundlich - du findest gut ausgebaute Radwege bis zu uns!",
+          "isEnd": true
+        }
+      }
+    },
+    "ueberblick": {
+      "startKeywords": [
+        "überblick",
+        "übersicht",
+        "was gibt es",
+        "was habt ihr",
+        "informationen",
+        "alles zeigen"
+      ],
+      "name": "AquaMagica Überblick",
+      "states": {
+        "start": {
+          "message": "Perfekt! Ich führe dich gerne durch unser AquaMagica! Was interessiert dich am meisten? Die Rutschen, Attraktionen oder Preise? Oder möchtest du mehr über Gastronomie und Sonstiges erfahren?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "rutschen", "becken", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten", "tarife", "tickets"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen", "restaurants", "bars"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "infos", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Wähle: 'Attraktionen', 'Preise', 'Gastronomie' oder 'Praktisches'."
+        },
+        "attractions_overview": {
+          "message": "🌊 **Unsere Highlights:**\n• **Vulkan-Rutsche 'Inferno'** (bis 45 km/h!)\n• **Wellenbad 'Atlantica'** (3m hohe Wellen)\n• **Kinderwelt 'Tropica Island'** (Piratenschiff)\n• **Magische Flussfahrt** (300m Lazy-River)\n• **Polar-Lagune** (mit Roboter-Eisbär 'Frosti')\n• **Saunawelt 'Elemente'** (4 Themen-Saunen)\n\nWas möchtest du als nächstes erfahren?",
+          "expectedKeywords": [
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Preisen', 'Gastronomie' oder 'Praktisches'."
+        },
+        "prices_overview": {
+          "message": "💰 **Preise im Überblick:**\n• **Mo-Fr:** Erwachsene 19,90€, Kinder 12,90€\n• **Wochenende:** Erwachsene 23,90€, Kinder 15,90€\n• **Frühschwimmer (Mo-Fr 9-12h):** 10,90€\n• **Sauna-Zuschlag:** +8€\n• **Dauerkarten:** Ab 299€\n\nWas interessiert dich noch?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Attraktionen', 'Gastronomie' oder 'Praktisches'."
+        },
+        "gastronomy_overview": {
+          "message": "🍽️ **Gastronomie bei uns:**\n• **AquaBistro:** Mediterrane & vegane Küche (Blick aufs Wellenbad)\n• **Piraten-Kantine:** Speziell für Kinder (Mini-Burger, Slush)\n• **Sauna-Lounge 'AufgussBar':** Smoothies & gesunde Snacks\n\nSpezialität: Wassermelonen-Basilikum-Bowl!\n\nWorüber möchtest du noch mehr wissen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["praktisches", "service", "ausstattung", "sonstiges"],
+              "nextState": "practical_overview"
+            }
+          ],
+          "fallback": "Frage mich nach 'Attraktionen', 'Preisen' oder 'Praktisches'."
+        },
+        "practical_overview": {
+          "message": "🏊‍♀️ **Praktische Infos:**\n• **Öffnungszeiten:** Täglich 9-22 Uhr (Sauna 10-22 Uhr)\n• **Parkplätze:** 300+ kostenlose Plätze\n• **WLAN:** Kostenlos in Eingangs- & Gastrobereichen\n• **Verleih:** Handtücher (4€) & Bademäntel (7€)\n• **Barrierefrei:** Komplette Anlage rollstuhlgeeignet\n• **Digitales Armband:** Schlüssel, Bezahlung & Fotospeicher\n\nHast du noch andere Fragen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["attraktionen", "highlights"],
+              "nextState": "attractions_overview"
+            },
+            {
+              "keywords": ["preise", "kosten"],
+              "nextState": "prices_overview"
+            },
+            {
+              "keywords": ["gastronomie", "essen"],
+              "nextState": "gastronomy_overview"
+            }
+          ],
+          "fallback": "Du kannst noch nach 'Attraktionen', 'Preisen' oder 'Gastronomie' fragen, oder einfach eine neue Frage stellen!"
+        }
+      }
+    },
+    "empfehlen": {
+      "startKeywords": ["empfehlen", "empfehlung", "attraktion", "aktivität"],
+      "name": "Attraktions-Empfehlung",
+      "states": {
+        "start": {
+          "message": "Gerne helfe ich dir bei der Auswahl! Magst du eher ruhige oder aufregende Attraktionen?",
+          "expectedKeywords": [
+            {
+              "keywords": ["ruhig", "entspannung", "entspannen"],
+              "nextState": "calm_activities"
+            },
+            {
+              "keywords": ["aufregend", "action", "abenteuer"],
+              "nextState": "exciting_activities"
+            }
+          ],
+          "fallback": "Bitte antworte mit 'ruhig' oder 'aufregend'."
+        },
+        "calm_activities": {
+          "message": "Perfekt! Bevorzugst du Wasser oder trockene Entspannung?",
+          "expectedKeywords": [
+            {
+              "keywords": ["wasser", "pool", "schwimmen"],
+              "nextState": "calm_water"
+            },
+            {
+              "keywords": ["trocken", "sauna", "wellness"],
+              "nextState": "calm_dry"
+            }
+          ],
+          "fallback": "Bitte wähle 'Wasser' oder 'trocken'."
+        },
+        "exciting_activities": {
+          "message": "Super! Magst du hohe Rutschen oder lieber Wasserspiele?",
+          "expectedKeywords": [
+            {
+              "keywords": ["rutschen", "hoch", "rutsche"],
+              "nextState": "slides"
+            },
+            {
+              "keywords": ["wasserspiele", "spiele", "kinder"],
+              "nextState": "water_games"
+            }
+          ],
+          "fallback": "Bitte wähle 'Rutschen' oder 'Wasserspiele'."
+        },
+        "calm_water": {
+          "message": "Ich empfehle dir die **Magische Flussfahrt** (300m Lazy-River) oder die **Polar-Lagune** (Außenbecken). Beide sind perfekt zum Entspannen! 🏊‍♀️",
+          "isEnd": true
+        },
+        "calm_dry": {
+          "message": "Die **Saunawelt 'Elemente'** mit vier Themen-Saunen oder unser **Aqua-Yoga** (sonntags 9:30-10:15 Uhr) sind ideal für dich! 🧘‍♀️",
+          "isEnd": true
+        },
+        "slides": {
+          "message": "Die **Vulkan-Rutsche 'Inferno'** (4-fach-Tunnel, bis 45 km/h) wird dir den ultimativen Nervenkitzel bieten! 🛝",
+          "isEnd": true
+        },
+        "water_games": {
+          "message": "Die **Kinderwelt 'Tropica Island'** mit Piratenschiff und das **Wellenbad 'Atlantica'** mit 3m hohen Wellen sind perfekt für Wasserspiele! 🌊",
+          "isEnd": true
+        }
+      }
+    },
+    "preise": {
+      "startKeywords": ["preis", "kosten", "tarif", "eintritt", "ticket"],
+      "name": "Preis-Information",
+      "states": {
+        "start": {
+          "message": "Für welche Preise interessierst du dich? Wochenende, Frühschwimmer oder reguläre Preise?",
+          "expectedKeywords": [
+            {
+              "keywords": ["wochenende"],
+              "nextState": "weekend_prices"
+            },
+            {
+              "keywords": ["frühschwimmer", "früh", "morgen"],
+              "nextState": "early_prices"
+            },
+            {
+              "keywords": ["regulär", "normal", "woche"],
+              "nextState": "regular_prices"
+            }
+          ],
+          "fallback": "Bitte wähle 'Wochenende', 'Frühschwimmer' oder 'regulär'."
+        },
+        "weekend_prices": {
+          "message": "🎫 **Wochenend-Tarife (Sa-So & Feiertage):**\n• Erwachsene: 23,90€\n• Kinder (4-13J): 15,90€\n• Familie (2 Erw. + 2 Ki.): 64,90€\n• Senioren (ab 65J): 19,90€\n• Studierende: 19,90€",
+          "isEnd": true
+        },
+        "early_prices": {
+          "message": "🌅 **Frühschwimmer-Tarif (Mo-Fr, 09:00-12:00):**\n• Einheitspreis: 10,90€ (3 Stunden Gültigkeit)\n\nPerfekt für den ruhigen Start in den Tag!",
+          "isEnd": true
+        },
+        "regular_prices": {
+          "message": "💰 **Reguläre Tarife (Mo-Fr):**\n• Erwachsene: 19,90€\n• Kinder (4-13J): 12,90€\n• Familie (2 Erw. + 2 Ki.): 54,90€\n• Senioren (ab 65J): 16,90€\n• Studierende: 16,90€\n\n**Abendtarif (ab 18:00):** Erwachsene 12,90€, Kinder 8,90€",
+          "isEnd": true
+        }
+      }
+    }
+  }
 }

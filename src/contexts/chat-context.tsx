@@ -1,123 +1,37 @@
-import React, { createContext, useContext, useReducer, useCallback, useEffect } from "react";
-import type {
-  ChatState,
-  ChatContextType,
-  ChatMessage,
-  ChatHistoryItem,
-  ChatApiRequest,
-} from "@/types/chat";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
+import type { ChatMessage, ChatState, ChatHistoryItem } from "@/types/chat";
 import { chatApiClient } from "@/services/chat-api-client";
 
-const CHAT_STORAGE_KEY = "aquamagica-chat-state";
-
-/**
- * Get current page context from URL for the chat API
- */
-const getCurrentPageContext = (): string => {
-  if (typeof window === "undefined") return "/";
-
-  const pathname = window.location.pathname;
-
-  // Map URL paths to page contexts that the bot understands
-  switch (pathname) {
-    case "/preise":
-      return "/preise";
-    case "/attraktionen":
-      return "/attraktionen";
-    case "/kontakt":
-      return "/kontakt";
-    case "/about":
-      return "/about";
-    default:
-      return "/";
-  }
-};
-
-const isLocalStorageAvailable = (): boolean => {
-  try {
-    return typeof window !== "undefined" && window.localStorage !== undefined;
-  } catch {
-    return false;
-  }
-};
-
-const getInitialState = (): ChatState => {
-  if (!isLocalStorageAvailable()) {
-    return getDefaultState();
-  }
-
-  try {
-    const savedState = localStorage.getItem(CHAT_STORAGE_KEY);
-    if (savedState) {
-      const parsed = JSON.parse(savedState);
-      // Convert timestamp strings back to Date objects
-      const messagesWithDates = parsed.messages.map((msg: ChatMessage & { timestamp: string }) => ({
-        ...msg,
-        timestamp: new Date(msg.timestamp),
-      }));
-      return {
-        ...parsed,
-        messages: messagesWithDates,
-        isTyping: false, // Always reset typing state on page load
-        escalationLevel: parsed.escalationLevel || 0,
-        fallbackCount: parsed.fallbackCount || 0,
-      };
-    }
-  } catch (error) {
-    console.warn("Failed to load chat state from localStorage:", error);
-  }
-
-  return getDefaultState();
-};
-
-const getDefaultState = (): ChatState => ({
-  messages: [
-    {
-      id: "1",
-      content:
-        "Hallo! Ich bin dein AquaMagica Assistent und helfe gerne bei Fragen zu unseren Attraktionen, Preisen, Öffnungszeiten und mehr. Wie kann ich dir helfen?",
-      type: "bot",
-      timestamp: new Date(),
-    },
-  ],
-  isOpen: false,
-  isTyping: false,
-  unreadCount: 0,
-  escalationLevel: 0,
-  fallbackCount: 0,
-});
-
-const saveStateToStorage = (state: ChatState): void => {
-  if (!isLocalStorageAvailable()) return;
-
-  try {
-    // Create a serializable version of the state (convert Date objects to strings)
-    const serializableState = {
-      ...state,
-      messages: state.messages.map((msg) => ({
-        ...msg,
-        timestamp: msg.timestamp.toISOString(),
-      })),
-      isTyping: false, // Don't persist typing state
-    };
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(serializableState));
-  } catch (error) {
-    console.warn("Failed to save chat state to localStorage:", error);
-  }
-};
-
-const initialState: ChatState = getInitialState();
+interface ChatContextType {
+  state: ChatState;
+  sendMessage: (message: string) => Promise<void>;
+  toggleChat: () => void;
+  markAsRead: () => void;
+  clearMessages: () => void;
+}
 
 type ChatAction =
   | { type: "TOGGLE_CHAT" }
-  | { type: "OPEN_CHAT" }
-  | { type: "CLOSE_CHAT" }
   | { type: "ADD_MESSAGE"; payload: ChatMessage }
+  | { type: "ADD_BOT_MESSAGE"; payload: { message: ChatMessage; shouldIncrementUnread: boolean } }
   | { type: "SET_TYPING"; payload: boolean }
-  | { type: "CLEAR_MESSAGES" }
   | { type: "MARK_AS_READ" }
-  | { type: "INCREMENT_FALLBACK_COUNT" }
-  | { type: "RESET_ESCALATION" };
+  | { type: "CLEAR_MESSAGES" }
+  | { type: "INCREMENT_UNREAD" };
+
+const initialState: ChatState = {
+  messages: [],
+  isOpen: false,
+  isTyping: false,
+  unreadCount: 0,
+};
 
 function chatReducer(state: ChatState, action: ChatAction): ChatState {
   switch (action.type) {
@@ -125,67 +39,50 @@ function chatReducer(state: ChatState, action: ChatAction): ChatState {
       return {
         ...state,
         isOpen: !state.isOpen,
-        unreadCount: !state.isOpen ? 0 : state.unreadCount,
+        unreadCount: state.isOpen ? state.unreadCount : 0,
       };
-    case "OPEN_CHAT":
-      return {
-        ...state,
-        isOpen: true,
-        unreadCount: 0,
-      };
-    case "CLOSE_CHAT":
-      return {
-        ...state,
-        isOpen: false,
-      };
+
     case "ADD_MESSAGE":
       return {
         ...state,
         messages: [...state.messages, action.payload],
-        unreadCount:
-          !state.isOpen && action.payload.type === "bot"
-            ? state.unreadCount + 1
-            : state.unreadCount,
       };
+
+    case "ADD_BOT_MESSAGE":
+      return {
+        ...state,
+        messages: [...state.messages, action.payload.message],
+        isTyping: false,
+        unreadCount: action.payload.shouldIncrementUnread
+          ? state.unreadCount + 1
+          : state.unreadCount,
+      };
+
     case "SET_TYPING":
       return {
         ...state,
         isTyping: action.payload,
       };
-    case "CLEAR_MESSAGES":
-      return {
-        ...state,
-        messages: [
-          {
-            id: "1",
-            content:
-              "Hallo! Ich bin dein AquaMagica Assistent und helfe gerne bei Fragen zu unseren Attraktionen, Preisen, Öffnungszeiten und mehr. Wie kann ich dir helfen?",
-            type: "bot",
-            timestamp: new Date(),
-          },
-        ],
-        unreadCount: 0,
-        escalationLevel: 0,
-        fallbackCount: 0,
-      };
+
     case "MARK_AS_READ":
       return {
         ...state,
         unreadCount: 0,
       };
-    case "INCREMENT_FALLBACK_COUNT":
+
+    case "CLEAR_MESSAGES":
       return {
         ...state,
-        fallbackCount: state.fallbackCount + 1,
-        escalationLevel:
-          state.fallbackCount >= 2 ? state.escalationLevel + 1 : state.escalationLevel,
+        messages: [],
+        unreadCount: 0,
       };
-    case "RESET_ESCALATION":
+
+    case "INCREMENT_UNREAD":
       return {
         ...state,
-        escalationLevel: 0,
-        fallbackCount: 0,
+        unreadCount: state.unreadCount + 1,
       };
+
     default:
       return state;
   }
@@ -195,159 +92,170 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(chatReducer, initialState);
+  const welcomeMessageAddedRef = useRef(false);
+  const stateRef = useRef(state);
 
-  // Save state to localStorage whenever it changes
+  // Keep state ref updated
   useEffect(() => {
-    saveStateToStorage(state);
+    stateRef.current = state;
   }, [state]);
 
-  const toggleChat = useCallback(() => {
-    dispatch({ type: "TOGGLE_CHAT" });
-  }, []);
-
-  const openChat = useCallback(() => {
-    dispatch({ type: "OPEN_CHAT" });
-  }, []);
-
-  const closeChat = useCallback(() => {
-    dispatch({ type: "CLOSE_CHAT" });
+  // Convert chat messages to history format for backend
+  const formatChatHistory = useCallback((messages: ChatMessage[]): ChatHistoryItem[] => {
+    return messages
+      .filter((msg) => msg.type === "user" || msg.type === "bot")
+      .map((msg) => ({
+        messageId: msg.id,
+        timestamp: msg.timestamp,
+        type: msg.type as "user" | "bot",
+        content: msg.content,
+      }));
   }, []);
 
   const sendMessage = useCallback(
-    async (content: string) => {
+    async (message: string) => {
+      if (!message.trim()) return;
+
       // Add user message
       const userMessage: ChatMessage = {
-        id: Date.now().toString(),
-        content,
+        id: crypto.randomUUID(),
+        content: message.trim(),
         type: "user",
         timestamp: new Date(),
       };
-      dispatch({ type: "ADD_MESSAGE", payload: userMessage });
 
-      // Set typing indicator
+      dispatch({ type: "ADD_MESSAGE", payload: userMessage });
       dispatch({ type: "SET_TYPING", payload: true });
 
       try {
-        // Get current page context from URL
-        const currentPage = getCurrentPageContext();
+        // Get current messages for chat history
+        const currentMessages = stateRef.current.messages;
 
-        // Convert chat messages to chat history format for API
-        const chatHistory: ChatHistoryItem[] = state.messages.map((msg) => ({
-          messageId: msg.id,
-          type: msg.type === "system" ? "bot" : msg.type,
-          content: msg.content,
-          timestamp: msg.timestamp,
-          // Preserve actual context from API responses for conversation flows
-          ...(msg.type === "bot" &&
-            msg.interactionId && {
-              interactionId: msg.interactionId,
-              responseId: msg.responseId,
-              contextGroupId: msg.contextGroupId,
-            }),
-        }));
+        // Prepare chat history for backend (including the new user message)
+        const chatHistory = formatChatHistory([...currentMessages, userMessage]);
 
-        // Add the current user message to history
-        chatHistory.push({
-          messageId: userMessage.id,
-          type: "user",
-          content: userMessage.content,
-          timestamp: userMessage.timestamp,
-        });
+        // Send to backend
+        const response = await chatApiClient.sendMessage(message.trim(), chatHistory);
 
-        // Prepare API request
-        const apiRequest: ChatApiRequest = {
-          message: content,
-          currentPage,
-          chatHistory,
-          escalationLevel: state.escalationLevel,
-          fallbackCount: state.fallbackCount,
-        };
-
-        console.log("🚀 Sending request to sophisticated chat API:", apiRequest);
-
-        // Get bot response from sophisticated chat API service
-        const apiResponse = await chatApiClient.sendMessage(content, currentPage, chatHistory);
-
-        if (apiResponse.success && apiResponse.data) {
-          // Add bot message with enhanced context
+        if (response.success && response.response) {
+          // Add bot response
           const botMessage: ChatMessage = {
-            id: apiResponse.data.messageId,
-            content: apiResponse.data.content,
+            id: crypto.randomUUID(),
+            content: response.response.content,
             type: "bot",
             timestamp: new Date(),
-            // Preserve contextual metadata for conversation flows
-            interactionId: apiResponse.data.interactionId,
-            responseId: apiResponse.data.responseId,
-            contextGroupId: apiResponse.data.contextGroupId,
           };
-          dispatch({ type: "ADD_MESSAGE", payload: botMessage });
 
-          // Check if this was a fallback response to increment escalation
-          if (apiResponse.data.interactionId === "fallback_interaction") {
-            dispatch({ type: "INCREMENT_FALLBACK_COUNT" });
+          // Add delay if specified
+          if (response.response.delay && response.response.delay > 0) {
+            setTimeout(() => {
+              dispatch({
+                type: "ADD_BOT_MESSAGE",
+                payload: {
+                  message: botMessage,
+                  shouldIncrementUnread: !stateRef.current.isOpen,
+                },
+              });
+            }, response.response.delay);
           } else {
-            // Reset escalation on successful interaction
-            dispatch({ type: "RESET_ESCALATION" });
+            dispatch({
+              type: "ADD_BOT_MESSAGE",
+              payload: {
+                message: botMessage,
+                shouldIncrementUnread: !stateRef.current.isOpen,
+              },
+            });
           }
-
-          console.log("✅ Received sophisticated bot response:", {
-            interactionId: apiResponse.data.interactionId,
-            responseId: apiResponse.data.responseId,
-            contextGroupId: apiResponse.data.contextGroupId,
-            suggestedFollowUps: apiResponse.data.suggestedFollowUps,
-          });
         } else {
-          throw new Error(apiResponse.error?.message || "API request failed");
+          // Handle error - stop typing and add error message
+          const errorMessage: ChatMessage = {
+            id: crypto.randomUUID(),
+            content:
+              response.error?.message || "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+            type: "bot",
+            timestamp: new Date(),
+          };
+
+          dispatch({
+            type: "ADD_BOT_MESSAGE",
+            payload: {
+              message: errorMessage,
+              shouldIncrementUnread: !stateRef.current.isOpen,
+            },
+          });
         }
       } catch (error) {
-        console.error("❌ Error getting sophisticated bot response:", error);
+        console.error("Failed to send message:", error);
 
-        // Add error message
         const errorMessage: ChatMessage = {
-          id: (Date.now() + 1).toString(),
+          id: crypto.randomUUID(),
           content:
-            "Entschuldigung, es gab einen Fehler. Bitte versuche es später erneut oder kontaktiere unser Team über die Kontakt-Seite.",
+            "Verbindungsfehler. Bitte überprüfe deine Internetverbindung und versuche es erneut.",
           type: "bot",
           timestamp: new Date(),
         };
-        dispatch({ type: "ADD_MESSAGE", payload: errorMessage });
-      } finally {
-        dispatch({ type: "SET_TYPING", payload: false });
+
+        dispatch({
+          type: "ADD_BOT_MESSAGE",
+          payload: {
+            message: errorMessage,
+            shouldIncrementUnread: !stateRef.current.isOpen,
+          },
+        });
       }
     },
-    [state.escalationLevel, state.fallbackCount, state.messages]
+    [formatChatHistory]
   );
 
-  const clearMessages = useCallback(() => {
-    dispatch({ type: "CLEAR_MESSAGES" });
-    // Also clear from localStorage
-    if (isLocalStorageAvailable()) {
-      try {
-        localStorage.removeItem(CHAT_STORAGE_KEY);
-      } catch (error) {
-        console.warn("Failed to clear chat state from localStorage:", error);
-      }
-    }
+  const toggleChat = useCallback(() => {
+    dispatch({ type: "TOGGLE_CHAT" });
   }, []);
 
   const markAsRead = useCallback(() => {
     dispatch({ type: "MARK_AS_READ" });
   }, []);
 
-  const contextValue: ChatContextType = {
+  const clearMessages = useCallback(() => {
+    dispatch({ type: "CLEAR_MESSAGES" });
+  }, []);
+
+  // Auto-mark as read when chat is opened
+  useEffect(() => {
+    if (state.isOpen && state.unreadCount > 0) {
+      dispatch({ type: "MARK_AS_READ" });
+    }
+  }, [state.isOpen, state.unreadCount]);
+
+  // Add welcome message on first load
+  useEffect(() => {
+    if (state.messages.length === 0 && !welcomeMessageAddedRef.current) {
+      welcomeMessageAddedRef.current = true;
+      const welcomeMessage: ChatMessage = {
+        id: crypto.randomUUID(),
+        content:
+          "Hallo! Wie kann ich dir bei AquaMagica helfen? Du kannst mich nach Öffnungszeiten, Preisen oder Attraktions-Empfehlungen fragen!",
+        type: "bot",
+        timestamp: new Date(),
+      };
+
+      setTimeout(() => {
+        dispatch({ type: "ADD_MESSAGE", payload: welcomeMessage });
+      }, 1000);
+    }
+  }, [state.messages.length]);
+
+  const value: ChatContextType = {
     state,
-    toggleChat,
-    openChat,
-    closeChat,
     sendMessage,
-    clearMessages,
+    toggleChat,
     markAsRead,
+    clearMessages,
   };
 
-  return <ChatContext.Provider value={contextValue}>{children}</ChatContext.Provider>;
+  return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
 }
 
-export function useChat() {
+export function useChat(): ChatContextType {
   const context = useContext(ChatContext);
   if (context === undefined) {
     throw new Error("useChat must be used within a ChatProvider");
