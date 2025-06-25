@@ -115,7 +115,7 @@ export function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <Card className="flex flex-col h-full py-4">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-primary" />
                 Telefonisch
@@ -135,7 +135,7 @@ export function ContactPage() {
           </Card>
 
           <Card className="flex flex-col h-full py-4">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-primary" />
                 Anschrift
@@ -151,8 +151,8 @@ export function ContactPage() {
               </address>
               <p className="text-sm text-muted-foreground">
                 E-Mail:{" "}
-                <a href="mailto:info@aquamagica.de" className="text-primary hover:underline">
-                  info@aquamagica.de
+                <a href="mailto:aquamagica@goett.top" className="text-primary hover:underline">
+                  aquamagica@goett.top
                 </a>
               </p>
             </CardContent>

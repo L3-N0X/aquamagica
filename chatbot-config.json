@@ -52,10 +52,10 @@
     },
     {
       "keywords": ["email", "mail", "e-mail"],
-      "response": "📧 **E-Mail:** info@aquamagica.de"
+      "response": "📧 **E-Mail:** aquamagica@goett.top"
     },
     {
-      "keywords": ["anfahrt", "auto", "parkplatz", "parken"],
+      "keywords": ["anfahrt", "auto", "parkplatz", "parken", "parkplätze"],
       "response": "🚗 **Anfahrt:** A5 Ausfahrt Freiburg-Mitte, dann B31 Richtung Zentrum, Ausfahrt Bäderstraße.\n🅿️ Über 300 **kostenlose** Parkplätze direkt am AquaMagica!"
     },
     {

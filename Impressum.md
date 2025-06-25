@@ -19,16 +19,16 @@ Deutschland
 
 ### Vertreten durch
 
-Frau Dr. Helena Sommer (Geschäftsführerin)
+Leon Gött (Geschäftsführer)
 
 ### Kontakt
 
 **Telefon:** `+49 (0)761 / 123456`  
 *(Erreichbar Mo-Fr von 09:00 - 17:00 Uhr)*
 
-**E-Mail:** `info@aquamagica.de`
+**E-Mail:** `aquamagica@goett.top`
 
-**Web:** `www.aquamagica.de`
+**Web:** `aquamagica.goett.top`
 
 ### Registereintrag
 
@@ -51,7 +51,7 @@ Fehrenbachallee 12
 
 Verantwortlich für journalistisch-redaktionelle Inhalte im Sinne von § 18 Abs. 2 MStV:
 
-Herr Jonas Berg  
+Leon Gött
 c/o AquaMagica Freiburg GmbH  
 Bäderstraße 12  
 79100 Freiburg im Breisgau

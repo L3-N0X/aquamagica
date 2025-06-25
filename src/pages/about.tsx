@@ -54,7 +54,7 @@ export function AboutPage() {
       <section className="text-center space-y-6">
         <h2 className="text-3xl font-bold">Wer wir sind</h2>
         <Card className="max-w-4xl mx-auto">
-          <CardContent className="">
+          <CardContent className="py-4">
             <p className="text-muted-foreground leading-relaxed">
               Hinter AquaMagica steht ein Team von{" "}
               <strong>85 engagierten Mitarbeiterinnen und Mitarbeitern</strong>. Von den
@@ -140,7 +140,7 @@ export function AboutPage() {
       <section className="space-y-6">
         <h2 className="text-3xl font-bold text-center">CO₂-neutral betrieben</h2>
         <Card className="max-w-4xl mx-auto py-4">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="flex items-center gap-2">
               <span className="text-2xl">♻️</span>
               Unser Beitrag zum Umweltschutz
