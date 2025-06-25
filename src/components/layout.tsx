@@ -25,7 +25,7 @@ export function Layout({ children }: LayoutProps) {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
             <div className="mb-2 md:mb-0">
-              <p>&copy; 2024 AquaMagica Freiburg GmbH. Alle Rechte vorbehalten.</p>
+              <p>&copy; 2025 AquaMagica Freiburg GmbH. Alle Rechte vorbehalten.</p>
             </div>
             <div className="flex space-x-4">
               <Link to="/impressum" className="hover:text-foreground transition-colors">

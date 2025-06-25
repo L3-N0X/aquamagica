@@ -17,7 +17,7 @@ export function ImpressumPage() {
 
         {/* Main Impressum Card */}
         <Card className="mb-6 py-6">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="flex items-center gap-2">
               <Building className="h-5 w-5" />
               Impressum
@@ -50,14 +50,14 @@ export function ImpressumPage() {
             {/* Vertreten durch */}
             <div>
               <h3 className="font-semibold text-lg mb-2">Vertreten durch</h3>
-              <p>Frau Dr. Helena Sommer (Geschäftsführerin)</p>
+              <p>Leon Gött (Geschäftsführer)</p>
             </div>
           </CardContent>
         </Card>
 
         {/* Kontakt Card */}
         <Card className="mb-6 py-6">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="flex items-center gap-2">
               <Phone className="h-5 w-5" />
               Kontakt
@@ -78,7 +78,7 @@ export function ImpressumPage() {
                 <Mail className="h-4 w-4 text-primary" />
                 <div>
                   <p className="font-medium">E-Mail</p>
-                  <p className="font-mono text-sm">info@aquamagica.de</p>
+                  <p className="font-mono text-sm">aquamagica@goett.top</p>
                 </div>
               </div>
 
@@ -86,7 +86,7 @@ export function ImpressumPage() {
                 <Globe className="h-4 w-4 text-primary" />
                 <div>
                   <p className="font-medium">Website</p>
-                  <p className="font-mono text-sm">www.aquamagica.de</p>
+                  <p className="font-mono text-sm">aquamagica.goett.top</p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export function ImpressumPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Registereintrag */}
           <Card className="mb-4 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="flex items-center gap-2">
                 <FileText className="h-5 w-5" />
                 Registereintrag
@@ -117,7 +117,7 @@ export function ImpressumPage() {
 
           {/* USt-ID */}
           <Card className="mb-4 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="flex items-center gap-2">
                 <Scale className="h-5 w-5" />
                 Umsatzsteuer-ID
@@ -136,7 +136,7 @@ export function ImpressumPage() {
         <div className="space-y-6">
           {/* Aufsichtsbehörde */}
           <Card className="mb-6 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle>Zuständige Aufsichtsbehörde</CardTitle>
             </CardHeader>
             <CardContent>
@@ -154,7 +154,7 @@ export function ImpressumPage() {
 
           {/* Redaktioneller Inhalt */}
           <Card className="mb-6 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle>Verantwortlich für den redaktionellen Inhalt</CardTitle>
             </CardHeader>
             <CardContent>
@@ -163,7 +163,7 @@ export function ImpressumPage() {
                 MStV:
               </p>
               <div className="space-y-1">
-                <p>Herr Jonas Berg</p>
+                <p>Leon Gött</p>
                 <p>c/o AquaMagica Freiburg GmbH</p>
                 <p>Bäderstraße 12</p>
                 <p>79100 Freiburg im Breisgau</p>
@@ -173,7 +173,7 @@ export function ImpressumPage() {
 
           {/* EU-Streitschlichtung */}
           <Card className="mb-6 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle>EU-Streitschlichtung</CardTitle>
             </CardHeader>
             <CardContent>
@@ -197,7 +197,7 @@ export function ImpressumPage() {
 
           {/* Verbraucherstreitbeilegung */}
           <Card className="mb-6 py-6">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle>Verbraucherstreitbeilegung / Universalschlichtungsstelle</CardTitle>
             </CardHeader>
             <CardContent>
